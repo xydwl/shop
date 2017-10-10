@@ -1,0 +1,89 @@
+.rMySaleOrder{
+	width: 970px;
+}
+.bidUl1{
+	height: 35px;
+	background: #F0EFEF;
+	border: 1px solid #DDDDDD;
+	line-height: 35px;
+	font-size: 14px;
+	text-align: center;
+}
+.bidUl1 li{
+	float: left;
+}
+.bidUl2{
+	margin-top: 10px;
+	font-size: 14px;
+	color: #666666;
+}
+.bidUl2>li{
+	border: 1px solid #DDDDDD;
+	margin-bottom: 20px;
+}
+.bidUl2D1{
+	height: 35px;
+	background: #F3F3F3;
+	line-height: 35px;
+}
+.bidUl2D1>p{
+	float: left;
+	padding-left: 20px;
+	color: #999;
+}
+.bidUl2D1>p>span{
+	color: #333333;
+}
+.bidUl2D2{
+	height: 80px;
+	padding: 20px 0;
+	line-height: 80px;
+	background: #FFFFFF;
+}
+.bidUl2D2 dl{
+	width: 46%;
+	float: left;
+	padding-left: 2%;
+}
+.bidUl2D2>span{
+	width: 10%;
+	display:block;
+	float: left;
+	text-align: center;
+}
+.bidUl2D2>span:nth-child(3){
+	width: 12%;
+}
+.bidUl2D2 dl>a{
+	color: #666666;
+}
+.bidUl2D2 dl dt{
+	width: 80px;
+	height: 80px;
+	border: 1px solid #F3F3F3;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+.bidUl2D2 dl dt img{
+	max-width: 79px;
+	max-height: 79px;
+	display: block;
+}
+.bidUl2D2 dl dd{
+	width: 340px;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: right;
+    margin-top: -80px;
+}
+.bidUl2D2>span:last-child{
+	cursor: pointer;
+    background: url(../img/mine/chongzhiBg.png)no-repeat center center;
+    color: #FFFFFF;
+    height: 40px;
+    line-height: 40px;
+    padding-top: 0;
+    margin-top: 20px;
+}

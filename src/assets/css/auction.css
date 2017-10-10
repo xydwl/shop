@@ -1,0 +1,146 @@
+.auctionBanner{
+	width: 100%;
+	background: #281B1F;
+	height:210px;
+}
+.auctionBanner img{
+	position: relative;
+	top:0;
+	margin:0 auto;
+	display: block;
+}
+
+.auctionAllDiv{
+	width: 1200px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+.auction-list dl{
+	margin:0 auto;
+	width: 1200px;
+	height: 150px;
+	border-bottom:1px solid #f3f3f3;
+	padding: 20px 0;
+}
+.auction-list dl dt{
+	width:150px;
+	height: 150px;
+	float: left;
+	border:1px solid #f3f3f3;
+	margin-left: 20px;
+	overflow: hidden;
+}
+.auction-list dl dt a{
+	width:150px;
+	height: 150px;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	overflow: hidden;
+}
+.auction-list dl dt img{
+	max-width:150px;
+	max-height: 150px;
+	-webkit-transition: -webkit-transform .5s;
+	-moz-transition: -webkit-transform .5s;
+	-ms-transition: -webkit-transform .5s;
+	transition: -webkit-transform .5s;
+}
+.auction-list dl dt img:hover{
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	transform: scale(1.2);
+}
+.auctionDivDd1{
+	position: absolute;
+	right: 0;
+	top:0;
+	width: 194px;
+	height: 389px;
+	border-bottom: 1px solid #f3f3f3;
+}
+.auctionDivDd1 p{
+	overflow: hidden;
+}
+.auctionDivDd1 p:first-child{
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	width: 194px;
+	height: 194px;
+	border-bottom: 1px solid #f3f3f3;
+}
+.auctionDivDd1 p img{
+	max-width: 194px;
+	max-height: 194px;
+	-webkit-transition: -webkit-transform .5s;
+	-moz-transition: -webkit-transform .5s;
+	-ms-transition: -webkit-transform .5s;
+	transition: -webkit-transform .5s;
+}
+.auctionDivDd1 p img:hover{
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	transform: scale(1.2);
+}
+.auctionDivDd1 p:last-child{
+	position: absolute;
+	right: 0;
+	top:195px;
+}
+.auctionDivDd1 p:last-child span{
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	width: 194px;
+	height: 194px;
+}
+.auctionDivDd2{
+	height: 120px;
+	padding: 15px 20px;
+	line-height: 30px;
+	font-size: 16px;
+	width: 750px;
+	float: left;
+}
+.auctionDivDd2 p.auctionName{
+	color: #333;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	font-size: 14px;
+}
+.auctionDivDd2 p.auctionAddress,.auctionDivDd2 p.auctionTime{
+	color: #333;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	font-size: 14px;
+}
+.auctionDivDd2P{
+	margin-top: 5px;
+}
+.auctionDivDd3{
+	width: 230px;
+	float: left;
+	padding-top: 30px;
+}
+.auctionDivDd3>p{
+	font-size: 16px;
+	color: #666666;
+	line-height: 40px;
+}
+.auctionDivDd3>a{
+	display: block;
+	width: 210px;
+	height: 60px;
+	background: #463B7F;
+	text-align: center;
+	line-height: 60px;
+	color: #FFFFFF;
+}
+.auctionDivDd3>a:hover{
+	background: #7E69B4;
+}

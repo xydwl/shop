@@ -1,0 +1,212 @@
+.rMyPecoo{
+	width: 930px;
+	padding: 30px;
+	background: #FFFFFF;
+	box-shadow: 0 0 5px #DDDDDD;
+}
+.MyPecooDiv1{
+	background:url(../../assets/images/mine/myPecooBg.png)no-repeat center center;
+	width: 870px;
+	height:122px;
+	padding: 20px 30px;
+	background-size: 100%;
+}
+.myPecooDl1{
+	width:260px;
+	float: left;
+	padding-right: 30px;
+	background: url(../../assets/images/mine/border.png)no-repeat right top;
+	height: 122px;
+}
+.myPecooDl1 dt{
+	float: left;
+	height: 160px;
+	text-align: center;  
+	width: 105px;  	
+	padding-right: 5px;
+}
+.myPecooDl1 dd{
+	font-size: 12px;
+	line-height: 35px;
+}
+.myPecooDl1 dd p.changePassword{
+	text-align: right;
+}
+.myPecooDl1 dd p.changePassword a{
+	color: #463B7F;
+}
+.myPecooDl2{
+	width: 250px;
+	float: left;
+	padding: 0 30px;
+	background: url(../../assets/images/mine/border.png)no-repeat right top;
+	font-size:12px;
+}
+.myPecooDl2 dt{
+	font-size: 14px;
+	color: #333333;
+	line-height: 30px;
+}
+.myPecooDl2 dd>p{
+	width: 125px;
+	float: left;
+	line-height: 20px;
+}
+.myPecooDl2 dd>p span{
+	color: #E93B39;
+}
+.myPecooDl2 dd>p:last-child{
+	padding-top: 10px;
+	width: 300px;
+}
+.myPecooDl2 dd>p:last-child>a{
+	float: left;
+	display: block;
+	margin-right: 10px;
+}
+.chongzhi{
+	background: url(../../assets/images/mine/chongzhiBg.png)no-repeat;
+	width: 60px;
+	height: 32px;
+	background-size: 100%;
+	text-align: center;
+	line-height: 30px;
+	color: #FFFFFF;
+}
+.tixian{
+	background: url(../../assets/images/mine/tixianBg.png)no-repeat;
+	width: 60px;
+	height: 32px;
+	background-size: 100%;
+	text-align: center;
+	line-height: 30px;
+	color: #333;
+}
+.duihuan{
+	background: url(../../assets/images/mine/duihuanBg.png)no-repeat;
+	width: 90px;
+	height: 31px;
+	background-size:100%;
+	text-align: center;
+	line-height: 30px;
+	color: #333;
+}
+.myPecooDl3{
+	padding: 0 30px;
+	width: 200px;
+	float: left;
+	font-size: 12px;
+	line-height: 30px;
+}
+.myPecooDl3 dt{
+	font-size: 14px;
+	color: #333333;
+	line-height: 30px;
+}
+.myPecooDl3 dd>p span{
+	padding: 0 5px;
+	color: #E93B39;
+}
+.myPecooXiao{
+	font-size: 14px;
+	color: #333333;
+	border-bottom: 1px solid #333;
+	line-height: 40px;
+	padding-top: 10px;
+}
+
+/**表格**/
+.table{
+	width: 928px;
+	border: 1px solid #F3F3F3;
+	padding: 0;
+	margin: 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+.trFirst th{
+	font-weight: 100;
+}
+.table tbody tr{
+	height:80px;
+	color: #333333;
+	text-align: center;
+	border-bottom: 1px solid #F3F3F3;
+	font-size: 14px;
+	padding: 10px;
+}
+.table tbody tr td{
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    float: left;
+}
+
+.table tr td {
+	width:115px;
+	text-align: center;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: 100px;
+}
+.table tbody tr.trFirst{
+	height: 40px;
+	background: #F9F9F9;
+	font-size: 14px;
+	color: #666666;
+	font-weight: 0;
+	line-height: 40px;
+	text-align: center;
+}
+.table tbody tr.trFirst td{
+	height: 40px;
+	font-size: 14px;
+	color: #666666;
+	font-weight: 0;
+	line-height: 40px;
+	text-align: center;
+	display: block;
+}
+.table table {
+	width: 100%;
+	table-layout: fixed;
+}
+.tableDl{
+	padding: 10px;
+}
+.tableDl dt{
+	width: 80px;
+	height: 80px;
+	border: 1px solid #F3F3F3;
+	float: left;
+}
+.tableDl dt>span {
+	text-align: center;
+	vertical-align: middle;
+	display: table-cell;
+	width: 80px;
+	height: 80px;
+}
+.tableDl dt span>img{
+	max-width: 80px;
+	max-height: 80px;
+	display: block;
+	margin:0 auto;
+}
+.tableDl dd{
+	width: 105px;
+	float: right;
+	margin-top: -60px;
+}
+.tableDl dd p{
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 35px;
+    text-align: left;
+    text-indent: 20px;
+}

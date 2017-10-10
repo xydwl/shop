@@ -1,0 +1,82 @@
+body{
+	background: #F7F7F7!important;
+}
+.liucheng1{
+	display: block;
+	margin: 30px auto 20px auto;
+}
+.waysDiv1,.waysDiv2{
+	width: 1200px;
+	margin: 30px auto;
+	border: 1px solid #DDDDDD;
+	box-shadow: 0 0 2px #DDDDDD;
+	background: #FFFFFF;
+	font-size: 12px;
+	color: #666666;
+}
+.waysDiv1>p,.waysDiv2>p{
+	font-size: 14px;
+	color: #333333;
+	background: #F3F3F3;
+	height: 38px;
+	line-height: 38px;
+	text-indent: 20px;
+}
+.waysDiv1>dl{
+	padding: 20px;
+}
+.waysDiv1>dl>dt{
+	float: left;
+	width: 80px;
+	height: 80px;
+}
+.waysDiv1>dl>dt img{
+	width: 80px;
+	height: 80px;
+}
+.waysDiv1Dd1{
+	width: 500px;
+	float: left;
+	margin-left: 20px;
+	line-height: 40px;
+}
+.waysDiv1Dd1>p{
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.waysDiv1Dd2{
+	text-align: right;
+}
+.waysDiv1Dd2>span{
+	font-size: 20px;
+	color: #E93B39;
+	line-height: 80px;
+}
+.waysDiv2>ul{
+	padding: 20px;
+}
+.waysDiv2>ul>li{
+	float: left;
+	padding-right: 50px;
+	padding-left: 10px;
+}
+.waysDiv2>ul>li input{
+	width: 18px;
+	height: 18px;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+.waysDiv2>ul>li img{
+	vertical-align: middle;
+}
+.waysBtn{
+	width: 210px;
+	height: 40px;
+	background: #E93B39;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 40px;
+	margin: 50px auto;
+	cursor: pointer;
+}

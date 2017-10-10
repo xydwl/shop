@@ -1,0 +1,356 @@
+@charset "utf-8";
+html {
+    font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simhei, Verdana, SimSun;
+}
+
+body {
+    background: #FFFFFF;
+}
+
+/* body,
+html {
+    overflow-x: hidden;
+} */
+
+input:-webkit-autofill {
+-webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+input,
+button,
+textarea,
+p,
+th,
+td,
+b,
+i,
+strong,
+a,
+span {
+    padding: 0;
+    margin: 0;
+    font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simhei, Verdana, SimSun;
+}
+
+strong,
+b {
+    font-weight: normal;
+}
+
+fieldset,
+img {
+    border: 0
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+    outline: none
+}
+
+li {
+    list-style: none
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal
+}
+
+input,
+button,
+textarea,
+select,
+optgroup,
+option {
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit
+}
+
+input,
+button,
+textarea,
+select {
+    *font-size: 100%
+}
+
+.clear:after {
+    display: block;
+    content: "clear";
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+input {
+    outline: none;
+}
+
+.cl {
+    clear: both;
+    overflow: hidden;
+}
+
+.clear {
+    zoom: 1;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.abs {
+    position: absolute;
+}
+
+.rel {
+    position: relative;
+}
+
+.show {
+    display: block;
+}
+
+.none,
+.hide {
+    display: none;
+}
+
+.shade {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1500;
+    top: 0;
+    display: none;
+}
+
+.shadeBlack {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.3;
+    position: fixed;
+    top: 0;
+    z-index: 2000;
+}
+
+
+/**确认弹框**/
+
+.promptDiv {
+    width: 420px;
+    border: 1px solid #F3F3F3;
+    background: #FFFFFF;
+    box-shadow: 0 0 2px #DDDDDD;
+    font-size: 14px;
+    color: #555;
+    position: fixed;
+    left: 300px;
+    top: 200px;
+    display: none;
+    z-index: 2100;
+}
+
+.promptDiv>p:first-child {
+    height: 40px;
+    background: #F1F0F0;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #F3F3F3;
+}
+
+.promptDiv div {
+    padding: 20px;
+    line-height: 30px;
+}
+
+.promptDiv div p {
+    text-indent: 2rem;
+}
+
+.promptDiv>p:last-child {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.promptDiv>p:last-child span {
+    width: 110px;
+    height: 38px;
+    text-align: center;
+    line-height: 38px;
+    border: 1px solid #EDEDED;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.promptYes {
+    background: #7F69B3;
+    color: #FFFFFF;
+}
+
+.promptNo {
+    background: #F0EFEF;
+    color: #666666;
+}
+
+
+/*****分页****/
+.auctionTitleDiv {
+    width: 1200px;
+    margin: 0 auto;
+    height: 50px;
+    line-height: 50px;
+}
+.block{
+    width:1200px;
+    margin:0 auto;
+    padding-top:40px;
+    padding-bottom:15px;
+    line-height: 36px;
+}
+.demonstration{
+    color:#949394;
+    margin-left: 15px;
+}
+.el-pagination{
+    float:right;
+}
+.el-pagination button,.el-pager li{
+    line-height: 34px!important;
+    height:34px !important;
+    width:34px !important;
+    margin-right:9px!important;
+    border: 1px solid #F3F3F3!important;
+}
+.el-pager li.active{
+    background: #463B7F!important;
+    border-color:#463B7F!important;
+    color:#fff!important;
+}
+.el-pager li:hover{
+    color: #463B7F!important;
+}
+.el-pager li.active:hover{
+    color: #fff!important;
+}
+/*  */
+.seclectStyle{
+    float:right!important;
+    margin-left:15px!important;
+    width:110px!important;
+}
+/*列表部分*/
+.auctionLi{
+	width:1200px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+.auctionList{
+	margin-right: -20px;
+}
+.auctionList dl{
+	border:16px solid #fff;
+	width:255px;
+	height: 368px;
+	float: left;
+	margin-right: 17.5px;
+	margin-bottom: 17.5px;
+}
+.auctionList dl:hover{
+	border:16px solid #F3F3F3;
+}
+.auctionList dl dt{
+	width:255px;
+	height:255px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	position: relative;
+}
+.auctionList dl dt p a{
+	position: absolute;
+	display: block;
+}
+.auctionList dl dt p a.sale2_abs2{
+	right:10px;
+	bottom:15px;
+}
+.auctionList dl dt p a.sale2_abs1{
+	left:10px;
+	bottom:15px;
+}
+.auctionList dl dt img{
+	max-width:255px;
+	max-height:255px;
+}
+.auctionList dl:hover dd{
+	background: #F3F3F3;
+}
+.auctionList dl dd{
+	width:245px;
+	padding:0 10px;
+	line-height: 26px;
+	font-size: 14px;
+	color: #666666;
+}
+.auctionList dl dd p{
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.auctionList dl dd p:first-child{
+	color: #333333;
+}
+.auctionList dl dd p:last-child{
+	width: 255px;
+	margin-left: -10px;
+	text-indent: 10px;
+	line-height: 40px;
+}
+.auctionList dl dd p.auctionListP1 span{
+	color:#E93B39;
+}
+.auctionList dl dd p.auctionListP1 a span:hover{
+	color:#993333;
+}
+.auctionList dl dd p.auctionListP1{
+	color: #333333;
+}

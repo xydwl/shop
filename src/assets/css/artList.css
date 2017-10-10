@@ -1,0 +1,109 @@
+.listNav{
+	line-height: 40px;
+	color: #666666;
+	font-size: 12px;
+	width: 1200px;
+	margin: 0 auto;
+}
+.listNav a{
+	color: #666666;
+}
+.listDiv{
+	width: 1200px;
+	margin:0 auto;
+	font-size: 14px;
+	color: #666666;
+}
+.listDivD1{
+	border: 1px solid #F3F3F3;
+	line-height: 50px;
+	height: 50px;
+	overflow: hidden;
+}
+.listDivD1>p{
+	text-align: center;
+	width: 100px;
+	background:#f3f3f3;
+}
+.listDivUl1>li{
+	float: left;
+	padding-left: 40px;
+	cursor: pointer;
+}
+.listDivUl1>li:hover{
+	color: #463B7F;
+}
+.listDivUl1>li.active{
+	color: #463B7F;
+	font-weight: bold;
+}
+.listDivUl2{
+	margin-top: 20px;
+	border: 1px solid #F3F3F3;
+	line-height: 50px;
+	box-shadow: 0 1px 1px #F3F3F3;
+	background: #F3F3F3;
+	max-height: 200px;
+	overflow: auto;
+}
+.listDivUl2>li{
+	background: #F3F3F3;
+}
+.listDivUl2>li>p{
+	width: 100px;
+	background: #F3F3F3;
+	text-align: center;
+	float: left;
+	line-height: 50px;
+}
+.listDivUl2>li>div{
+	float:right;
+	background: #FFFFFF!important;
+	width: 1098px;
+	
+}
+.listDivUl2>li>div>p{
+	width: 1080px;
+	float: left;
+}
+.listDivUl2>li>div a{
+	display: block;
+	float: left;
+	padding-left: 40px;
+	color: #666666;
+}
+.listDivUl2>li>div a:hover{
+	color: #463B7F;
+}
+.watchDivD2P>a.active{
+	color: #463B7F;
+	font-weight:bold;
+}
+/**价格排序部分*/
+.sortDiv{
+	width: 1200px;
+	margin:0 auto;
+	height: 50px;
+	background: #F3F3F3;
+	line-height: 50px;
+	margin-top: 30px;
+	font-size: 14px;
+	color: #666666;
+}
+.sortDiv>p{
+	padding: 0 30px;
+	display: inline-block;
+	float: left;
+}
+.sortDiv>ul li{
+	float: left;
+	cursor: pointer;
+	padding: 0 30px;
+}
+.sortDiv>ul li.active{
+	color: #463A7E;
+	font-weight: bold;
+}
+.sortDiv>ul li:hover{
+	color: #463B7F;
+}

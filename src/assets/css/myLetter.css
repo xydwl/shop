@@ -1,0 +1,119 @@
+.rMyLetter{
+	width: 970px;
+}
+.letterHead{
+	height: 30px;
+	font-size: 14px;
+	color: #333333;
+	line-height: 30px;
+	background: #F9F9F9;
+	border: 1px solid #DDDDDD;
+	margin-bottom: 10px;
+}
+.letterHead span{
+	width: 19.5%;
+	display: inline-block;
+	text-align: center;
+}
+.letterHead span>input{
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+.letterUl{
+	background: #FFFFFF;
+	border: 1px solid #DDDDDD;
+	box-shadow: 0 0 2px #DDDDDD;
+	margin-bottom: 30px;
+}
+.letterUl li{
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+	color: #666666;
+	border-bottom: 1px solid #F3F3F3;
+	cursor: pointer;
+}
+.letterUl li span{
+	width: 19.5%;
+	display: inline-block;
+	text-align: center;
+}
+.letterUl li span input{
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+}
+.letterUl li:hover{
+	background: #F3F3F3;
+}
+.letterAll{
+	height: 30px;
+	font-size: 14px;
+	color: #333333;
+	text-indent: 40px;
+	line-height: 30px;
+	background: #F9F9F9;
+	border: 1px solid #DDDDDD;
+	margin-bottom: 10px;
+}
+.letterAll input{
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+.letterAll span{
+	display: inline-block;
+	background: url(../img/mine/delete.png)no-repeat left center;
+	text-indent: 20px;
+	font-size: 12px;
+	color: #b4b4b4;
+	margin-left: 50px;
+	cursor: pointer;
+}
+.letterAll span:hover{
+	background: url(../img/mine/deleteRed.png)no-repeat left center;
+	color: #E93B39;
+}
+
+/**站内信详情**/
+.letterDetail{
+	width: 970px;
+	display: none;
+}
+.letterDetailD{
+	width: 970px;
+	background: #FFFFFF;
+	border: 1px solid #DDDDDD;
+	box-shadow: 0 0 2px #DDDDDD;
+}
+.letterDetailD>p{
+	height: 40px;
+	background: #F1F0F0;
+	font-size: 14px;
+	line-height: 40px;
+	text-indent: 20px;
+}
+.letterDetailD>p>span:last-child{
+	display: inline-block;
+	background: url(../img/mine/delete.png)no-repeat left center;
+	text-indent: 20px;
+	font-size: 12px;
+	color: #b4b4b4;
+	margin-left: 50px;
+	cursor: pointer;
+	float: right;
+	padding-right: 20px;
+}
+.letterDetailD>p>span:last-child:hover{
+	background: url(../img/mine/deleteRed.png)no-repeat left center;
+	color: #E93B39;
+}
+.letterDetailD div{
+	padding: 40px 20px;
+	text-indent: 2rem;
+	font-size: 12px;
+	color: #666666;
+}

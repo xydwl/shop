@@ -1,0 +1,60 @@
+.rMyRef{
+	width: 970px;
+}
+.refDiv{
+	padding: 30px;
+	border: 1px solid #DDDDDD;
+	box-shadow: 0 0 2px #DDDDDD;
+	background: #FFFFFF;
+	font-size: 14px;
+	color: #666666;
+}
+.refDivD1{
+	border-bottom: 1px dashed #DDDDDD;
+}
+.refDivD1>dl{
+	width: 440px;
+	float: left;
+}
+.refDivD1>dl dd{
+	line-height: 60px;
+	text-indent: 30px;
+}
+.refDivD1 input{
+	color: #666666;
+	border: none;
+}
+.refDivD2>p{
+	font-size: 14px;
+	color: #666666;
+	line-height: 60px;
+}
+.refDivD2 dt{
+	float: left;
+	width: 120px;
+	background: 120px;
+}
+.refDivD2 dt img{
+	width: 100px;
+	height: 100px;
+}
+.refDivD2 dd{
+	margin-left: 150px;
+	line-height: 40px;
+}
+.refDivD2 dd>p{
+	padding: 5px;
+	font-size: 12px;
+}
+.refRecord{
+	background: #FFFFFF;
+	padding: 10px 30px 30px 30px;
+	border: 1px solid #DDDDDD;
+	box-shadow: 0 0 2px #DDDDDD;
+	margin-top: 30px;
+}
+.refRecord>p{
+	font-size: 14px;
+	color: #666666;
+	line-height: 40px;
+}

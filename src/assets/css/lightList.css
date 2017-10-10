@@ -1,0 +1,145 @@
+.listNav{
+	line-height: 40px;
+	color: #666666;
+	font-size: 12px;
+	width: 1200px;
+	margin: 0 auto;
+}
+.listNav a{
+	color: #666666;
+}
+.listDiv{
+	width: 1200px;
+	margin:0 auto;
+	font-size: 14px;
+	color: #666666;
+}
+.listDivD1{
+	border: 1px solid #F3F3F3;
+	line-height: 50px;
+	height: 50px;
+	width: 1200px;
+	margin: 0 auto;
+	font-size: 14px;
+	color: #666666;
+}
+.listDivD1>p{
+	text-align: center;
+	width: 100px;
+	background:#f3f3f3;
+}
+.listDivUl1>li{
+	float: left;
+	padding-left: 40px;
+	cursor: pointer;
+}
+.listDivUl1>li:hover{
+	color: #463B7F;
+}
+.listDivUl1>li.active{
+	color: #463B7F;
+	font-weight: bold;
+}
+/**价格排序部分*/
+.sortDiv{
+	width: 1200px;
+	margin:0 auto;
+	height: 50px;
+	background: #F3F3F3;
+	line-height: 50px;
+	margin-top: 20px;
+	font-size: 14px;
+	color: #666666;
+}
+.sortDiv>p{
+	padding: 0 30px;
+	display: inline-block;
+	float: left;
+}
+.sortDiv>ul li{
+	float: left;
+	cursor: pointer;
+	padding: 0 30px;
+}
+.sortDiv>ul li.active{
+	color: #463A7E;
+	font-weight: bold;
+}
+.sortDiv>ul li:hover{
+	color: #463B7F;
+}
+/*列表部分*/
+.auctionLi{
+	width:1200px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+.auctionList{
+	margin-right: -20px;
+}
+.auctionList dl{
+	border:1px solid #F3F3F3;
+	width:285px;
+	height:355px;
+	float: left;
+	margin-right: 17.5px;
+	margin-bottom: 17.5px;
+}
+.auctionList dl:hover{
+	box-shadow: 0 0 10px #999;
+}
+.auctionList dl dt{
+	width:285px;
+	height:285px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	position: relative;
+}
+.auctionList dl dt p a{
+	position: absolute;
+	display: block;
+}
+.auctionList dl dt p a.sale2_abs2{
+	right:10px;
+	bottom:15px;
+}
+.auctionList dl dt p a.sale2_abs1{
+	left:10px;
+	bottom:15px;
+}
+.auctionList dl dt img{
+	max-width:275px;
+	max-height:275px;
+}
+.auctionList dl dd{
+	width:265px;
+	padding:0 10px;
+	line-height: 28px;
+	font-size: 14px;
+	color: #666666;
+}
+.auctionList dl dd p{
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.auctionList dl dd p:first-child{
+	color: #333333;
+}
+.auctionList dl dd p:last-child{
+	background: #FFFFFF;
+	width: 285px;
+	margin-left: -10px;
+	text-indent: 10px;
+	line-height: 40px;
+}
+.auctionList dl dd p.auctionListP1 span{
+	color:#E93B39;
+}
+.auctionList dl dd p.auctionListP1 a span:hover{
+	color:#993333;
+}
+.auctionList dl dd p.auctionListP1{
+	color: #333333;
+}

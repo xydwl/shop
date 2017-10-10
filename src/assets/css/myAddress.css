@@ -1,0 +1,211 @@
+.addressTitle{
+	font-size: 14px;
+	height: 20px;
+	border-left: 2px solid #463B7F;
+	text-indent: 10px;
+	color: #666666;
+	margin: 10px 0;
+}
+.addressTitle a{
+	color: #666666;
+}
+.addDiv{
+	width:970px;
+	background: #FFFFFF;
+	box-shadow: 0 0 2px #DDDDDD;
+}
+.addDivP{
+	height: 60px;
+	padding: 0 20px;
+	line-height: 60px;
+	background: #F9F9F9;
+	font-size: 14px;
+	border-bottom: 1px solid #F3F3F3;
+}
+.addDivP span{
+	font-size: 12px;
+	color: #666666;
+}
+.addDivP span.addNew{
+	width: 112px;
+	height: 34px;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 34px;
+	background: url(../img/mine/addNewBg.png)no-repeat;
+	display: inline-block;
+	float: right;
+	margin-top: 13px;
+	cursor: pointer;
+}
+.addDivUl{
+	background: #FFFFFF;
+	padding: 20px;
+}
+.addDivUl li{
+	width: 250px;
+	padding: 0 20px;
+	height: 160px;
+	background:url(../img/mine/addBg.png)no-repeat;
+	background-size: 100%;
+	cursor: pointer;
+	font-size: 14px;
+	color: #666666;
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 15px;
+}
+.addDivUl li.active{
+	width: 250px;
+	padding: 0 20px;
+	height: 160px;
+	background:url(../img/mine/addMo.png)no-repeat;
+	background-size: 100%;
+}
+.addDt{
+	height: 44px;
+	line-height: 44px;
+	border-bottom: 1px dashed #DDDDDD;
+	background: url(../img/mine/addName.png)no-repeat left center;
+	text-indent: 20px;
+}
+.addDt p{
+	width: 70px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	color: #FFFFFF;
+	background: #463B7F;
+	text-indent: 0;
+	font-size: 12px;
+	right:-10px;
+	top: 0;
+}
+.addDd1{
+	line-height: 27px;
+	padding: 5px 0;
+	height:54px;
+	border-bottom: 1px dashed #DDDDDD;
+	background: url(../img/mine/addAdd.png)no-repeat left 12px;
+	padding-left: 20px;
+	display:-webkit-box;
+	overflow:hidden;
+	word-break:break-all;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:2;
+}
+.addDd2{
+	height: 40px;
+	line-height: 40px;
+	background: url(../img/mine/addPhone.png)no-repeat left center;
+	text-indent: 20px;
+}
+.addDd2 p{
+	display: inline-block;
+	float: right;
+}
+.addDd2 p span{
+	width: 40px;
+	height: 26px;
+	background: #F0EFEF;
+	border: 1px solid #DDDDDD;
+	display: inline-block;
+	text-align: center;
+	line-height: 26px;
+	font-size: 12px;
+	text-indent: 0;
+	margin-left: 5px;
+	color: #555;
+}
+.addDd2 p{
+	display: none;
+}
+.addDivUl li:hover .addDd2 p{
+	display: block;
+}
+
+.addChange{
+	width: 970px;
+	margin: 30px 0;
+	box-shadow: 0 0 2px #DDDDDD;
+	background: #FFFFFF;
+}
+.addChaP{
+	height: 40px;
+	background: #F9F9F9;
+	font-size: 14px;
+	line-height: 40px;
+	border-bottom: 1px solid #F3F3F3;
+	text-indent: 20px;
+}
+.addChaDiv{
+	padding: 30px 20px 0 20px;
+	color: #666666;
+	font-size: 14px;
+}
+.addChaDiv div b{
+	width:80px;
+	padding-right:10px;
+	display: block;
+	float: left;
+	line-height:30px;
+	text-align: right;
+}
+.addChaDiv div{
+	padding-bottom: 20px;
+}
+.addChaDiv div input{
+	width: 210px;
+	height: 30px;
+	text-indent: 10px;
+	border: 1px solid #DDDDDD;
+	color: #666666;
+}
+.addChaDiv div select{
+	width: 150px;
+	height: 30px;
+	text-indent: 10px;
+	border: 1px solid #DDDDDD;
+	color: #666666;
+	font-family: "微软雅黑";
+}
+.addChaDiv div textarea{
+	text-indent: 10px;
+	line-height: 30px;
+	border: 1px solid #DDDDDD;
+	color: #666666;
+	font-family: "微软雅黑";
+}
+.addShezhi{
+	text-indent: 10px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #F3F3F3;
+}
+.addShezhi input{
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+}
+.addSave{
+	line-height: 50px;
+	padding-top: 20px;
+	text-align: center;
+	background: url(../img/mine/addBottom.png)no-repeat bottom;
+}
+.addBtn1{
+	width: 130px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	background: #F0EFEF;
+	border: 1px solid #DDDDDD;
+	color: #555555;
+	cursor: pointer;
+}
+.addBtn2{
+	border: none;
+	background: none;
+	color: #666666;
+	margin-left: 20px;
+	cursor: pointer;
+}

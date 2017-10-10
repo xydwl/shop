@@ -1,0 +1,140 @@
+.safeDiv{
+	width: 930px;
+	background: #FFFFFF;
+	padding: 20px;
+	box-shadow: 0 0 2px #DDDDDD;
+}
+.safeDiv dl{
+	margin-bottom: 40px;
+}
+.safeDiv dl dt{
+	float: left;
+	width: 60px;
+	text-align: center;
+}
+.safeDiv dl dt img{
+	margin-top: 10px;
+}
+.safeDivDd1{
+	width: 650px;
+	float: left;
+	line-height: 30px;
+	padding-left: 10px;
+}
+.safeDivDd1 p:first-child{
+	font-size: 16px;
+	color: #333333;
+}
+.safeDivDd1 p:last-child{
+	font-size: 14px;
+	color: #666;
+}
+.safeDivDd2{
+	width: 110px;
+	height: 36px;
+	color: #555;
+	text-align: center;
+	line-height: 36px;
+	background: #F0EFEF;
+	border: 1px solid #DDDDDD;
+	float: right;
+	margin-top: 10px;
+	cursor: pointer;
+}
+.safeDivDd2:hover{
+	background: #7E69B4;
+	color: #FFFFFF;
+}
+/**修改密码弹框**/
+.safePasswordT{
+	width: 430px;
+	border: 1px solid #F3F3F3;
+	box-shadow:0 0 2px #DDDDDD; 
+	font-size: 14px;
+	color: #666666;
+	position: fixed;
+	left: 400px;
+	top:150px;
+	background: #FFFFFF;
+	z-index: 2100;
+	display: none;
+}
+.safePhoneT{
+	width: 430px;
+	border: 1px solid #F3F3F3;
+	box-shadow:0 0 2px #DDDDDD; 
+	font-size: 14px;
+	color: #666666;
+	position: fixed;
+	left: 400px;
+	top:150px;
+	background: #FFFFFF;
+	z-index: 2100;
+	display: none;
+}
+.safePasP{
+	height: 40px;
+	background: #F0EFEF;
+	text-align: center;
+	line-height: 40px;
+}
+.safePasP img{
+	position: absolute;
+	right: 20px;
+	top:15px;
+	cursor: pointer;
+}
+.safePasUl{
+	width: 340px;
+	margin: 30px auto;
+	background: #FFFFFF;
+}
+.safePasUl li{
+	margin-bottom: 20px;
+}
+.safePasUl li span{
+	width: 90px;
+	display: inline-block;
+	text-align: right;
+}
+.safePasUl li b{
+	width: 95px;
+	height: 37px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 37px;
+	cursor: pointer;
+	background: #F0EFEF;
+	display: inline-block;
+}
+.safePasUl li input{
+	width: 240px;
+	height: 35px;
+	border: 1px solid #DDDDDD;
+	font-size: 12px;
+	text-indent: 10px;
+	color: #666666;
+}
+.safePasP2{
+	text-align: center;
+	padding-bottom: 20px;
+}
+.safePasP2 span{
+	display: inline-block;
+	width: 110px;
+	height: 38px;
+	cursor: pointer;
+	text-align: center;
+	line-height: 38px;
+	border: 1px solid #F3F3F3;
+	margin-left: 15px;
+}
+.safePasP2 span:first-child{
+	background: #68589C;
+	color: #FFFFFF;
+}
+.safePasP2 span:last-child{
+	background: #F0EFEF;
+	color: #999;
+	border: 1px solid #DEDEDE;
+}

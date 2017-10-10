@@ -1,0 +1,165 @@
+.mine{
+	background: #F3F3F3;
+}
+.mineMain{
+	width: 1200px;
+	padding: 30px 0;
+	margin: 0 auto;
+}
+.mineMenu{
+	width: 120px;
+	border-top:3px solid #463B7F;
+	box-shadow: 0 0 5px #DDDDDD;
+	background: #FFFFFF;
+	padding: 0 30px;
+	padding-bottom: 30px;
+	margin-bottom: 30px;
+}
+.myPecoo{
+	font-size: 18px;
+	color: #463B7F;
+	line-height: 50px;
+	border-bottom: 1px dashed #DDDDDD;
+	text-align: center;
+	padding-top: 2px;
+	margin-top: 8px;
+	cursor: pointer;
+	background: url(../../assets/images/mine/mineHome.png) no-repeat left center;
+}
+.mineUl>li>p{
+	font-size: 14px;
+	color: #333333;
+	line-height: 50px;
+	text-align: center;
+	background: url(../../assets/images/mine/min.png)no-repeat left center;
+}
+.mineUl>li>ul{
+	font-size: 12px;
+	color: #666666;
+	line-height: 30px;
+	text-align: left;
+	width: 60px;
+	margin: 0 auto;
+	cursor: pointer;
+}
+.mineUl>li>ul li.active a{
+	color:#E93B39;
+}
+.mineUl>li{
+	border-bottom: 1px dashed #DDDDDD;
+	padding-bottom: 10px;
+}
+.mineRight{
+	margin-bottom: 40px;
+}
+
+.addressTitle{
+	font-size: 14px;
+	height: 20px;
+	border-left: 2px solid #463B7F;
+	text-indent: 10px;
+	color: #666666;
+	margin: 10px 0;
+}
+.addressTitle a{
+	color: #666666;
+}
+
+/*充值提现记录**/
+.mineJiluData{
+	width: 890px;
+	padding: 0 20px;
+	background: #F3F3F3;
+	margin: 20px auto;
+	font-size: 14px;
+	color: #666666;
+	height: 50px;
+	line-height: 50px;
+}
+.mineJiluData .el-date-editor.el-input{
+	width:160px;
+}
+.mineJiluData input{
+	width: 100%;
+	height: 32px;
+	border: 1px solid #DDDDDD;
+	background: #FFFFFF;
+	color: #666666;
+	text-align: center;
+}
+.selectCondition{
+	padding-left: 60px;
+}
+.selectCondition select{
+	width: 150px;
+	height: 30px;
+	border: 1px solid #DDDDDD;
+	color: #666666;
+	text-align: center;
+}
+.searchbtn{
+	margin-left: 350px;
+}
+.searchbtn button{
+	background: url(../../assets/images/mine/chongzhiBg.png)no-repeat;
+	width: 62px;
+	height: 32px;
+	border:none;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+.table{
+	width: 928px;
+	border: 1px solid #F3F3F3;
+	padding: 0;
+	margin: 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+.table tbody tr.trFirst{
+	height: 40px;
+	background: #F9F9F9;
+	font-size: 14px;
+	color: #666666;
+	font-weight: 0;
+	line-height: 40px;
+	text-align: center;
+}
+.trFirst th{
+	font-weight: 100;
+}
+.table tbody tr{
+	height: 60px;
+	color: #333333;
+	text-align: center;
+	border-bottom: 1px solid #F3F3F3;
+	font-size: 14px;
+}
+.table tbody tr td{
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.table tbody tr td:nth-child(1){
+	width: 200px;
+}
+.table tbody tr td:nth-child(2){
+	width: 150px;
+}
+
+.table tbody tr td:nth-child(6):hover{
+	color: #463B7F;
+	cursor: pointer;
+}
+.table table tr td {
+	text-align: center;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: 60px;
+}
+.table table {
+	width: 100%;
+	table-layout: fixed;
+}

@@ -1,0 +1,207 @@
+.rMyCollect{
+	width: 970px;
+}
+.rCollectUl li{
+	float: left;
+	width: 150px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	color: #FFFFFF;
+	font-size: 14px;
+	border-right: 1px solid #F3F3F3;
+	background: #333333;
+	cursor: pointer;
+}
+.rCollectUl li.active{
+	background: #7E69B4;
+}
+.rCollectUl li:hover{
+	background: #7F69B3;
+}
+.rMyCollect table tr td {
+	text-align: center;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.rMyCollect table{
+	width: 100%;
+	table-layout: fixed;
+	width: 970px;
+	border: 1px solid #DDDDDD;
+	box-shadow: 0 0 2px #DDDDDD;
+	border-spacing: 0;
+}
+.rMyCollect table>thead{
+	width: 970px;
+	height: 40px;
+	background: #F0EFEF;
+	border-bottom: 1px solid #DDDDDD;
+	font-size: 14px;
+	line-height: 40px;
+}
+.rMyCollect table>tfoot{
+	width: 970px;
+	height: 40px;
+	background: #F0EFEF;
+	border-bottom: 1px solid #DDDDDD;
+	font-size: 14px;
+	line-height: 40px;
+}
+.rMyCollect table tr td:first-child{
+	width: 10%;
+}
+.rMyCollect table tr td:nth-child(2){
+	width: 35%;
+}
+.rMyCollect table tr td:nth-child(3){
+	width: 20%;
+}
+.rMyCollect table tr td:nth-child(4){
+	width: 10%;
+}
+.rMyCollect table tr td:nth-child(5){
+	width: 15%;
+}
+.rMyCollect table tr td:nth-child(6){
+	width: 10%;
+}
+.rMyCollect table>tbody{
+	font-size: 12px;
+	color: #666666;
+	background: #FFFFFF;
+}
+.rMyCollect table input{
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	padding-right: 5px;
+}
+
+.rMyCollect table>tbody>tr td{
+	border-top: 1px solid #F3F3F3;
+	height:80px;
+	padding:20px 0;
+	line-height: 80px;
+}
+.tableDl dt{
+	width: 80px;
+	height: 80px;
+	border: 1px solid #F3F3F3;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+.tableDl dt img{
+	max-width: 79px;
+	max-height:79px;
+	display: block;
+}
+.tableDl dd{
+    float: right;
+    margin-top: -80px;
+    text-align: left;
+    color: #666666;
+}
+.tableDl dd p{
+	width: 237px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tfootHide{
+	color: #999999;
+	text-align:left!important;
+	cursor: pointer;
+}
+.rMyCollect tbody>tr>td:last-child:hover{
+	color: #E93939;
+	cursor: pointer;
+}
+.tfootHide:hover{
+	color:#E93B39;
+}
+.rCollectUl2>li{
+	display: none;
+}
+/**拍卖会收藏**/
+.aucColUl{
+	background: #FFFFFF;
+	border: 1px solid #DDDDDD;
+	border-top: none;
+	box-shadow: 0 0 2px #DDDDDD;
+}
+.aucColUl input,.aucColP input{
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	padding-right: 5px;
+}
+
+.aucColUl>li{
+	height: 80px;
+	padding: 20px 0;
+	border-bottom: 1px solid #F3F3F3;
+	line-height: 80px;
+	font-size: 12px;
+	color: #666666;
+}
+.aucColP{
+	height: 40px;
+	background: #F0EFEF;
+	border: 1px solid #DDDDDD;
+	box-shadow: 0 0 2px #DDDDDD;
+	text-indent: 20px;
+	font-size: 14px;
+	line-height: 40px;
+	padding: 0;
+}
+.aucColUl>li>span:first-child{
+	width: 10%;
+	text-align: center;
+	display: inline-block;
+	float: left;
+}
+.tableDl2{
+	display: inline-block;
+	float: left;
+	width: 75%;
+}
+.tableDl2 dt{
+	width: 80px;
+	height: 80px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	border: 1px solid #F3F3F3;
+}
+.tableDl2 dt img{
+	max-width: 79px;
+	max-height: 79px;
+	display: block;
+}
+.tableDl2 dd{
+	float: right;
+    margin-top: -80px;
+    text-align: left;
+    color: #666666;
+}
+.tableDl2 dd p{
+	width: 620px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.aucColUl>li>span:last-child{
+	width: 15%;
+	text-align: center;
+	display: inline-block;
+}
+.aucColUl>li>span:last-child:hover{
+	color: #E93B39;
+	cursor: pointer;
+}

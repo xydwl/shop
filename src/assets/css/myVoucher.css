@@ -1,0 +1,111 @@
+.rMyVoucher{
+	width: 970px;
+}
+.vouDiv{
+	width: 930px;
+	padding: 20px;
+	box-shadow: 0 0 2px #DDDDDD;
+	background: #FFFFFF;
+}
+.vouDivUl1 li{
+	float: left;
+	width: 160px;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
+	color: #FFFFFF;
+	font-size: 14px;
+	border-right: 1px solid #FFFFFF;
+	background: #333333;
+	cursor: pointer;
+}
+.vouDivUl1 li.active{
+	background: #7E69B4;
+}
+.vouDivUl1 li:hover{
+	background: #7E69B4;
+}
+.vouDivUl2{
+	padding-bottom: 30px;
+}
+.vouDivUl2>li{
+	border: 1px solid #F3F3F3;
+	display: none;
+}
+.vouDivUl2>li>p{
+	font-size: 12px;
+	color: #666666;
+	text-indent: 20px;
+	margin: 30px 0;
+}
+.vouDivUl2>li>p input{
+	width: 360px;
+	height: 35px;
+	text-indent: 10px;
+	color: #333333;
+	border: 1px solid #F3F3F3;
+}
+.vouDivUl2>li>p button{
+	width: 110px;
+	height: 37px;
+	background: #F0EFEF;
+	border: 1px solid #DDDDDD;
+	font-size: 14px;
+	color: #666666;
+	vertical-align: top;
+	cursor: pointer;
+	margin-left: 5px;
+}
+.vouDivUl2D1>p{
+	font-size: 14px;
+	color: #333333;
+	text-align: center;
+	line-height: 35px;
+	border-top: 1px solid #F3F3F3;
+	border-bottom: 1px solid #F3F3F3;
+}
+.vouDivUl2D1>p span{
+	display:block;
+	width: 25%;
+	float: left;
+}
+.vouDivUl2U>li{
+	font-size: 12px;
+	color: #666;
+	text-align: center;
+	line-height: 35px;
+	border-bottom: 1px solid #F3F3F3;
+}
+.vouDivUl2U>li span{
+	display:block;
+	width: 25%;
+	float: left;
+}
+.vouDivUl2D2{
+	padding: 20px 20px;
+	font-size: 12px;
+	color: #666666;
+	line-height: 25px;
+}
+.vouDivUl2D2>p:first-child{
+	font-size: 14px;
+	color: #333333;
+}
+.vouDivUl21>li{
+	width: 160px;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
+	background: #333333;
+	cursor: pointer;
+	float: left;
+	border-right: 1px solid #FFFFFF;
+	color: #FFFFFF;
+	font-size: 14px;
+}
+.vouDivUl21>li.active{
+	background: #7E69B4;
+}
+.vouDivUl21>li:hover{
+	background: #7E69B4;
+}

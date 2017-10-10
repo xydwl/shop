@@ -1,0 +1,349 @@
+.loginHeader{
+	width:100%;
+	background: #000000;
+}
+.header_top{
+	height:80px;
+	padding: 6px 0;
+	background: #000000;
+	width: 1200px;
+	margin: 0 auto;
+}
+.headerUl1 li{
+	margin-top:10px;
+}
+.headerUl1 li a{
+	margin-top:10px;
+}
+.header_top li a{
+	color: #999;
+}
+.header_top li a:hover{
+	color: #FFFFFF;
+}
+
+.headerUl1 li a:hover img.header_san {
+	transform: rotate(90deg);
+}
+
+.header_div2 {
+	width: 190px;
+	padding: 10px 20px;
+	font-size: 12px;
+	position: absolute;
+	right: 0;
+	top: 40px;
+	border: 1px solid #E5E5E5;
+	border-top: none;
+	background: #fff;
+	z-index: 2000;
+	line-height: 20px;
+	color: #000000;
+	text-align: center;
+}
+.header_div2 img{
+	display: block!important;
+	width: 90px;
+	height: 90px;
+}
+.header_center{
+	margin:10px auto;
+}
+.loginMain{
+	width:100%;
+	height: 770px;
+	background: #F6F6F6;
+}
+.loginCenter{
+	width: 1200px;
+	margin:0 auto;
+}
+.loginBg{
+	margin-top:100px;
+	margin-right:80px;
+	width:567px;
+	margin-left: 80px;
+	height: 474px;
+}
+.login{
+	width:350px;
+	padding: 20px;
+	padding-bottom: 40px;
+	background: #FFFFFF;
+	box-shadow: 0 0 10px #999;
+	float: left;
+	margin-top: 160px;
+}
+.loginUl{
+	width:349px;
+	height: 40px;
+	margin-bottom: 20px;
+}
+.loginUl li{
+	float: left;
+	width:173px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	cursor: pointer;
+	font-size: 18px;
+	font-family: "微软雅黑";
+}
+.active{
+	color: #FFFFFF;
+	background: #F19107;
+}
+
+.loginTel{
+	border:1px solid #DDDDDD;
+	margin-bottom: 20px;
+	padding: 10px 0;
+}
+.loginTel img{
+	margin-left: 5px;
+}
+.loginTel input{
+	width:300px;
+	height: 30px;
+	border:none;
+	text-indent: 5px;
+	color: #666666;
+	line-height: 30px;
+}
+.inputInt{
+	width:150px;
+	height:50px;
+	text-indent: 5px;
+	line-height:50px;
+	font-size: 16px;
+	color: #9B3AEB;
+	border:none;
+	border:1px solid #DDDDDD;
+	margin-right: 10px;
+	float: left;
+	text-align: center;
+}
+.abcd{
+	float: right;
+	width:165px;
+	height: 52px;
+	cursor: pointer;
+}
+.loginLog{
+	width:228px;
+	background: #F19107;
+	color: #FFFFFF;
+	line-height: 50px;
+	text-align: center;
+	height: 50px;
+	margin:0 auto;
+	margin-top:30px;
+	margin-bottom: 30px;
+	cursor: pointer;
+	font-family: "微软雅黑";
+	font-size: 18px;
+}
+.loginMima{
+	font-size: 14px;
+	color: #7C7C7C;
+	line-height: 30px;
+}
+.loginMima input,.registerCheck input{
+	width:16px;
+	height: 16px;
+	vertical-align: middle;
+}
+.loginMima a{
+	color: #7C7C7C;
+	float: right;
+}
+.loginMima a:hover{
+	color: #7F69B3;
+}
+.loginQq{
+	line-height: 40px;
+	cursor: pointer;
+	color: #7C7C7C;
+}
+.loginQq img{
+	vertical-align: middle;
+	
+}
+
+/*********注册***********/
+.registerAbcd{
+	height: 40px;
+}
+.registerAbcd input{
+	width: 150px;
+	height: 40px;
+	text-indent: 5px;
+	color: #666666;
+	line-height: 40px;
+	border:1px solid #DDDDDD;
+	float: left;
+	text-align: center;
+}
+.registerAbcd span{
+	width:165px;
+	height:42px;
+	background: #F0F0F0;
+	color: #E93B39;
+	line-height: 40px;
+	text-align: center;
+	display: block;
+	float:right;
+	cursor: pointer;
+}
+.registerCheck{
+	line-height: 50px;
+	font-size: 14px;
+	color: #666666;
+}
+
+
+/************修改密码**************/
+.mimaGai{
+	width:350px;
+	background: #9B3AEB;
+	color: #FFFFFF;
+	line-height: 40px;
+	text-align: center;
+	height: 40px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+.mimaRem{
+	font-size: 18px;
+	line-height: 46px;
+}
+.mimaLogin{
+	line-height: 40px;
+}
+.mimaLogin a{
+	color: #9B3AEB;
+}
+
+/*******遮罩********/
+.addressShade{
+	width:100%;
+	height:100%;
+	position: fixed;
+	background: rgba(0,0,0,0.5);
+	z-index: 1500;
+	top:0;
+}
+.xieyi{
+	width:650px;
+	height: 500px;
+	background: #FFFFFF;
+	position: fixed;
+	left:300px;
+	top:100px;
+	border-radius: 10px;
+	z-index: 2000;
+}
+.xieyiHeader{
+	height: 40px;
+	background: #F1F0F0;
+	width:650px;
+	text-align: center;
+	line-height: 40px;
+	font-size: 18px;
+	color:#333333;
+	border-radius: 10px 10px 0 0;
+}
+.xieyiContent{
+	width:610px;
+	height: 350px;
+	overflow: auto;
+	padding:15px 20px;
+	font-size: 14px;
+	color: #635F5A;
+}
+.xieyiContent p.title{
+	font-size: 16px;
+	line-height: 40px;
+	color: #454646;
+}
+.xieyiBtn{
+	margin-top:20px;
+	text-align: center;
+}
+.xieyiBtn button{
+	width:300px;
+	height: 45px;
+	background: #7E69B4;
+	color: #FFFFFF;
+	border:none;
+	text-align: center;
+	line-height:45px;
+	cursor: pointer;
+	font-size: 18px;
+}
+/**********注册成功********/
+.loginSuc{
+	width: 500px;
+	height: 265px;
+	position: fixed;
+	left:200px;
+	top:200px;
+	background: #FFFFFF;
+	/* border-radius: 10px; */
+	border: 1px solid #f3f3f3;
+	box-shadow: 0 0 2px #ddd;
+}
+.loginSuc div{
+	width: 500px;
+	background: #F1F0F0;
+	color: #333;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	/* border-radius: 10px 10px 0 0; */
+	font-size: 14px;
+}
+
+.loginSucCen{
+	width: 460px;
+	padding:10px 20px;
+	color: #666;
+	line-height: 30px;
+	text-indent: 2rem;
+	font-size: 12px;
+}
+
+.loginSucPai{
+	display: block;
+	width: 110px;
+	height: 35px;
+	background: #7F69B3;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 35px;
+	float: left;
+	margin-left: 90px;
+	margin-top: 15px;
+	font-size: 14px;
+}
+
+#errorRegister{
+	font-size: 14px;
+    line-height: 30px;
+    color: #E93B39;
+}
+#verificationCodeTemp,#verificationCodeTempLogin{
+	width: 0px;
+	height: 0px;
+	opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
