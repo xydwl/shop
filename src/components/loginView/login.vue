@@ -70,7 +70,7 @@
 						</p>
 						<p class="registerAbcd">
 							<input type="text" id="validate" v-model="validate" />
-							<span @click="getPhone" id="getCode" :disabled="disabled" v-model="getPhoneNum">获取验证码</span>
+							<span @click="getPhone" id="getCode" :disabled="disabled">获取验证码</span>
 						</p>
 						<div class="cl"></div>
 						<p class="registerCheck">
@@ -191,7 +191,8 @@
 <script>
 // import {mapGetters} from 'vuex'
 import config from '../../service/api.js'
-import { getcaptchas, phoneNum, resginUser, getVal } from '../../service/configApi.js'
+// getVal
+import {getcaptchas, phoneNum, resginUser} from '../../service/configApi.js'
 import { LoginIn } from '../../api/restApi.js'
 import footBottom from '../common/footer'
 import alertTip from '../common/alertTips'
@@ -252,7 +253,7 @@ export default {
       this.ecode = false
     },
     async getRegisterData () {
-      if (this.checked == false) {
+      if (this.checked === false) {
         this.tipShow = true
         this.alertTips = '协议没有选中哦'
         return false
@@ -284,8 +285,7 @@ export default {
         this.tipShow = true
         this.alertTips = '图片验证码错误'
       } else if (logValue.data.code === '0000') {
-        localStorage.setItem('tokenId', logValue.data.tokenId)
-				// this.$router.push('/home');
+        localStorage.setItem('tokenId', logValue.data.tokenId)// this.$router.push('/home');
       }
       this.getCaptchaCode()
     },
@@ -294,7 +294,7 @@ export default {
       if (this.registerUserName === '') {
         this.tipShow = true
         this.alertTips = '手机号不为空'
-      } else if (this.registerPassword !== '' || this.repassword != '') {
+      } else if (this.registerPassword !== '' || this.repassword !== '') {
         if (this.registerPassword !== this.repassword) {
           this.tipShow = true
           this.alertTips = '两次密码输入不一致'
@@ -318,7 +318,7 @@ export default {
               var t = setInterval(function () {
                 time--
                 e.target.innerHTML = time + '秒'
-                if (time == 0) {
+                if (time === 0) {
                   clearInterval(t)
                   e.target.innerHTML = '重新发送'
                   validCode = true

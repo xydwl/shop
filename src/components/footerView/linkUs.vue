@@ -22,20 +22,20 @@
 <script>
 
 	export default{
-		data(){
-			return{
+	  data () {
+	    return {
 
-			}
-		},
-		components:{
-			
-		},
-		computed:{
-			
-		},
-		methods:{
-			
-		}
+	    }
+	  },
+	  components: {
+	
+	  },
+	  computed: {
+	
+	  },
+	  methods: {
+	
+	  }
 	}
 </script>
 <style scoped>

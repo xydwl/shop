@@ -123,7 +123,6 @@
 <script>
 import {loginOutValue, Subwords} from '../../service/configApi.js'
 import {KeywordsUrl} from '../../api/restApi.js'
-import {subThree} from '../../service/getData.js'
 import $ from 'jquery'
 export default {
   data () {
@@ -200,7 +199,7 @@ export default {
       }
     },
     tree: function () {
-      subThree()
+
     },
     async loginout () {
       await loginOutValue()

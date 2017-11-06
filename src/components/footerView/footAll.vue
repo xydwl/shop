@@ -87,32 +87,32 @@
 
 <script>
 import {mapGetters} from 'vuex'
-	export default{
-		data(){
-			return{
-				type:null,
-			}
-		},
-		created(){
-			console.log(this.$route.params.id);
-		},
-		components:{
-			
-		},
-		computed:{
-			...mapGetters({
-				footway:'getFootway'
-			})
-		},
-		methods:{
-			changeFootway(type){
-				this.$store.dispatch('changeFootway',type);
-			},
-			changeShow(type){
-				this.$store.dispatch('changeShow',type)
-			}
-		}
-	}
+export default{
+  data () {
+    return {
+      type: null
+    }
+  },
+  created () {
+    console.log(this.$route.params.id)
+  },
+  components: {
+
+  },
+  computed: {
+    ...mapGetters({
+      footway: 'getFootway'
+    })
+  },
+  methods: {
+    changeFootway (type) {
+      this.$store.dispatch('changeFootway', type)
+    },
+    changeShow (type) {
+      this.$store.dispatch('changeShow', type)
+    }
+  }
+}
 </script>
 <style scoped>
 	.aboutMain{

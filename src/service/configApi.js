@@ -1,6 +1,6 @@
 import axios from 'axios'
 import config from './api.js'
-import { hex_md5} from '../assets/js/common/md5.js'
+// import {hex_md5} from '../assets/js/common/md5.js'
 
 const instrance = axios.create({
   baseURL: config.baseUrl,
@@ -28,14 +28,12 @@ export function getcaptchas () {
   return instrance({
     url: '/login/getVerificationCodeTemp.htm',
     method: 'POST'
+  }).then(function (data) {
+    var res = data.data
+    return res
+  }).catch(function (error) {
+    console.log(error)
   })
-		.then(function (data) {
-  var res = data.data
-  return res
-})
-		.catch(function (error) {
-  console.log(2222)
-})
 }
 
 // 登录
@@ -45,7 +43,7 @@ export function LoginIn (mobile, pwd, picCode, verificationCodeTempLogin) {
     'userID': '',
     'tokenId': '',
     'mobile': mobile,
-    'pwd': hex_md5(pwd),
+    // 'pwd': hex_md5(pwd),
     'picCode': picCode,
     'verificationCodeTemp': verificationCodeTempLogin
   }
@@ -54,22 +52,21 @@ export function LoginIn (mobile, pwd, picCode, verificationCodeTempLogin) {
     method: 'POST',
     data: encodePicList(data)
   }).then(function (data) {
-    var data = data.data
-    if (data.code == '0000') {
-      localStorage.setItem(userkey, data.userId)
-      localStorage.setItem(tokenkey, data.tokenId)
-      localStorage.setItem(namekey, data.userName)
-      localStorage.setItem(mobilekey, data.mobile)
-      localStorage.setItem(isManagerkey, data.isManager)
-      localStorage.setItem(isChannelkey, data.isChannel)
-      localStorage.setItem(isCertificated, data.isCertificated)
-      localStorage.setItem(isBindCard, data.isBindCard)
+    var datas = data.data
+    if (datas.code === '0000') {
+      localStorage.setItem(userkey, datas.userId)
+      localStorage.setItem(tokenkey, datas.tokenId)
+      localStorage.setItem(namekey, datas.userName)
+      localStorage.setItem(mobilekey, datas.mobile)
+      localStorage.setItem(isManagerkey, datas.isManager)
+      localStorage.setItem(isChannelkey, datas.isChannel)
+      localStorage.setItem(isCertificated, datas.isCertificated)
+      localStorage.setItem(isBindCard, datas.isBindCard)
     }
     return data
+  }).catch(function (error) {
+    console.log(error)
   })
-		.catch(function (error) {
-  console.log(error)
-})
 }
 
 // 获取手机验证码
@@ -85,15 +82,13 @@ export function phoneNum (mobile, picCode, verificationCodeTemp) {
     url: '/login/getVerificationCode.htm',
     method: 'POST',
     data: encodePicList(data)
+  }).then(function (data) {
+    console.log(data.data)
+
+    return data.data
+  }).catch(function (error) {
+    console.log(error)
   })
-		.then(function (data) {
-  console.log(data.data)
-
-  return data.data
-})
-		.catch(function (error) {
-
-})
 }
 
 // 注册
@@ -103,7 +98,7 @@ export function resginUser (mobile, pwd, picCode, resCode, validate) {
     'userID': '',
     'tokenId': '',
     'mobile': mobile,
-    'pwd': hex_md5(pwd),
+    // 'pwd': hex_md5(pwd),
     'picCode': picCode,
     'verificationCodeTemp': resCode,
     'messageCode': validate,
@@ -113,14 +108,12 @@ export function resginUser (mobile, pwd, picCode, resCode, validate) {
     url: '/login/userRegister.htm',
     method: 'POST',
     data: encodePicList(data)
+  }).then(function (data) {
+    console.log(data.data)
+    return data.data
+  }).catch(function (error) {
+    console.log(error)
   })
-		.then(function (data) {
-  console.log(data.data)
-  return data.data
-})
-		.catch(function (error) {
-
-})
 }
 
 // 登出
@@ -134,7 +127,7 @@ export function resetPsd (mobile, pwd, picCode, resCode, validate) {
     'sourceMode': 'PC',
     'tokenId': '',
     'mobile': mobile,
-    'pwd': hex_md5(pwd),
+    // 'pwd': hex_md5(pwd),
     'picCode': picCode,
     'verificationCodeTemp': resCode,
     'messageCode': validate,
@@ -144,14 +137,11 @@ export function resetPsd (mobile, pwd, picCode, resCode, validate) {
     url: '/login/resetPassword.htm',
     method: 'POST',
     data: encodePicList(data)
+  }).then(function (data) { // console.log(data.data);
+    return data.data
+  }).catch(function (error) {
+    alert(error)
   })
-		.then(function (data) {
-			// console.log(data.data);
-  return data.data
-})
-		.catch(function (error) {
-  alert(error)
-})
 }
 // 。。。。。。。。。。。。home页。。。。。。。。。。。。
 // 三级菜单
@@ -165,14 +155,12 @@ export function Subwords () {
     url: '/indexPage/getSubKinds.htm',
     method: 'GET',
     data: encodePicList(data)
+  }).then(function (data) {
+    var datas = data.data.firstKinds
+    return datas
+  }).catch(function (error) {
+    alert(error)
   })
-		.then(function (data) {
-  var data = data.data.firstKinds
-  return data
-})
-		.catch(function (error) {
-  alert(error)
-})
 }
 
 // banner
@@ -186,14 +174,11 @@ export function queryBanner () {
     url: '/indexPage/queryBanner.htm',
     method: 'POST',
     data: encodePicList(data)
+  }).then(function (data) { // console.log(data.data.banners);
+    return data.data.banners
+  }).catch(function (error) {
+    alert(error)
   })
-		.then(function (data) {
-			// console.log(data.data.banners);
-  return data.data.banners
-})
-		.catch(function (error) {
-  alert(error)
-})
 }
 
 // 今日推荐
@@ -206,14 +191,11 @@ export function todayGoods () {
     url: '/indexPage/queryQualityGoods.htm',
     method: 'GET',
     data: encodePicList(data)
+  }).then(function (data) { // console.log(data.data.goods);
+    return data.data.goods
+  }).catch(function (error) {
+    alert(error)
   })
-		.then(function (data) {
-			// console.log(data.data.goods);
-  return data.data.goods
-})
-		.catch(function (error) {
-  alert(error)
-})
 }
 
 // 拍卖会
@@ -226,14 +208,12 @@ export function auctionGoods () {
     url: '/indexPage/queryQualityAuction.htm',
     method: 'GET',
     data: encodePicList(data)
+  }).then(function (data) {
+    console.log(data.data)
+    return data.data.auctions
+  }).catch(function (error) {
+    alert(error)
   })
-		.then(function (data) {
-  console.log(data.data)
-  return data.data.auctions
-})
-		.catch(function (error) {
-  alert(error)
-})
 }
 
 // 艺术品---相机
@@ -247,14 +227,11 @@ export function pageGoods (indexNum) {
     url: '/indexPage/queryPopularGoods.htm',
     method: 'post',
     data: encodePicList(data)
+  }).then(function (data) { // console.log(data.data);
+    return data.data
+  }).catch(function (error) {
+    alert(error)
   })
-		.then(function (data) {
-			// console.log(data.data);
-  return data.data
-})
-		.catch(function (error) {
-  alert(error)
-})
 }
 // 猜你喜歡
 export function likes () {
@@ -266,14 +243,11 @@ export function likes () {
     url: '/indexPage/queryPopularGoods.htm',
     method: 'post',
     data: encodePicList(data)
+  }).then(function (data) { // console.log(data.data);
+    return data.data.goods
+  }).catch(function (error) {
+    alert(error)
   })
-		.then(function (data) {
-			// console.log(data.data);
-  return data.data.goods
-})
-		.catch(function (error) {
-  alert(error)
-})
 }
 
 export function luxurys () {
@@ -286,14 +260,12 @@ export function luxurys () {
     url: '/indexPage/queryQualityFlashGoods.htm',
     method: 'post',
     data: encodePicList(data)
+  }).then(function (data) {
+    console.log(data.data)
+    return data.data
+  }).catch(function (error) {
+    alert(error)
   })
-		.then(function (data) {
-  console.log(data.data)
-  return data.data
-})
-		.catch(function (error) {
-  alert(error)
-})
 }
 
 // var baseUrl ="http://wuwu8023.iok.la/api";//五

@@ -251,7 +251,7 @@ export default {
     }
   },
   components: {
-    'auction-Order': auctionOrder
+    // 'auction-Order': auctionOrder
   }
 }
 </script>

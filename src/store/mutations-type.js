@@ -1,3 +1,0 @@
-export const CHANGE_LOGINWAY = 'CHANGE_LOGINWAY'
-export const CHANGE_SHOW = 'CHANGE_SHOW'
-export const CHANGE_FOOTWAY = 'CHANGE_FOOTWAY'

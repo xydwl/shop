@@ -1,5 +1,5 @@
 import { Auth, PecooIndex, userCenter } from './path'
-import { hex_md5 } from '../assets/js/common/md5.js'
+// import { hex_md5 } from '../assets/js/common/md5.js'
 import axios from 'axios'
 import qs from 'qs'
 
@@ -21,7 +21,7 @@ export function LoginIn (mobile, pwd, picCode, verificationCodeTempLogin) {
     data: {
       sourceMode: 'PC',
       mobile: mobile,
-      pwd: hex_md5(pwd),
+      // pwd: hex_md5(pwd),
       picCode: picCode,
       verificationCodeTemp: verificationCodeTempLogin
     }
@@ -55,7 +55,7 @@ export function resginUser (mobile, pwd, picCode, resCode, validate) {
     data: {
       sourceMode: 'PC',
       mobile: mobile,
-      pwd: hex_md5(pwd),
+      // pwd: hex_md5(pwd),
       picCode: picCode,
       verificationCodeTemp: resCode,
       messageCode: validate
@@ -80,7 +80,7 @@ export function resetPsd (mobile, pwd, picCode, resCode, validate) {
     data: {
       sourceMode: 'PC',
       mobile: mobile,
-      pwd: hex_md5(pwd),
+      // pwd: hex_md5(pwd),
       picCode: picCode,
       verificationCodeTemp: resCode,
       messageCode: validate

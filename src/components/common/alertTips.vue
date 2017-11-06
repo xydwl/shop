@@ -3,14 +3,14 @@
 </template>
 <script>
 	export default{
-		data(){
-			return {
-				
-			}
-		},
-		props: ['alertTips'],
-		methods:{
+	  data () {
+	    return {
+	
+	    }
+	  },
+	  props: ['alertTips'],
+	  methods: {
 
-		}
+	  }
 	}
 </script>

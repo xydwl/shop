@@ -5,16 +5,16 @@
 <script>
 // import Hello from './components/Hello'
 export default {
-  data(){
-    return{
+  data () {
+    return {
       // currentView:components.home
     }
   },
-  components:{
+  components: {
     // Hello
   },
-  methods:{
-    
+  methods: {
+
   }
 }
 </script>

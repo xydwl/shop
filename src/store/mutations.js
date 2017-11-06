@@ -1,13 +1,12 @@
-import { CHANGE_LOGINWAY, CHANGE_SHOW} from './mutations-type.js'
 
 export default{
-  CHANGE_LOGINWAY (state, type) {
+  getLoginway (state, type) {
     state.loginway = type
   },
-  CHANGE_SHOW (state, type) {
+  getShow (state, type) {
     state.show = type
   },
-  CHANGE_FOOTWAY (state, type) {
+  getFootway (state, type) {
     state.footway = type
   },
   userInfo (state, obj) {

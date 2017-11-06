@@ -64,9 +64,9 @@ export default {
       totalPage: null,
       sort: 'start_time/01',
       sortItem: [
-				{ name: '默认排序', sortName: 'start_time/01' },
-				{ name: '价格从高到底', sortName: 'start_price/01' },
-				{ name: '价格从低到高', sortName: 'start_price/02' }
+        { name: '默认排序', sortName: 'start_time/01' },
+        { name: '价格从高到底', sortName: 'start_price/01' },
+        { name: '价格从低到高', sortName: 'start_price/02' }
       ]
     }
   },
@@ -76,7 +76,8 @@ export default {
       this.todaygoods = response.data
     }
     this.firstValue = '第 ' + this.currentPage + ' 页'
-    this.totalPage = Math.floor(this.todaygoods.totalCount / this.todaygoods.pageSize) + 1
+    this.totalPage =
+      Math.floor(this.todaygoods.totalCount / this.todaygoods.pageSize) + 1
   },
   methods: {
     async handleCurrentChange (val) {
@@ -102,5 +103,5 @@ export default {
 }
 </script>
 <style>
-@import '../../assets/css/artList.css';
+@import "../../assets/css/artList.css";
 </style>

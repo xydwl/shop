@@ -3,7 +3,7 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import store from './store/store'
-import 'element-ui/lib/theme-default/index.css'
+import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/reset.css'
 import VueAreaLinkage from 'vue-area-linkage' // https://dwqs.github.io/vue-area-linkage/
 Vue.use(ElementUI)

@@ -50,7 +50,7 @@
 						<div class="cl"></div>
 						<p class="registerAbcd">
 							<input type="text" id="validate" v-model="validate" />
-							<span @click="getPhone" id="getCode" v-model="getPhoneNum">发送验证码</span>
+							<span @click="getPhone" id="getCode">发送验证码</span>
 						</p>
 						<div class="cl"></div>
 						<p class="loginLog" style=" margin-bottom: 0; width: 100%;" @click="getResetPsd">确认修改</p>
@@ -111,25 +111,25 @@ export default {
     },
     async getPhone (e) {
       this.tipShow = false
-      if (this.phone == '') {
+      if (this.phone === '') {
         this.tipShow = true
         this.alertTips = '手机号不为空'
-      } else if (this.newPsd != '' || this.confirmPsd != '') {
-        if (this.newPsd != this.confirmPsd) {
+      } else if (this.newPsd !== '' || this.confirmPsd !== '') {
+        if (this.newPsd !== this.confirmPsd) {
           this.tipShow = true
           this.alertTips = '两次密码输入不一致'
         } else {
           let les = await phoneNum(this.phone, this.picCode, this.resginCode)
           var validCode = true
-          if (les.code == 100601) {
+          if (les.code === 100601) {
             this.tipShow = true
             this.alertTips = '图片验证码错误'
             this.getCaptchaCode()
-          } else if (les.code == 100601) {
+          } else if (les.code === 100601) {
             this.tipShow = true
             this.alertTips = '改手机号已被注册'
             this.getCaptchaCode()
-          } else if (les.code == '0000') {
+          } else if (les.code === '0000') {
             this.tipShow = true
             this.alertTips = '验证码已发送'
             var time = 60
@@ -138,7 +138,7 @@ export default {
               var t = setInterval(function () {
                 time--
                 e.target.innerHTML = time + '秒'
-                if (time == 0) {
+                if (time === 0) {
                   clearInterval(t)
                   e.target.innerHTML = '重新发送'
                   validCode = true
@@ -154,9 +154,9 @@ export default {
     },
     async getResetPsd () {
       let resCode = await resetPsd(this.phone, this.newPsd, this.picCode, this.resginCode, this.validate)
-      if (resCode.code == '0000') {
+      if (resCode.code === '0000') {
         this.$router.push('/login')
-      } else if (resCode.code == 100501) {
+      } else if (resCode.code === 100501) {
         this.tipShow = true
         this.alertTips = resCode.message
       }
