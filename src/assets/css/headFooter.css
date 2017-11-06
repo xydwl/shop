@@ -10,7 +10,6 @@
 	line-height: 30px;
 	position: relative;
 }
-
 .headerIndexUl li {
 	float: left;
 	line-height: 30px;
@@ -417,7 +416,7 @@
 }
 .n-footer .service{
 	padding:21px 0 25px;
-	background:url(../../../static/images/common/ditu.jpg) no-repeat 768px -7px;
+	background:url(../images/common/ditu.jpg) no-repeat 768px -7px;
 }
 .n-footer .service dl{
 	width:172px;float:left
@@ -440,7 +439,7 @@
 .footer-nav{width:100%;height:23px;background:#463b7f;color:#f5f5f5;padding:9px 0 7px}
 .footer-nav li{float:left;padding-left:100px;font:14px/23px "microsoft yahei"}
 .footer-nav li i{
-	background:url(../../../static/images/common/headFootBg.png) no-repeat;
+	background:url(../images/common/headFootBg.png) no-repeat;
 	height:23px;display:inline-block;margin-right:5px;
 	vertical-align:middle;position:relative;top:-2px;*top:0
 }

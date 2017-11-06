@@ -109,11 +109,11 @@
 					</div>
 					<ul class="ewm clearfix">
 						<li>
-							<img src="../../../static/images/common/erweima.png" width="110" height="110" />
+							<img src="../../assets/images/common/erweima.png" width="110" height="110" />
 							<p>手机客户端</p>
 						</li>
 						<li class="last">
-							<img src="../../../static/images/common/erweima2.png" width="110" height="110" />
+							<img src="../../assets/images/common/erweima2.png" width="110" height="110" />
 							<p>官方微信</p>
 						</li>
 					</ul>

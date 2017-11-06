@@ -9,6 +9,10 @@
 	width: 1200px;
 	margin: 0 auto;
 }
+.header_logo{
+	display: inline-block;
+	margin-top:10px;
+}
 .headerUl1 li{
 	margin-top:10px;
 }
@@ -73,6 +77,7 @@
 	box-shadow: 0 0 10px #999;
 	float: left;
 	margin-top: 160px;
+	margin-left:80px;
 }
 .loginUl{
 	width:349px;

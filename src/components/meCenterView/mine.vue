@@ -96,15 +96,22 @@
             <div class="mineJiluData">
               <span class="startEnd">起止日期查询：</span>
               <span class="block">
-                <el-date-picker v-model="dateStart" type="date" placeholder="选择日期" :picker-options="pickerOne"></el-date-picker>
+                <el-date-picker
+                  class="iconposition"
+                  v-model="dateArr"
+                  type="daterange"
+                  align="center"
+                  unlink-panels
+                  range-separator="至"
+                  start-placeholder="开始日期"
+                  end-placeholder="结束日期"
+                  value-format="yyyy-MM-dd"
+                  :picker-options="pickerOptions">
+                </el-date-picker>
               </span>
-              <span class="transverseLine">&nbsp; -- &nbsp; </span>
-              <span class="block">
-                <el-date-picker v-model="dateEnd" type="date" placeholder="选择日期" :picker-options="pickerTwo"></el-date-picker>
-              </span>
-              <span class="searchbtn">
+              <div class="searchbtn">
                 <button @click="checkALlBid">查询</button>
-              </span>
+              </div>
             </div>
             <!--订单表格-->
             <table class="table">
@@ -138,7 +145,7 @@
               </tbody>
             </table>
             <!--分页-->
-            <div class="block" style="width:100%;">
+            <div class="block">
               <span class="demonstration">总共 {{allItems.totalCount}} 件拍品</span>
               <el-select v-model="firstValue" @change="handlepage" filterable placeholder="请选择" class="seclectStyle">
                 <el-option v-for="item in totalPage" :key="item[0]" :label="'第 ' + item + ' 页'" :value="'第 ' + item + ' 页'">
@@ -173,20 +180,37 @@ export default {
       allItems: [],
       allLength: null,
       tableArr: ['商品详情', '下单时间', '我的报价', '落槌价', '贷款总价', '运费', '状态'],
-      pickerTwo: {
-        disabledDate (time) {
-          return false
-        }
+      pickerOptions: {
+        shortcuts: [{
+          text: '最近一周',
+          onClick(picker) {
+            const end = new Date();
+            const start = new Date();
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+            picker.$emit('pick', [start, end]);
+          }
+        }, {
+          text: '最近一个月',
+          onClick(picker) {
+            const end = new Date();
+            const start = new Date();
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+            picker.$emit('pick', [start, end]);
+          }
+        }, {
+          text: '最近三个月',
+          onClick(picker) {
+            const end = new Date();
+            const start = new Date();
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+            picker.$emit('pick', [start, end]);
+          }
+        }]
       },
-      pickerOne: {
-        disabledDate (time) {
-          return false
-        }
-      }
+      dateArr: ''
     }
   },
   created () {
-    this.$store.dispatch('getUserInfo')
     this.checkALlBid()
   },
   computed: {
@@ -239,16 +263,7 @@ export default {
     }
   },
   watch: {
-    dateStart (val) {
-      this.pickerTwo.disabledDate = function (time) {
-        return time.getTime() < val.getTime()
-      }
-    },
-    dateEnd (val) {
-      this.pickerOne.disabledDate = function (time) {
-        return time.getTime() > val.getTime()
-      }
-    }
+    
   },
   components: {
     // 'auction-Order': auctionOrder

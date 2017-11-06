@@ -5,15 +5,18 @@
       <ul class="headerIndexUl fr">
         <li>Hi&nbsp;,&nbsp;欢迎进入拍库! </li>
         <li @click="changeLoginway('login')">
-          <router-link  id="denglu" v-show="log" :to="{name:'login'}"><img src="../../../static/images/common/login.png" /> &nbsp;登录</router-link>
+          <router-link  id="denglu" v-if="!uName" :to="{name:'login'}"> &nbsp;登录</router-link>
         </li>
         <li>
-          <router-link id="yonghu" v-show="uName"  to=""><img src="../../../static/images/common/login.png" /> &nbsp;{{mobile}}</router-link>
+          <router-link id="yonghu" v-if="uName" :to="{name:'Mine'}"> 
+            &nbsp;{{uName}}
+          </router-link>
         </li>
-        <li @click="changeLoginway('register')"><router-link id="zhuce" :to="{name:'login'}" v-show="resg">注册</router-link>
+        <li @click="changeLoginway('register')" v-if="!uName">
+          <router-link id="zhuce" :to="{name:'login'}">注册</router-link>
         </li>
         <li>
-          <a id="tuichu" v-show="loginOut" href="javascript:;" @click="loginout">退出</a>
+          <a id="tuichu" v-if="uName" href="javascript:;" @click="loginout">退出</a>
         </li>
         <li>
           <router-link to="" class="rel header_tong">
@@ -24,7 +27,7 @@
         
         <li class="headerLi1" @mouseenter="enter" @mouseleave="leave">
           <router-link to="">
-            <i class="ul1Tel"></i>&nbsp;联系客服&nbsp;<span><img src="../../../static/images/common/san.png" class="header_san"/></span>
+            <i class="ul1Tel"></i>&nbsp;联系客服&nbsp;<span><img src="../../assets/images/common/san.png" class="header_san"/></span>
             <div class="headerDiv1" v-show="tel">
               电话:<br>400-111-2016
             </div>
@@ -32,18 +35,18 @@
         </li>
         <li class="headerLi2" @mouseenter="enter" @mouseleave="leave">
           <router-link to="">
-            <i class="ul1Phone"></i>&nbsp;拍库手机&nbsp;<span><img src="../../../static/images/common/san.png" class="header_san"/></span>
+            <i class="ul1Phone"></i>&nbsp;拍库手机&nbsp;<span><img src="../../assets/images/common/san.png" class="header_san"/></span>
             <div class="headerDiv2" v-show="ecode">
-              <p class="fl" style="margin-right: 10px;"><img src="../../../static/images/common/erweima.png" class="block"/>App下载</p>
-              <p class="fl"><img src="../../../static/images/common/erweima2.png" class="block"/>微信关注</p>
+              <p class="fl" style="margin-right: 10px;"><img src="../../assets/images/common/erweima.png" class="block"/>App下载</p>
+              <p class="fl"><img src="../../assets/images/common/erweima2.png" class="block"/>微信关注</p>
             </div>
           </router-link>
         </li>
       </ul>
     </div>
     <div class="headerCenter rel clear">
-      <router-link to="/home"  class="fl headerLogo"><img src="../../../static/images/common/logo.png"/></router-link>
-      <router-link to="/home"  class="fl headerGif"><img src="../../../static/images/common/gif.gif"/></router-link>
+      <router-link to="/home"  class="fl headerLogo"><img src="../../assets/images/common/logo.png"/></router-link>
+      <router-link to="/home"  class="fl headerGif"><img src="../../assets/images/common/gif.gif"/></router-link>
       <p class="fl">
         <input type="button" value="搜索"  class="headerBtn fr" @click="findProduct();"/>
         <input type="text" placeholder="请输入搜索内容" class="headerInt fr" id="keyPro"/>
@@ -59,9 +62,9 @@
       </p>
       <div class="paipinDiv rel">
         <a  style="display: ;" href="javascript:;" >
-          <img src="../../../static/images/common/paipinCar.png" class="header_san"/>&nbsp;&nbsp;&nbsp;&nbsp;
+          <img src="../../assets/images/common/paipinCar.png" class="header_san"/>&nbsp;&nbsp;&nbsp;&nbsp;
           我的拍品&nbsp;&nbsp;&nbsp;&nbsp;
-          <img src="../../../static/images/common/paipinSan.png" class="header_san"/>
+          <img src="../../assets/images/common/paipinSan.png" class="header_san"/>
         </a>
         <div class="abs none headPaiDiv">
           <p>竞拍中（<span id="shipai">0</span>）</p>
@@ -127,12 +130,8 @@ import $ from 'jquery'
 export default {
   data () {
     return {
-      uName: false,
       ecode: false,
       tel: false,
-      loginOut: false,
-      log: true,
-      resg: true,
       mobile: '',
       items: [],
       itemsAll: [],
@@ -141,14 +140,6 @@ export default {
   },
   created () {
     this.getMenu()
-    var mobileNumber = localStorage.getItem('mobile')
-    if (mobileNumber !== null) {
-      this.mobile = mobileNumber
-      this.log = false
-      this.uName = true
-      this.resg = false
-      this.loginOut = true
-    }
     KeywordsUrl().then(res => {
       console.log(res)
       this.searchItems = res.data.searchkeyword
@@ -157,7 +148,9 @@ export default {
     })
   },
   computed: {
-
+    uName(){
+      return this.$store.state.userInfo.userName
+    }
   },
   methods: {
     changeLoginway (type) {

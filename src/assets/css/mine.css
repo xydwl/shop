@@ -79,9 +79,19 @@
 .mineJiluData .el-date-editor.el-input{
 	width:160px;
 }
+.mineJiluData .el-date-editor .el-range-input{
+	width:45%!important;
+}
+.mineJiluData .el-range-editor.el-input__inner{
+	padding:0 30px!important;
+	margin-top:10px;
+}
+.mineJiluData .el-input__inner{
+	height:32px;
+}
 .mineJiluData input{
 	width: 100%;
-	height: 32px;
+	height: 27px!important;
 	border: 1px solid #DDDDDD;
 	background: #FFFFFF;
 	color: #666666;
@@ -99,6 +109,8 @@
 }
 .searchbtn{
 	margin-left: 350px;
+	float:right;
+	margin-top:-1px;
 }
 .searchbtn button{
 	background: url(../../assets/images/mine/chongzhiBg.png)no-repeat;
@@ -107,6 +119,7 @@
 	border:none;
 	color: #FFFFFF;
 	cursor: pointer;
+	outline: none;
 }
 .table{
 	width: 928px;
@@ -162,4 +175,7 @@
 .table table {
 	width: 100%;
 	table-layout: fixed;
+}
+.iconposition .el-icon-date{
+	left:0!important;
 }

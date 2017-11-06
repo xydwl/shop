@@ -1,6 +1,6 @@
 import axios from 'axios'
 import config from './api.js'
-// import {hex_md5} from '../assets/js/common/md5.js'
+import md5 from 'js-md5'
 
 const instrance = axios.create({
   baseURL: config.baseUrl,
@@ -43,7 +43,7 @@ export function LoginIn (mobile, pwd, picCode, verificationCodeTempLogin) {
     'userID': '',
     'tokenId': '',
     'mobile': mobile,
-    // 'pwd': hex_md5(pwd),
+    'pwd': md5(pwd),
     'picCode': picCode,
     'verificationCodeTemp': verificationCodeTempLogin
   }
@@ -98,7 +98,7 @@ export function resginUser (mobile, pwd, picCode, resCode, validate) {
     'userID': '',
     'tokenId': '',
     'mobile': mobile,
-    // 'pwd': hex_md5(pwd),
+    'pwd': md5(pwd),
     'picCode': picCode,
     'verificationCodeTemp': resCode,
     'messageCode': validate,
@@ -127,7 +127,7 @@ export function resetPsd (mobile, pwd, picCode, resCode, validate) {
     'sourceMode': 'PC',
     'tokenId': '',
     'mobile': mobile,
-    // 'pwd': hex_md5(pwd),
+    'pwd': md5(pwd),
     'picCode': picCode,
     'verificationCodeTemp': resCode,
     'messageCode': validate,

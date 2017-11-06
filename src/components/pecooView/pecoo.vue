@@ -14,7 +14,10 @@
 	    return {
 
 	    }
-	  },
+		},
+		created(){
+			this.$store.dispatch('getUserInfo')
+		},
 	  components: {
 	    'pecoo-top': headTop,
 	    'pecoo-Bottom': footBottom

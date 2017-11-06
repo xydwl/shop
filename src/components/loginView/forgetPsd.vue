@@ -3,19 +3,19 @@
 		<div class="loginHeader">
 			<div class="header_top">
 				<router-link to="/home">
-					<img src="../../../static/images/logo.png" class="fl header_logo" />
+					<img src="../../assets/images/logo.jpg" class="fl header_logo" />
 				</router-link>
 				<ul class="headerUl1 fr">
 					<li>
-						<router-link :to="{name:'login'}">返回首页</router-link>
+						<router-link :to="{name:'home'}">返回首页</router-link>
 					</li>
 					<li class="header_li2 rel" @mouseenter="enter" @mouseleave="leave">
 						<router-link to="">
 							<i class="ul1Phone"></i>&nbsp;拍库手机&nbsp;
-							<span><img src="../../../static/images/san.png" class="header_san" /></span>
+							<span><img src="../../assets/images/san.png" class="header_san" /></span>
 							<div class="header_div2" v-show="ecode">
-								<p class="fl" style="margin-right: 10px;"><img src="../../../static/images/erweima.png" class="block" />App下载</p>
-								<p class="fl"><img src="../../../static/images/erweima2.png" class="block" />微信关注</p>
+								<p class="fl" style="margin-right: 10px;"><img src="../../assets/images/erweima.png" class="block" />App下载</p>
+								<p class="fl"><img src="../../assets/images/erweima2.png" class="block" />微信关注</p>
 							</div>
 						</router-link>
 					</li>

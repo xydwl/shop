@@ -3,7 +3,7 @@
 		<div class="loginHeader">
 			<div class="header_top">
 				<router-link to="/home">
-					<img src="../../../static/images/logo.png" class="fl header_logo" />
+					<img src="../../assets/images/logo.jpg" class="fl header_logo" />
 				</router-link>
 				<ul class="headerUl1 fr">
 					<li>
@@ -12,10 +12,10 @@
 					<li class="header_li2 rel" @mouseenter="enter" @mouseleave="leave">
 						<router-link to="">
 							<i class="ul1Phone"></i>&nbsp;拍库手机&nbsp;
-							<span><img src="../../../static/images/san.png" class="header_san" /></span>
+							<span><img src="../../assets/images/san.png" class="header_san" /></span>
 							<div class="header_div2" v-show="ecode">
-								<p class="fl" style="margin-right: 10px;"><img src="../../../static/images/erweima.png" class="block" />App下载</p>
-								<p class="fl"><img src="../../../static/images/erweima2.png" class="block" />微信关注</p>
+								<p class="fl" style="margin-right: 10px;"><img src="../../assets/images/erweima.png" class="block" />App下载</p>
+								<p class="fl"><img src="../../assets/images/erweima2.png" class="block" />微信关注</p>
 							</div>
 						</router-link>
 					</li>
@@ -24,7 +24,7 @@
 		</div>
 		<div class="loginMain">
 			<div class="loginCenter">
-				<img src="../../../static/images/bg.jpg" class="fl loginBg" />
+				<img src="../../assets/images/bg.jpg" class="fl loginBg" />
 				<div class="login">
 					<ul class="loginUl">
 						<li :class="{active:loginway==='login'}" class="loginUlLi1" @click="changeLoginway('login')">登录</li>
@@ -33,11 +33,11 @@
 					<div class="loginDiv" v-if="loginway ==='login'">
 						<alert-tip :alertTips="alertTips" v-show="tipShow"></alert-tip>
 						<p class="loginTel">
-							<img src="../../../static/images/user.png" class="fl" style="vertical-align: middle;" />
+							<img src="../../assets/images/user.png" class="fl" style="vertical-align: middle;" />
 							<input type="text" placeholder="手机号" v-model="userName" class="loginUser" id="username" />
 						</p>
 						<p class="loginTel">
-							<img src="../../../static/images/password.png" class="fl" />
+							<img src="../../assets/images/password.png" class="fl" />
 							<input type="password" placeholder="密码" v-model="password" class="loginPassword" id="password" />
 						</p>
 						<p>
@@ -189,7 +189,6 @@
 }
 </style>
 <script>
-// import {mapGetters} from 'vuex'
 import config from '../../service/api.js'
 // getVal
 import {getcaptchas, phoneNum, resginUser} from '../../service/configApi.js'
@@ -285,7 +284,10 @@ export default {
         this.tipShow = true
         this.alertTips = '图片验证码错误'
       } else if (logValue.data.code === '0000') {
-        localStorage.setItem('tokenId', logValue.data.tokenId)// this.$router.push('/home');
+				localStorage.setItem('tokenId', logValue.data.tokenId)
+				this.$router.push({
+					'name': 'login'
+				})
       }
       this.getCaptchaCode()
     },
