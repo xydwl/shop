@@ -20,7 +20,7 @@ const specialWork = () => import('@/components/footerView/specialWork')
 
 // 个人中心
 const mine = () => import('@/components/meCenterView/mine')
-const AuctionOrder = () => import('@/components/meCenterView/AuctionOrder')
+const AuctionOrder = () => import('@/components/meCenterView/auctionOrderView/AuctionOrder')
 Vue.use(Router)
 
 const router = new Router({

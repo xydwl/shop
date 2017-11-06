@@ -65,7 +65,7 @@
     <div class="promptDiv rel">
       <p>
         温馨提示
-        <img src="../../assets/images/mine/X.png" class="promptDivX" onclick="promptHide()" />
+        <img src="../../../assets/images/mine/X.png" class="promptDivX" onclick="promptHide()" />
       </p>
       <div>
         尊敬的拍库网用户：
@@ -79,7 +79,7 @@
   </div>
 </template>
 <script>
-import { myBidgoods, myBuctions, myPays, myShippers, myBuys, myBuyFails } from '../../api/restApi'
+import { myBidgoods, myBuctions, myPays, myShippers, myBuys, myBuyFails } from '../../../api/restApi'
 export default {
   props: {
     mineType: {
@@ -106,11 +106,11 @@ export default {
     sortGoods (e) {
       console.log(this.sortchecked)
       if (!this.sortchecked) {
-        e.target.style.backgroundImage = 'url(' + require('../../assets/images/mine/sanTop.png')
+        e.target.style.backgroundImage = 'url(' + require('../../../assets/images/mine/sanTop.png')
         this.sortchecked = true
         this.sortValue = 'startTime02'
       } else {
-        e.target.style.backgroundImage = 'url(' + require('../../assets/images/mine/sanBottom.png')
+        e.target.style.backgroundImage = 'url(' + require('../../../assets/images/mine/sanBottom.png')
         this.sortchecked = false
         this.sortValue = 'startTime01'
       }
@@ -171,6 +171,6 @@ export default {
 }
 </script>
 <style scoped>
-@import '../../assets/css/myBid.css';
+@import '../../../assets/css/myBid.css';
 </style>
 

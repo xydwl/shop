@@ -159,7 +159,7 @@
 <script>
 import { AllGoods } from '../../api/restApi'
 import moment from 'moment'
-import auctionOrder from './AuctionOrder'
+// import auctionOrder from './AuctionOrder'
 export default {
   data () {
     return {
