@@ -7,7 +7,7 @@ const PecooIndex = {}
 const userCenter = {}
 
 // 登录
-Auth.LoginIn = { url: '/login/loginIn.htm', method: 'post'}
+Auth.LoginIn = {url: '/login/loginIn.htm', method: 'post'}
 // 获取手机验证码
 Auth.phoneNum = {url: '/login/getVerificationCode.htm', method: 'post'}
 // 图片图形验证码

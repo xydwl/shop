@@ -20,13 +20,17 @@ const specialWork = () => import('@/components/footerView/specialWork')
 
 // 个人中心
 const mine = () => import('@/components/meCenterView/mine')
+const AuctionOrder = () => import('@/components/meCenterView/AuctionOrder')
 Vue.use(Router)
 
 const router = new Router({
   routes: [
     {
-      path: '/pecoo',
-      name: 'pecoo',
+      path: '/',
+      redirect: '/home'
+    },
+    {
+      path: '/',
       component: pecoo,
       children: [
         {
@@ -88,7 +92,17 @@ const router = new Router({
         {
           path: 'mine',
           name: 'Mine',
-          component: mine
+          component: mine,
+          meta: {
+            requiresAuth: true
+          },
+          children: [
+            {
+              path: 'auctionOrder',
+              name: 'AuctionOrder',
+              component: AuctionOrder
+            }
+          ]
         }
       ]
     },
@@ -103,6 +117,21 @@ const router = new Router({
       component: forget
     }
   ]
+})
+
+router.beforeEach(async (to, from, next) => {
+  const tokenId = localStorage.getItem('tokenId')
+  if (to.matched.some(item => item.meta.requiresAuth)) {
+    console.log(tokenId)
+    if (tokenId) {
+      next()
+    } else {
+      console.log('erwwe')
+      next({path: '/login'})
+    }
+  } else {
+    next() // 确保一定要调用 next()
+  }
 })
 
 export default router

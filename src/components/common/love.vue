@@ -38,6 +38,7 @@ export default {
       var dlWidth = $('.loveDiv ul li a').outerWidth(true)
       var leftValue = $('.loveDiv ul').position().left
       var i = parseInt(leftValue / dlWidth)
+      console.log(i)
       if (i > -5) {
         $('.loveDiv ul').stop().animate({
           'left': (i - 1) * dlWidth

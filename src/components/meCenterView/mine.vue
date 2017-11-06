@@ -20,7 +20,7 @@
         </div>
         <!--右侧部分-->
         <div class="mineRight fr">
-          <div class="rMyPecoo"  v-if="!mineType">
+          <div class="rMyPecoo" v-if="!mineType">
             <!--详细介绍部分-->
             <div class="MyPecooDiv1">
               <dl class="myPecooDl1">
@@ -148,7 +148,8 @@
               </el-pagination>
             </div>
           </div>
-          <auction-Order :mineType="mineType" v-if="mineType"></auction-Order>
+          <router-view :mineType="mineType"></router-view>
+          <!-- <auction-Order :mineType="mineType" v-if="mineType"></auction-Order> -->
         </div>
       </div>
     </div>
@@ -207,7 +208,7 @@ export default {
       this.totalIndex = indexs
     },
     async checkALlBid () {
-      let response = await AllGoods(this.tokenId, 1, 10, moment(this.dateStart).format('YYYY-MM-DD'), '' || moment(this.dateEnd).format('YYYY-MM-DD'))
+      let response = await AllGoods(this.tokenId, 1, 10, '', '')
       console.log(response)
       if (response.data.code === '0000') {
         this.allItems = response.data

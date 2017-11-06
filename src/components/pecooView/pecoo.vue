@@ -10,14 +10,14 @@
 	import headTop from '../common/header'
 	import footBottom from '../common/footer'
 	export default{
-		data () {
-			return{
+	  data () {
+	    return {
 
-			}
-		},
-		components:{
-			'pecoo-top':headTop,
-			'pecoo-Bottom':footBottom
-		}
+	    }
+	  },
+	  components: {
+	    'pecoo-top': headTop,
+	    'pecoo-Bottom': footBottom
+	  }
 	}
 </script>

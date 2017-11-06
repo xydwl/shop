@@ -258,10 +258,10 @@ export default {
         return false
       } else {
         let regValue = await resginUser(this.registerUserName, this.registerPassword, this.picCode, this.resginCode, this.validate)
-        if (regValue.code == '400019') {
+        if (regValue.code === '400019') {
           this.tipShow = true
           this.alertTips = '改手机号已被注册'
-        } else if (regValue.code == '0000') {
+        } else if (regValue.code === '0000') {
           this.$router.push('/login')
         }
       }
@@ -301,7 +301,7 @@ export default {
         } else {
           let les = await phoneNum(this.registerUserName, this.picCode, this.resginCode)
           var validCode = true
-          if (les.code == 100601) {
+          if (les.code === 100601) {
             this.tipShow = true
             this.alertTips = '图片验证码错误'
             this.getCaptchaCode()
