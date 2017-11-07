@@ -148,7 +148,7 @@ export default {
     })
   },
   computed: {
-    uName(){
+    uName () {
       return this.$store.state.userInfo.userName
     }
   },

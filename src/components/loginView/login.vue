@@ -284,10 +284,10 @@ export default {
         this.tipShow = true
         this.alertTips = '图片验证码错误'
       } else if (logValue.data.code === '0000') {
-				localStorage.setItem('tokenId', logValue.data.tokenId)
-				this.$router.push({
-					'name': 'login'
-				})
+        localStorage.setItem('tokenId', logValue.data.tokenId)
+        this.$router.push({
+          'name': 'home'
+        })
       }
       this.getCaptchaCode()
     },
