@@ -11,6 +11,18 @@ var poster = axios.create({
   }]
 })
 
+// 图片验证码
+export function getcaptchas () {
+  return poster({
+    url: '/login/getVerificationCodeTemp.htm',
+    method: 'POST'
+  }).then(function (data) {
+    var res = data.data
+    return res
+  }).catch(function (error) {
+    console.log(error)
+  })
+}
 /**
  * 登录
  */

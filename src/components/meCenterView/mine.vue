@@ -156,7 +156,6 @@
             </div>
           </div>
           <router-view :mineType="mineType"></router-view>
-          <!-- <auction-Order :mineType="mineType" v-if="mineType"></auction-Order> -->
         </div>
       </div>
     </div>
@@ -165,15 +164,12 @@
 
 <script>
 import { AllGoods } from '../../api/restApi'
-import moment from 'moment'
-// import auctionOrder from './AuctionOrder'
+// import moment from 'moment'
 export default {
   data () {
     return {
       tabIndex: null,
       totalIndex: null,
-      dateStart: null,
-      dateEnd: null,
       firstValue: '',
       currentPage: 1,
       totalPage: null,
@@ -232,7 +228,7 @@ export default {
       this.totalIndex = indexs
     },
     async checkALlBid () {
-      let response = await AllGoods(this.tokenId, 1, 10, '', '')
+      let response = await AllGoods(this.tokenId, 1, 10, this.dateArr[0], this.dateArr[1])
       console.log(response)
       if (response.data.code === '0000') {
         this.allItems = response.data
@@ -249,7 +245,7 @@ export default {
     },
     async handleCurrentChange (val) {
       this.firstValue = '第 ' + val + ' 页'
-      let response = await AllGoods(this.tokenId, val, 10, '' || moment(this.dateStart).format('YYYY-MM-DD'), '' || moment(this.dateEnd).format('YYYY-MM-DD'))
+      let response = await AllGoods(this.tokenId, val, 10, this.dateArr[0], this.dateArr[1])
       if (response.data.code === '0000') {
         this.todaygoods = response.data
       }

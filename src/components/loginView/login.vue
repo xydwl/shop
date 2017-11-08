@@ -191,8 +191,8 @@
 <script>
 import config from '../../service/api.js'
 // getVal
-import {getcaptchas, phoneNum, resginUser} from '../../service/configApi.js'
-import { LoginIn } from '../../api/restApi.js'
+// import {getcaptchas, phoneNum, resginUser} from '../../service/configApi.js'
+import {LoginIn, getcaptchas, phoneNum, resginUser} from '../../api/restApi.js'
 import footBottom from '../common/footer'
 import alertTip from '../common/alertTips'
 export default {
