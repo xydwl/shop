@@ -228,7 +228,13 @@ export default {
       this.totalIndex = indexs
     },
     async checkALlBid () {
-      let response = await AllGoods(this.tokenId, 1, 10, this.dateArr[0], this.dateArr[1])
+      if (this.dateArr) {
+        this.dateArr = this.dateArr
+      } else {
+        this.dateArr = ['', '']
+      }
+      console.log(this.dateArr)
+      let response = await AllGoods(this.tokenId, 1, 10, this.dateArr[0] || '', this.dateArr[1] || '')
       console.log(response)
       if (response.data.code === '0000') {
         this.allItems = response.data
@@ -245,7 +251,7 @@ export default {
     },
     async handleCurrentChange (val) {
       this.firstValue = '第 ' + val + ' 页'
-      let response = await AllGoods(this.tokenId, val, 10, this.dateArr[0], this.dateArr[1])
+      let response = await AllGoods(this.tokenId, val, 10, this.dateArr[0] || '', this.dateArr[1] || '')
       if (response.data.code === '0000') {
         this.todaygoods = response.data
       }

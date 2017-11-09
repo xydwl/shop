@@ -69,9 +69,7 @@
 
 <script>
 import footBottom from '../common/footer'
-import { getcaptchas, phoneNum, resetPsd } from '../../service/configApi.js'
-// import {getVal} from '../service/getData.js'
-import config from '../../service/api.js'
+import {getcaptchas, phoneNum, resetPsd} from '../../api/restApi.js'
 import alertTip from '../common/alertTips'
 export default {
   data () {
@@ -107,7 +105,7 @@ export default {
     async getCaptchaCode () {
       let srcde = await getcaptchas()
       this.resginCode = srcde
-      this.src = config.baseUrl + '/login/getValidateImgCode.htm?getVerificationCodeTemp=' + srcde + '&n=' + Math.floor(Math.random() * 100)
+      this.src = 'http://www.pecoo.com/pecooservice/api/login/getValidateImgCode.htm?getVerificationCodeTemp=' + srcde + '&n=' + Math.floor(Math.random() * 100)
     },
     async getPhone (e) {
       this.tipShow = false

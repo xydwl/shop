@@ -14,8 +14,8 @@ var poster = axios.create({
 // 图片验证码
 export function getcaptchas () {
   return poster({
-    url: '/login/getVerificationCodeTemp.htm',
-    method: 'POST'
+    url: Auth.getcaptchas.url,
+    method: Auth.getcaptchas.method
   }).then(function (data) {
     var res = data.data
     return res

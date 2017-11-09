@@ -189,9 +189,6 @@
 }
 </style>
 <script>
-import config from '../../service/api.js'
-// getVal
-// import {getcaptchas, phoneNum, resginUser} from '../../service/configApi.js'
 import {LoginIn, getcaptchas, phoneNum, resginUser} from '../../api/restApi.js'
 import footBottom from '../common/footer'
 import alertTip from '../common/alertTips'
@@ -338,7 +335,7 @@ export default {
       let srcde = await getcaptchas()
       this.loginCode = srcde
       this.resginCode = srcde
-      this.src = config.baseUrl + '/login/getValidateImgCode.htm?getVerificationCodeTemp=' + srcde + '&n=' + Math.floor(Math.random() * 100)
+      this.src = 'http://www.pecoo.com/pecooservice/api/login/getValidateImgCode.htm?getVerificationCodeTemp=' + srcde + '&n=' + Math.floor(Math.random() * 100)
     }
 
   }
