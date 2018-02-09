@@ -78,11 +78,7 @@ export default {
     }
   },
   async created () {
-    let response = await auctionDetail(this.actionId, 1, 60)
-    if (response.status === 200) {
-      this.aucitonTopList = response.data
-      this.auctionDelList = response.data.goods
-    }
+    await this.getAuctionList()
     document.title = this.aucitonTopList.name + '-拍卖会-拍卖网'
     this.firstValue = '第 ' + this.currentPage + ' 页'
     this.totalPage = Math.floor(this.aucitonTopList.totalCount / this.aucitonTopList.pageSize) + 1
@@ -91,15 +87,22 @@ export default {
     collectWay: _.debounce(function () {
       this.$toasted.info('您还没有登录，请先去登陆！')
     }, 300),
-    async handleCurrentChange (val) {
+    handleCurrentChange (val) {
       this.firstValue = '第 ' + val + ' 页'
-      let response = await auctionDetail(this.actionId, val, 60)
-      if (response.status === 200) {
-        this.auctionDelList = response.data.goods
-      }
+      this.currentPage = val
+      this.getAuctionList()
     },
     handlepage (item) {
       this.currentPage = parseInt(item.split(' ')[1])
+    },
+    async getAuctionList () {
+      try {
+        let response = await auctionDetail(this.actionId, this.currentPage, 60)
+        this.aucitonTopList = response.data
+        this.auctionDelList = response.data.goods
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }

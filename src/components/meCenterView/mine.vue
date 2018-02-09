@@ -47,7 +47,7 @@
                   <p>保证金：
                     <span></span>
                     <span id="marginBalenceSpan">{{queryInfos.marginBalence}}</span>元</p>
-                  <p>(可用</span>
+                  <p>(可用
                     <span id="trasferMarginBalenceSpan">{{queryInfos.trasferMarginBalence}}</span>元)</p>
                   <p>余&nbsp;&nbsp;&nbsp;额：
                     <span></span>

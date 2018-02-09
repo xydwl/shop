@@ -78,9 +78,9 @@
 							<input class="add" name="" type="button" @click="addNum" />
 						</p>
 						<p class="detailBidNum">
-							<span class="bidNum" style="width:200px;">当前竞拍人数(
-								<sl id="bidNo">0</sl>人)</span><br>
-							<span class="bidGui"@click=" showRule= !showRule">出价规则</span>
+							<!-- <span class="bidNum" style="width:200px;">当前竞拍人数(
+								<sl id="bidNo">0</sl>人)</span><br> -->
+							<span class="bidGui" @click=" showRule= !showRule">出价规则</span>
 						</p>
 						<div class="abs detailGui" style="z-index: 500;" v-show="showRule">
 							<img src="../../assets/images/detail/guize.png" />
@@ -190,7 +190,7 @@
 							<span>The auction show</span>
 						</p>
 						<ul class="showImg" id="underPic">
-							<li v-for="(item,index) in picItems" :key="item.seqNum">
+							<li v-for="item in picItems" :key="item.seqNum">
 								<span>
 									<img :src="item.smallPicUrl"/>
 								</span>

@@ -71,6 +71,7 @@
 import footBottom from '../common/footer'
 import {getcaptchas, phoneNum, resetPsd} from '../../api/restApi.js'
 import alertTip from '../common/alertTips'
+import md5 from 'js-md5'
 export default {
   data () {
     return {
@@ -104,11 +105,24 @@ export default {
     },
     async getCaptchaCode () {
       let srcde = await getcaptchas()
-      this.resginCode = srcde
-      this.src = 'http://www.pecoo.com/pecooservice/api/login/getValidateImgCode.htm?getVerificationCodeTemp=' + srcde + '&n=' + Math.floor(Math.random() * 100)
+      try {
+        if (srcde.status === 200) {
+          this.resginCode = srcde.data
+          this.src = 'http://www.pecoo.com/pecooservice/api/login/getValidateImgCode.htm?getVerificationCodeTemp=' + srcde.data + '&n=' + Math.floor(Math.random() * 100)
+        }
+      } catch (error) {
+        console.log(error)
+      }
     },
     async getPhone (e) {
       this.tipShow = false
+      let data = {
+        sourceMode: 'PC',
+        mobile: this.phone,
+        picCode: this.picCode,
+        verificationCodeTemp: this.resginCode,
+        reset: '0'
+      }
       if (this.phone === '') {
         this.tipShow = true
         this.alertTips = '手机号不为空'
@@ -117,32 +131,36 @@ export default {
           this.tipShow = true
           this.alertTips = '两次密码输入不一致'
         } else {
-          let les = await phoneNum(this.phone, this.picCode, this.resginCode)
-          var validCode = true
-          if (les.code === 100601) {
-            this.tipShow = true
-            this.alertTips = '图片验证码错误'
-            this.getCaptchaCode()
-          } else if (les.code === 100601) {
-            this.tipShow = true
-            this.alertTips = '改手机号已被注册'
-            this.getCaptchaCode()
-          } else if (les.code === '0000') {
-            this.tipShow = true
-            this.alertTips = '验证码已发送'
-            var time = 60
-            if (validCode) {
-              validCode = false
-              var t = setInterval(function () {
-                time--
-                e.target.innerHTML = time + '秒'
-                if (time === 0) {
-                  clearInterval(t)
-                  e.target.innerHTML = '重新发送'
-                  validCode = true
-                }
-              }, 1000)
+          let les = await phoneNum(data)
+          try {
+            var validCode = true
+            if (les.code === 100601) {
+              this.tipShow = true
+              this.alertTips = '图片验证码错误'
+              this.getCaptchaCode()
+            } else if (les.code === 100601) {
+              this.tipShow = true
+              this.alertTips = '改手机号已被注册'
+              this.getCaptchaCode()
+            } else if (les.code === '0000') {
+              this.tipShow = true
+              this.alertTips = '验证码已发送'
+              var time = 60
+              if (validCode) {
+                validCode = false
+                var t = setInterval(function () {
+                  time--
+                  e.target.innerHTML = time + '秒'
+                  if (time === 0) {
+                    clearInterval(t)
+                    e.target.innerHTML = '重新发送'
+                    validCode = true
+                  }
+                }, 1000)
+              }
             }
+          } catch (error) {
+            console.log(error)
           }
         }
       } else {
@@ -151,12 +169,24 @@ export default {
       }
     },
     async getResetPsd () {
-      let resCode = await resetPsd(this.phone, this.newPsd, this.picCode, this.resginCode, this.validate)
-      if (resCode.code === '0000') {
-        this.$router.push('/login')
-      } else if (resCode.code === 100501) {
-        this.tipShow = true
-        this.alertTips = resCode.message
+      let data = {
+        sourceMode: 'PC',
+        mobile: this.phone,
+        pwd: md5(this.newPsd),
+        picCode: this.picCode,
+        verificationCodeTemp: this.resginCode,
+        messageCode: this.validate
+      }
+      let resCode = await resetPsd(data)
+      try {
+        if (resCode.code === '0000') {
+          this.$router.push('/login')
+        } else if (resCode.code === 100501) {
+          this.tipShow = true
+          this.alertTips = resCode.message
+        }
+      } catch (error) {
+        console.log(error)
       }
     }
   }

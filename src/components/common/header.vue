@@ -28,18 +28,22 @@
         <li class="headerLi1" @mouseenter="enter" @mouseleave="leave">
           <router-link to="">
             <i class="ul1Tel"></i>&nbsp;联系客服&nbsp;<span><img src="../../assets/images/common/san.png" class="header_san"/></span>
-            <div class="headerDiv1" v-show="tel">
-              电话:<br>400-111-2016
-            </div>
+            <transition name="fade">
+              <div class="headerDiv1" v-show="tel">
+                电话:<br>400-111-2016
+              </div>
+            </transition> 
           </router-link>
         </li>
         <li class="headerLi2" @mouseenter="enter" @mouseleave="leave">
           <router-link to="">
             <i class="ul1Phone"></i>&nbsp;拍库手机&nbsp;<span><img src="../../assets/images/common/san.png" class="header_san"/></span>
-            <div class="headerDiv2" v-show="ecode">
-              <p class="fl" style="margin-right: 10px;"><img src="../../assets/images/common/erweima.png" class="block"/>App下载</p>
-              <p class="fl"><img src="../../assets/images/common/erweima2.png" class="block"/>微信关注</p>
-            </div>
+            <transition name="fade">
+              <div class="headerDiv2" v-show="ecode">
+                <p class="fl" style="margin-right: 10px;"><img src="../../assets/images/common/erweima.png" class="block"/>App下载</p>
+                <p class="fl"><img src="../../assets/images/common/erweima2.png" class="block"/>微信关注</p>
+              </div>
+            </transition>
           </router-link>
         </li>
       </ul>
@@ -138,14 +142,14 @@ export default {
       searchItems: []
     }
   },
-  created () {
+  async created () {
     this.getMenu()
-    KeywordsUrl().then(res => {
-      console.log(res)
+    try {
+      let res = await KeywordsUrl()
       this.searchItems = res.data.searchkeyword
-    }).catch(err => {
-      console.log(err)
-    })
+    } catch (error) {
+      console.log(error)
+    }
   },
   computed: {
     uName () {
@@ -216,4 +220,10 @@ export default {
     right:2px;
     top:-8px!important;
   }
+  .fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>

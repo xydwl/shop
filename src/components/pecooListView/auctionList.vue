@@ -69,23 +69,26 @@ export default {
   },
   async created () {
     document.title = '拍卖会'
-    let response = await pageAuction(1, 10)
-    if (response.data.code === '0000') {
-      this.auctionsList = response.data
-    }
+    await this.getAuctionList()
     this.firstValue = '第 ' + this.currentPage + ' 页'
     this.totalPage = Math.floor(this.auctionsList.totalCount / this.auctionsList.pageSize) + 1
   },
   methods: {
     async handleCurrentChange (val) {
       this.firstValue = '第 ' + val + ' 页'
-      let response = await pageAuction(val, 10)
-      if (response.data.code === '0000') {
-        this.auctionsList = response.data
-      }
+      this.currentPage = val
+      this.getAuctionList()
     },
     handlepage (item) {
       this.currentPage = parseInt(item.split(' ')[1])
+    },
+    async getAuctionList () {
+      try {
+        let response = await pageAuction(this.currentPage, 10)
+        this.auctionsList = response.data
+      } catch (error) {
+        console.log(error)
+      }
     }
   },
   components: {

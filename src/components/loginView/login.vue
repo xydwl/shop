@@ -177,21 +177,11 @@
 		<foot-bottom></foot-bottom>
 	</div>
 </template>
-<style scoped>
-@import '../../assets/css/login.css';
-.headerUl1 {
-	margin-top: 20px;
-	display: inline-flex;
-}
-
-.headerUl1 li:nth-child(1) {
-	margin-right: 15px;
-}
-</style>
 <script>
 import {LoginIn, getcaptchas, phoneNum, resginUser} from '../../api/restApi.js'
 import footBottom from '../common/footer'
 import alertTip from '../common/alertTips'
+import md5 from 'js-md5'
 export default {
   data () {
     return {
@@ -254,42 +244,78 @@ export default {
         this.alertTips = '协议没有选中哦'
         return false
       } else {
-        let regValue = await resginUser(this.registerUserName, this.registerPassword, this.picCode, this.resginCode, this.validate)
-        if (regValue.code === '400019') {
-          this.tipShow = true
-          this.alertTips = '改手机号已被注册'
-        } else if (regValue.code === '0000') {
-          this.$router.push('/login')
+        let data = {
+          sourceMode: 'PC',
+          mobile: this.registerUserName,
+          pwd: md5(this.registerPasswor),
+          picCode: this.picCode,
+          verificationCodeTemp: this.resginCode,
+          messageCode: this.validate
+        }
+        let regValue = await resginUser(data)
+        try {
+          if (regValue.code === '400019') {
+            this.tipShow = true
+            this.alertTips = '改手机号已被注册'
+          } else if (regValue.code === '0000') {
+            this.$router.push('/login')
+          }
+        } catch (error) {
+          console.log(error)
         }
       }
     },
     async subLogin () {
-      let logValue = await LoginIn(this.userName, this.password, this.picCode, this.loginCode)
-      console.log(logValue)
       if (this.picCode === '' || this.picCode === null) {
         this.tipShow = true
         this.alertTips = '图片验证码不为空'
         return false
       }
-      if (logValue.data.code === 400010) {
-        this.tipShow = true
-        this.alertTips = '登陆密码错误'
-      } else if (logValue.data.code === 400012) {
-        this.tipShow = true
-        this.alertTips = '用户不存在'
-      } else if (logValue.data.code === 100016) {
-        this.tipShow = true
-        this.alertTips = '图片验证码错误'
-      } else if (logValue.data.code === '0000') {
-        localStorage.setItem('tokenId', logValue.data.tokenId)
-        this.$router.push({
-          'name': 'home'
-        })
+      let data = {
+        sourceMode: 'PC',
+        mobile: this.userName,
+        pwd: md5(this.password),
+        picCode: this.picCode,
+        verificationCodeTemp: this.loginCode
+      }
+      let logValue = await LoginIn(data)
+      try {
+        switch (logValue.data.code) {
+          case '0000':
+            localStorage.setItem('tokenId', logValue.data.tokenId)
+            this.$router.push({
+              'name': 'home'
+            })
+            break
+          case 400010:
+            this.tipShow = true
+            this.alertTips = '登陆密码错误'
+            break
+          case 400012:
+            this.tipShow = true
+            this.alertTips = '用户不存在'
+            break
+          case 400016:
+            this.tipShow = true
+            this.alertTips = '图片验证码错误'
+            break
+          default:
+            alert('登录出错！')
+        }
+      } catch (error) {
+        console.log(error)
       }
       this.getCaptchaCode()
     },
     async getPhone (e) {
       this.tipShow = false
+      let data = {
+        sourceMode: 'PC',
+        mobile: this.registerUserName,
+        picCode: this.picCode,
+        verificationCodeTemp: this.resginCode,
+        reset: '0'
+      }
       if (this.registerUserName === '') {
         this.tipShow = true
         this.alertTips = '手机号不为空'
@@ -298,32 +324,36 @@ export default {
           this.tipShow = true
           this.alertTips = '两次密码输入不一致'
         } else {
-          let les = await phoneNum(this.registerUserName, this.picCode, this.resginCode)
+          let les = await phoneNum(data)
           var validCode = true
-          if (les.code === 100601) {
-            this.tipShow = true
-            this.alertTips = '图片验证码错误'
-            this.getCaptchaCode()
-          } else if (les.code === 100601) {
-            this.tipShow = true
-            this.alertTips = '改手机号已被注册'
-            this.getCaptchaCode()
-          } else if (les.code === '0000') {
-            this.tipShow = true
-            this.alertTips = '验证码已发送'
-            var time = 60
-            if (validCode) {
-              validCode = false
-              var t = setInterval(function () {
-                time--
-                e.target.innerHTML = time + '秒'
-                if (time === 0) {
-                  clearInterval(t)
-                  e.target.innerHTML = '重新发送'
-                  validCode = true
-                }
-              }, 1000)
+          try {
+            if (les.code === 100601) {
+              this.tipShow = true
+              this.alertTips = '图片验证码错误'
+              this.getCaptchaCode()
+            } else if (les.code === 100601) {
+              this.tipShow = true
+              this.alertTips = '改手机号已被注册'
+              this.getCaptchaCode()
+            } else if (les.code === '0000') {
+              this.tipShow = true
+              this.alertTips = '验证码已发送'
+              var time = 60
+              if (validCode) {
+                validCode = false
+                var t = setInterval(function () {
+                  time--
+                  e.target.innerHTML = time + '秒'
+                  if (time === 0) {
+                    clearInterval(t)
+                    e.target.innerHTML = '重新发送'
+                    validCode = true
+                  }
+                }, 1000)
+              }
             }
+          } catch (error) {
+            console.log(error)
           }
         }
       } else {
@@ -333,11 +363,29 @@ export default {
     },
     async getCaptchaCode () {
       let srcde = await getcaptchas()
-      this.loginCode = srcde
-      this.resginCode = srcde
-      this.src = 'http://www.pecoo.com/pecooservice/api/login/getValidateImgCode.htm?getVerificationCodeTemp=' + srcde + '&n=' + Math.floor(Math.random() * 100)
+      try {
+        if (srcde.status === 200) {
+          this.loginCode = srcde.data
+          this.resginCode = srcde.data
+          this.src = 'http://www.pecoo.com/pecooservice/api/login/getValidateImgCode.htm?getVerificationCodeTemp=' + srcde.data + '&n=' + Math.floor(Math.random() * 100)
+        }
+      } catch (error) {
+        console.log(error)
+      }
     }
 
   }
 }
 </script>
+
+<style scoped>
+@import '../../assets/css/login.css';
+.headerUl1 {
+	margin-top: 20px;
+	display: inline-flex;
+}
+
+.headerUl1 li:nth-child(1) {
+	margin-right: 15px;
+}
+</style>

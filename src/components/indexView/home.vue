@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="block">
+    <div class="block" style="padding-top:0;">
       <el-carousel height="400px">
         <el-carousel-item v-for="item in banItems" :key="item.picUrl">
           <router-link to="">
@@ -454,72 +454,89 @@ export default {
         scrollTop: 0
       }, 500)
     },
-    getBanner () {
-      queryBanner().then(res => {
+    async getBanner () {
+      try {
+        let res = await queryBanner()
         this.banItems = res.data.banners
-      }).catch(err => {
-        console.log(err)
-      })
+      } catch (error) {
+        console.log(error)
+      }
     },
-    getToday () {
-      queryQualityGoodsUrl(1, 8, 'start_time/01').then(res => {
+    async getToday () {
+      let data = {
+        sourceMode: 'PC',
+        tokenId: '',
+        pageNo: 1,
+        pageSize: 8,
+        sort: 'start_time/01'
+      }
+      let res = await queryQualityGoodsUrl(data)
+      try {
         this.todayItems = res.data.goods
-      }).catch(err => {
-        console.log(err)
-      })
+      } catch (error) {
+        console.log(error)
+      }
     },
-    getAuction () {
-      queryQualityAuctionUrl().then(res => {
+    async getAuction () {
+      let res = await queryQualityAuctionUrl()
+      try {
         this.auctionItems = res.data.auctions
-      }).catch(err => {
-        console.log(err)
-      })
+      } catch (error) {
+        console.log(error)
+      }
     },
-    getPagegoods () {
-      queryIndexPageGoodsUrl('005').then(res => {
+    async getPagegoods () {
+      try {
+        let res = await queryIndexPageGoodsUrl('005')
         res.data.goods = res.data.goods.splice(0, 6)
         res.data.childTypes = res.data.childTypes.splice(0, 6)
         this.jewelItems = res.data
-      }).catch(err => {
-        console.log(err)
-      })
-      queryIndexPageGoodsUrl('003').then(res => {
+      } catch (error) {
+        console.log(error)
+      }
+      try {
+        let res = await queryIndexPageGoodsUrl('003')
         res.data.goods = res.data.goods.splice(0, 6)
         this.artItems = res.data
-      }).catch(err => {
-        console.log(err)
-      })
-      queryIndexPageGoodsUrl('004').then(res => {
+      } catch (error) {
+        console.log(error)
+      }
+      try {
+        let res = await queryIndexPageGoodsUrl('004')
         res.data.goods = res.data.goods.splice(0, 6)
         this.watchItems = res.data
-      }).catch(err => {
-        console.log(err)
-      })
-      queryIndexPageGoodsUrl('006').then(res => {
+      } catch (error) {
+        console.log(error)
+      }
+      try {
+        let res = await queryIndexPageGoodsUrl('006')
         res.data.goods = res.data.goods.splice(0, 6)
         this.collectItems = res.data
-      }).catch(err => {
-        console.log(err)
-      })
-      queryIndexPageGoodsUrl('007').then(res => {
+      } catch (error) {
+        console.log(error)
+      }
+      try {
+        let res = await queryIndexPageGoodsUrl('007')
         res.data.goods = res.data.goods.splice(0, 6)
         this.carItems = res.data
-      }).catch(err => {
-        console.log(err)
-      })
-      queryIndexPageGoodsUrl('008').then(res => {
+      } catch (error) {
+        console.log(error)
+      }
+      try {
+        let res = await queryIndexPageGoodsUrl('008')
         res.data.goods = res.data.goods.splice(0, 6)
         this.caremaItems = res.data
-      }).catch(err => {
-        console.log(err)
-      })
+      } catch (error) {
+        console.log(error)
+      }
     },
-    flashgoods () {
-      queryQualityFlashGoodsUrl().then(res => {
+    async flashgoods () {
+      try {
+        let res = await queryQualityFlashGoodsUrl()
         this.luxuryItems = res.data.goods.splice(0, 8)
-      }).catch(err => {
-        console.log(err)
-      })
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 

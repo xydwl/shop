@@ -179,7 +179,7 @@
 	padding: 20px 20px 10px 20px;
 }
 .detailBid span:first-child{
-	color: #E93B39;
+	color: #7E69B4;
 	display: inline-block;
 	width: 80px;
 }
@@ -835,4 +835,13 @@
 }
 #auctionAuction a:hover {
 	color: #463B7F;
+}
+
+.baoGuiImg{
+	top:20px;
+	left:-161px;
+}
+.detailBidNum{
+	margin-left:10px;
+	transform: initial;
 }

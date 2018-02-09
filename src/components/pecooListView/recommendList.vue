@@ -71,32 +71,37 @@ export default {
     }
   },
   async created () {
-    let response = await queryQualityGoodsUrl(1, 60, this.sort)
-    if (response.data.code === '0000') {
-      this.todaygoods = response.data
-    }
+    await this.getTodayList()
     this.firstValue = '第 ' + this.currentPage + ' 页'
-    this.totalPage =
-      Math.floor(this.todaygoods.totalCount / this.todaygoods.pageSize) + 1
+    this.totalPage = Math.floor(this.todaygoods.totalCount / this.todaygoods.pageSize) + 1
   },
   methods: {
-    async handleCurrentChange (val) {
+    handleCurrentChange (val) {
       this.firstValue = '第 ' + val + ' 页'
-      let response = await queryQualityGoodsUrl(val, 60, this.sort)
-      if (response.data.code === '0000') {
-        this.todaygoods = response.data
-      }
       this.currentPage = val
+      this.getTodayList()
     },
     handlepage (item) {
       this.currentPage = parseInt(item.split(' ')[1])
     },
-    async sortValue (item) {
-      // console.log(document.querySelector(''))
+    sortValue (item) {
       this.currentPage = 1
-      let response = await queryQualityGoodsUrl(1, 60, item.sortName)
-      if (response.data.code === '0000') {
+      this.sort = item.sortName
+      this.getTodayList()
+    },
+    async getTodayList () {
+      let data = {
+        sourceMode: 'PC',
+        tokenId: '',
+        pageNo: this.currentPage,
+        pageSize: 60,
+        sort: this.sort
+      }
+      try {
+        let response = await queryQualityGoodsUrl(data)
         this.todaygoods = response.data
+      } catch (error) {
+        console.log(error)
       }
     }
   }

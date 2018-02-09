@@ -56,11 +56,12 @@ export default {
       }
     },
     async getLove () {
-      likes().then(response => {
+      let response = await likes()
+      try {
         this.loveItems = response.data.goods
-      }).catch(err => {
-        console.log(err)
-      })
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }
