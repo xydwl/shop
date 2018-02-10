@@ -17,13 +17,19 @@
 .listDivD1{
 	border: 1px solid #F3F3F3;
 	line-height: 50px;
-	height: 50px;
 	overflow: hidden;
+	background: #f3f3f3;
 }
 .listDivD1>p{
 	text-align: center;
 	width: 100px;
 	background:#f3f3f3;
+}
+.listDivUl1{
+	max-height:100px;
+	overflow: hidden;
+	background: #fff;
+	transition:max-height .8s linear;
 }
 .listDivUl1>li{
 	float: left;
@@ -48,6 +54,7 @@
 }
 .listDivUl2>li{
 	background: #F3F3F3;
+	display:inline-block;
 }
 .listDivUl2>li>p{
 	width: 100px;

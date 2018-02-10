@@ -16,9 +16,9 @@
 			</ul>
 		</div>
 		<!--艺术品列表-->
-		<div class="auctionLi clearfix">
+		<div class="auctionLi clearfix" v-loading="loading" style="min-height:300px;">
 			<div class="auctionList clearfix">
-				<dl v-for="item in todaygoods.goods" :key="item.goodsName">
+				<dl v-for="item in todaygoods.goods" :key="item.thumbnailUrl">
 					<router-link :to="{name:'GoodsDetail', query:{goodsId:item.pkId}}" target="_blank">
 						<dt>
 							<img :src="item.thumbnailUrl" :title="item.goodsName">
@@ -58,7 +58,8 @@ import { queryQualityGoodsUrl } from '../../api/restApi.js'
 export default {
   data () {
     return {
-      todaygoods: [],
+			todaygoods: [],
+			loading:true,
       currentPage: 1,
       firstValue: '',
       totalPage: null,
@@ -90,6 +91,7 @@ export default {
       this.getTodayList()
     },
     async getTodayList () {
+			this.loading = true
       let data = {
         sourceMode: 'PC',
         tokenId: '',
@@ -102,7 +104,8 @@ export default {
         this.todaygoods = response.data
       } catch (error) {
         console.log(error)
-      }
+			}
+			this.loading = false
     }
   }
 }

@@ -85,7 +85,8 @@ export default {
     async getAuctionList () {
       try {
         let response = await pageAuction(this.currentPage, 10)
-        this.auctionsList = response.data
+				this.auctionsList = response.data
+				console.log(this.auctionsList)
       } catch (error) {
         console.log(error)
       }

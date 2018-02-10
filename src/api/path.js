@@ -42,6 +42,10 @@ PecooIndex.searchKeywordsUrl = {url: '/api/indexPage/searchKeywords.htm', method
 PecooIndex.pageAuctionUrl = {url: '/api/auction/pageAuctionPc.htm', method: 'get'}
 // 拍卖会详情
 PecooIndex.queryAuctionGoodsUrl = {url: '/api/auction/queryAuctionGoods.htm', method: 'get'}
+// 二级三级名称*/
+PecooIndex.queryKindsUrl = {url: '/api/goods/queryKinds.htm', method: 'get'}
+// *分类下的拍品列表*/
+PecooIndex.querySecondGooodsUrl = {url: '/api/goods/querySecondGooods.htm', method: 'get'}
 
 // 拍品详情展示
 PecooIndex.queryGoodsMessUrl = {url: '/api/goods/queryGoodsMess.htm', method: 'post'}

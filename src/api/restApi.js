@@ -95,6 +95,14 @@ export function pageAuction (page, perPage) {
 export function auctionDetail (auctionId, page, perPage) {
   return requestControl(PecooIndex.queryAuctionGoodsUrl, {auctionId: auctionId, pageNo: page, pageSize: perPage})
 }
+// 其他列表二级筛选
+export function queryKindsUrl (kindCode) {
+  return requestControl(PecooIndex.queryKindsUrl, {sourceMode: 'PC', kindCode: kindCode})
+}
+// 拍卖其他详情列表
+export function querySecondGooodsUrl (kindType, pageNo, sort) {
+  return requestControl(PecooIndex.querySecondGooodsUrl, {sourceMode: 'PC', tokenId: '', kindType: kindType, pageNo: pageNo, sort: sort})
+}
 
 // 物品detail详情
 export function GoodsDetail (goodId) {

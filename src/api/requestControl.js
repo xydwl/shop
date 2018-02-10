@@ -34,7 +34,7 @@ export function requestControl (api, data, cb = () => {}) {
         axios({
           method: 'get',
           url: api.url,
-          params: Object.assign(data, {json: true}),
+          params: Object.assign(data),
           timeout: 30 * 1000
         }).then(res => {
           resolve(res)

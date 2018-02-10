@@ -7,7 +7,7 @@
     <div class="loveDiv" style="overflow: hidden;">
       <ul style="overflow-y: hidden;overflow-x: auto;width:2400px;left:0px;">
         <li>
-          <router-link v-for="item in loveItems" :to="{name:'GoodsDetail', query:{goodsId:item.pkId}}" :key="item.goodsName">
+          <router-link v-for="item in loveItems" :to="{name:'GoodsDetail', query:{goodsId:item.pkId}}" :key="item.pkId">
             <p class="loveImg"><img :src="item.thumbnailUrl" /></p>
             <p class="loveP2">Lot{{item.lotNum}}:{{item.goodsName}}</p>
             <p>{{item.priceUnit}}{{item.startPrice}}</p>
@@ -59,6 +59,7 @@ export default {
       let response = await likes()
       try {
         this.loveItems = response.data.goods
+        console.log(this.loveItems)
       } catch (error) {
         console.log(error)
       }

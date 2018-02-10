@@ -20,7 +20,7 @@
         </router-link>
       </p>
       <div class="toadyDiv clear">
-        <dl v-for="item in todayItems" :key="item.goodsName">
+        <dl v-for="item in todayItems" :key="item.thumbnailUrl">
           <router-link to="" target="_blank">
             <dt>
               <img :src="item.thumbnailUrl" :title="item.goodsName" />
@@ -92,7 +92,7 @@
           </a>
         </div>
         <div class="artRight" id="artRight">
-          <router-link to="" target="_blank" v-for="items in artItems.goods" :key="items.goodsName">
+          <router-link to="" target="_blank" v-for="items in artItems.goods" :key="items.thumbnailUrl">
             <img :src="items.thumbnailUrl" />
             <p>{{items.goodsName}}</p>
           </router-link>
@@ -118,7 +118,7 @@
           </a>
         </div>
         <div class="artRight" id="artRight">
-          <router-link to="" target="_blank" v-for="items in watchItems.goods" :key="items.goodsName">
+          <router-link to="" target="_blank" v-for="items in watchItems.goods" :key="items.thumbnailUrl">
             <img :src="items.thumbnailUrl" />
             <p>{{items.goodsName}}</p>
           </router-link>
@@ -160,7 +160,7 @@
           </a>
         </div>
         <div class="artRight" id="artRight">
-          <router-link to="" target="_blank" v-for="items in jewelItems.goods" :key="items.goodsName">
+          <router-link to="" target="_blank" v-for="items in jewelItems.goods" :key="items.thumbnailUrl">
             <img :src="items.thumbnailUrl" />
             <p>{{items.goodsName}}</p>
           </router-link>
@@ -202,7 +202,7 @@
           </a>
         </div>
         <div class="artRight" id="artRight">
-          <router-link to="" target="_blank" v-for="items in collectItems.goods" :key="items.goodsName">
+          <router-link to="" target="_blank" v-for="items in collectItems.goods" :key="items.thumbnailUrl">
             <img :src="items.thumbnailUrl" />
             <p>{{items.goodsName}}</p>
           </router-link>
@@ -229,7 +229,7 @@
           </a>
         </div>
         <div class="artRight" id="artRight">
-          <router-link to="" target="_blank" v-for="items in carItems.goods" :key="items.goodsName">
+          <router-link to="" target="_blank" v-for="items in carItems.goods" :key="items.thumbnailUrl">
             <img :src="items.thumbnailUrl" />
             <p>{{items.goodsName}}</p>
           </router-link>
@@ -255,7 +255,7 @@
           </a>
         </div>
         <div class="artRight" id="artRight">
-          <router-link to="" target="_blank" v-for="items in caremaItems.goods" :key="items.goodsName">
+          <router-link to="" target="_blank" v-for="items in caremaItems.goods" :key="items.thumbnailUrl">
             <img :src="items.thumbnailUrl" />
             <p>{{items.goodsName}}</p>
           </router-link>
@@ -272,7 +272,7 @@
         </router-link>
       </p>
       <div class="toadyDiv clear" id="lightDiv">
-        <dl v-for="item in luxuryItems" :key="item.goodsName">
+        <dl v-for="item in luxuryItems" :key="item.thumbnailUrl">
           <router-link to="">
             <dt>
               <img :src="item.thumbnailUrl" :title="item.goodsName" />
