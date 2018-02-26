@@ -65,12 +65,12 @@
         </p>
       </p>
       <div class="paipinDiv rel">
-        <a  style="display: ;" href="javascript:;" >
+        <a  style="display: ;" href="javascript:;" @click="showDropdown">
           <img src="../../assets/images/common/paipinCar.png" class="header_san"/>&nbsp;&nbsp;&nbsp;&nbsp;
           我的拍品&nbsp;&nbsp;&nbsp;&nbsp;
           <img src="../../assets/images/common/paipinSan.png" class="header_san"/>
         </a>
-        <div class="abs none headPaiDiv">
+        <div class="abs headPaiDiv" v-show="showHead">
           <p>竞拍中（<span id="shipai">0</span>）</p>
           <p>竞拍成功（<span id="undone">0</span>）</p>
           <p>已付款（<span id="success">0</span>）</p>               
@@ -94,7 +94,7 @@
         <li><router-link :to="{name:'PecooList', params:{ids:'007'}}" active-class="link--active">老爷车</router-link></li>
         <li><router-link :to="{name:'PecooList', params:{ids:'008'}}" active-class="link--active">相机&乐器</router-link></li>
         <li class="rel">
-          <router-link :to="{name:'luxury'}" active-class="link--active">
+          <router-link :to="{name:'luxuryView'}" active-class="link--active">
             奢侈品
             <img src="../../assets/images/common/hotIcon.png" class="abs" style="right:-15px; top:-7px;"/>
           </router-link>
@@ -139,7 +139,8 @@ export default {
       mobile: '',
       items: [],
       itemsAll: [],
-      searchItems: []
+      searchItems: [],
+      showHead:false
     }
   },
   async created () {
@@ -197,6 +198,9 @@ export default {
     },
     tree: function () {
 
+    },
+    showDropdown(){
+      this.showHead =!this.showHead
     },
     async loginout () {
       await loginOutValue()

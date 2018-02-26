@@ -9,7 +9,6 @@ const forget = () => import('@/components/loginView/forgetPsd')
 // pecooindex
 const home = () => import('@/components/indexView/home')
 const auction = () => import('@/components/pecooListView/auctionList')
-const luxury = () => import('@/components/pecooListView/luxuryList')
 const recommend = () => import('@/components/pecooListView/recommendList')
 const PecooList = () => import('@/components/pecooListView/otherList')
 const auctionDetail = () => import('@/components/detailView/auctionDetail')
@@ -17,6 +16,7 @@ const goodsDetail = () => import('@/components/detailView/detail')
 const footAll = () => import('@/components/footerView/footAll')
 const linkUs = () => import('@/components/footerView/linkUs')
 const specialWork = () => import('@/components/footerView/specialWork')
+const luxuryView = () => import('@/components/luxuryView/luxuryList')
 
 // 个人中心
 const mine = () => import('@/components/meCenterView/mine')
@@ -55,8 +55,8 @@ const router = new Router({
         },
         {
           path: 'luxury',
-          name: 'luxury',
-          component: luxury
+          name: 'luxuryView',
+          component: luxuryView
         },
         {
           path: 'recommend',
