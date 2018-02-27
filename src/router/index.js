@@ -126,7 +126,6 @@ router.beforeEach(async (to, from, next) => {
     if (tokenId) {
       next()
     } else {
-      console.log('erwwe')
       next({path: '/login'})
     }
   } else {

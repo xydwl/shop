@@ -20,7 +20,7 @@
 						<p>{{thirdList.name}}<p/>
 						<div>
 							<p class="watchDivD2P">
-								<a href="javascript:;" v-for="item in thirdList.thirdKinds" :key="item.name" @click="getthirdData(item)">{{item.name}}</a>
+								<a href="javascript:;" v-for="item in thirdList.thirdKinds" :class="{'active':showthirdClass===item.name}" :key="item.name" @click="getthirdData(item)">{{item.name}}</a>
 							</p>
 						</div>
 					</li>
@@ -44,17 +44,20 @@ export default {
 			showindex:'',
 			showMore:true,
 			thirdList:{},
-			showthird:false
+			showthird:false,
+			showthirdClass:''
 		}
 	},
 	watch:{
 		'$route':function(){
 			this.showindex =1000
+			this.showthirdClass = ''
 			this.showMore = true
 			this.showthird = false
 			menuAll.firstKinds.forEach(item => {
 				if(item.code ===this.kindcode){
 					this.kindData = Array.from(item.secondKinds)
+
 					this.kindData.forEach(ele => {
 						if(ele.thirdKinds.length>0){
 							this.showMore = false
@@ -88,6 +91,8 @@ export default {
 	},
 	methods:{
 		getkindData(item,index){
+			this.$emit('searhSencond',item)
+			this.showthirdClass = ''
 			this.thirdList = item
 			this.showindex = item.name
 			if(item.thirdKinds.length>0){
@@ -97,7 +102,8 @@ export default {
 			}
 		},
 		getthirdData(item){
-			console.log(item)
+			this.showthirdClass = item.name
+			this.$emit('searhSencond',item)
 		}
 	}
 }

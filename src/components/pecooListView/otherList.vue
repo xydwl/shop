@@ -1,11 +1,11 @@
 <template>
 	<div>
-		<querkind :kindcode="kindcode"></querkind>
+		<querkind :kindcode="kindcode" @searhSencond="secondSearch"></querkind>
 		<!--筛选排序部分-->
 		<div class="sortDiv" style="margin-top: 15px;" v-sticky="{ zIndex: 8, stickyTop: 0 }">
 			<p>
 				综合（
-				<span name="total">{{otherListData.totalCount}}</span>）
+				<span name="total">{{otherListData.totalCount}}</span> ）
 			</p>
 			<ul>
 				<li class="sort--li" v-for="item in sortItem" :key="item.name"  @click="sortValue(item)">{{item.name}}</li>
@@ -64,27 +64,38 @@ export default {
 			currentPage:1,
 			otherListData:[],
 			firstValue: '',
-      totalPage: null,
+			totalPage: null,
 			sort: '',
 			sortItem: [
-        { name: '默认排序', sortName: '' },
-        { name: '价格排序', sortupName: 'start_price/01', sortdownName:'start_price/02'},
-        { name: '上架时间排序', sortupName: 'created_time/01' ,sortdownName:'created_time/01'}
+				{ name: '默认排序', sortName: '' },
+				{ name: '价格排序', sortupName: 'start_price/01', sortdownName:'start_price/02'},
+				{ name: '上架时间排序', sortupName: 'created_time/01' ,sortdownName:'created_time/01'}
 			],
-			loading:true
+			loading:true,
+			searchCode: '',
+			showCode: true
 		}
 	},
 	async mounted(){
 		await this.getOtherList()
 		this.firstValue = '第 ' + this.currentPage + ' 页'
-    this.totalPage = Math.floor(this.otherListData.totalCount / this.otherListData.pageSize) + 1
 	},
 	methods:{
+		secondSearch(item){
+			this.showCode = false
+			this.searchCode = item.code
+			console.log(this.searchCode)
+			this.getOtherList()
+		},
 		async getOtherList(){
 			this.loading =true
+			if(this.showCode){
+				this.searchCode = this.kindcode				
+			}
 			try {
-				let res = await querySecondGooodsUrl(this.kindcode,this.currentPage,this.sort)
+				let res = await querySecondGooodsUrl(this.searchCode,this.currentPage,this.sort)
 				this.otherListData = res.data
+				this.totalPage = Math.floor(this.otherListData.totalCount / this.otherListData.pageSize) + 1
 			} catch (error) {
 				console.log(error)
 			}
@@ -95,13 +106,13 @@ export default {
 		},
 		handleCurrentChange(val){
 			this.firstValue = '第 ' + val + ' 页'
-      this.currentPage = val
-      this.getOtherList()
+      		this.currentPage = val
+      		this.getOtherList()
 		},
 		sortValue(item){
 			this.currentPage = 1
-      this.sort = this.sort ===item.sortupName?item.sortdownName:item.sortupName
-      this.getOtherList()
+      		this.sort = this.sort ===item.sortupName?item.sortdownName:item.sortupName
+      		this.getOtherList()
 		},
 		pagereduce(){
 			this.currentPage--
@@ -113,9 +124,11 @@ export default {
 	watch:{
 		async kindcode(){
 			this.currentPage = 1
+			this.showCode = true
+			this.sort = ''
 			await this.getOtherList()
 			this.firstValue = '第 ' + this.currentPage + ' 页'
-    	this.totalPage = Math.floor(this.otherListData.totalCount / this.otherListData.pageSize) + 1
+    		this.totalPage = Math.floor(this.otherListData.totalCount / this.otherListData.pageSize) + 1
 		}
 	},
 	computed:{
