@@ -54,9 +54,7 @@
       <p class="fl">
         <input type="button" value="搜索"  class="headerBtn fr" @click="findProduct();"/>
         <input type="text" placeholder="请输入搜索内容" class="headerInt fr" id="keyPro"/>
-        <ul class="headCenUl abs none" id="matchingUl">
-          
-        </ul>
+        <ul class="headCenUl abs none" id="matchingUl"></ul>
         <p class="fl headerCenterP">
           热门搜索：
           <span id="indexSearchKeyList"> 
@@ -140,7 +138,7 @@ export default {
       items: [],
       itemsAll: [],
       searchItems: [],
-      showHead:false
+      showHead: false
     }
   },
   async created () {
@@ -199,8 +197,8 @@ export default {
     tree: function () {
 
     },
-    showDropdown(){
-      this.showHead =!this.showHead
+    showDropdown () {
+      this.showHead = !this.showHead
     },
     async loginout () {
       await loginOutValue()

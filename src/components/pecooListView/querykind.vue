@@ -35,77 +35,77 @@
 </template>
 <script>
 // import {queryKindsUrl} from '../../api/restApi'
-import {menuAll, searchKey} from '../../assets/menus'
+import {menuAll} from '../../assets/menus'
 export default {
   data () {
-		return {
-			kindData:[],
-			expand:false,
-			showindex:'',
-			showMore:true,
-			thirdList:{},
-			showthird:false,
-			showthirdClass:''
-		}
-	},
-	watch:{
-		'$route':function(){
-			this.showindex =1000
-			this.showthirdClass = ''
-			this.showMore = true
-			this.showthird = false
-			menuAll.firstKinds.forEach(item => {
-				if(item.code ===this.kindcode){
-					this.kindData = Array.from(item.secondKinds)
+    return {
+      kindData: [],
+      expand: false,
+      showindex: '',
+      showMore: true,
+      thirdList: {},
+      showthird: false,
+      showthirdClass: ''
+    }
+  },
+  watch: {
+    '$route': function () {
+      this.showindex = 1000
+      this.showthirdClass = ''
+      this.showMore = true
+      this.showthird = false
+      menuAll.firstKinds.forEach(item => {
+        if (item.code === this.kindcode) {
+          this.kindData = Array.from(item.secondKinds)
 
-					this.kindData.forEach(ele => {
-						if(ele.thirdKinds.length>0){
-							this.showMore = false
-						}
-					})
-				}
-				if(this.kindcode ==='007'||this.kindcode ==='008'){
-					this.showMore = false
-				}
-			})
-		}
-	},
-	async mounted () {
-		this.showMore = true
-		menuAll.firstKinds.forEach(item => {
-			if(item.code ===this.kindcode){
-				this.kindData = Array.from(item.secondKinds)
-			}
-			if(this.kindcode ==='007'||this.kindcode ==='008'){
-				this.showMore = false
-			}
-			this.kindData.forEach(ele => {
-				if(ele.thirdKinds.length>0){
-					this.showMore = false
-				}
-			})
-		})
-	},
-	props: {
-		kindcode:String
-	},
-	methods:{
-		getkindData(item,index){
-			this.$emit('searhSencond',item)
-			this.showthirdClass = ''
-			this.thirdList = item
-			this.showindex = item.name
-			if(item.thirdKinds.length>0){
-				this.showthird = true
-			}else{
-				this.showthird =false
-			}
-		},
-		getthirdData(item){
-			this.showthirdClass = item.name
-			this.$emit('searhSencond',item)
-		}
-	}
+          this.kindData.forEach(ele => {
+            if (ele.thirdKinds.length > 0) {
+              this.showMore = false
+            }
+          })
+        }
+        if (this.kindcode === '007' || this.kindcode === '008') {
+          this.showMore = false
+        }
+      })
+    }
+  },
+  async mounted () {
+    this.showMore = true
+    menuAll.firstKinds.forEach(item => {
+      if (item.code === this.kindcode) {
+        this.kindData = Array.from(item.secondKinds)
+      }
+      if (this.kindcode === '007' || this.kindcode === '008') {
+        this.showMore = false
+      }
+      this.kindData.forEach(ele => {
+        if (ele.thirdKinds.length > 0) {
+          this.showMore = false
+        }
+      })
+    })
+  },
+  props: {
+    kindcode: String
+  },
+  methods: {
+    getkindData (item, index) {
+      this.$emit('searhSencond', item)
+      this.showthirdClass = ''
+      this.thirdList = item
+      this.showindex = item.name
+      if (item.thirdKinds.length > 0) {
+        this.showthird = true
+      } else {
+        this.showthird = false
+      }
+    },
+    getthirdData (item) {
+      this.showthirdClass = item.name
+      this.$emit('searhSencond', item)
+    }
+  }
 }
 </script>
 <style scoped>
