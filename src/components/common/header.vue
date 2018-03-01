@@ -52,7 +52,7 @@
       <router-link to="/home"  class="fl headerLogo"><img src="../../assets/images/common/logo.png"/></router-link>
       <router-link to="/home"  class="fl headerGif"><img src="../../assets/images/common/gif.gif"/></router-link>
       <p class="fl">
-        <input type="button" value="搜索"  class="headerBtn fr" @click="findProduct();"/>
+        <input type="button" value="搜索"  class="headerBtn fr" @click="findProduct"/>
         <input type="text" placeholder="请输入搜索内容" class="headerInt fr" id="keyPro"/>
         <ul class="headCenUl abs none" id="matchingUl"></ul>
         <p class="fl headerCenterP">
@@ -77,7 +77,6 @@
         </div>
       </div>
     </div> 
-  
   <!--三级菜单-->
     <div class="headerMenu clearfix">
       <ul class="pecooNav">
