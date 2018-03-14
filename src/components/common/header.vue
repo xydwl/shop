@@ -209,6 +209,9 @@ export default {
       self.items.forEach(function (res) {
         self.itemsAll.push(res)
       })
+    },
+    findProduct () {
+
     }
   }
 }
