@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<querkind :kindcode="kindcode" @searhSencond="secondSearch"></querkind>
+		<querkind :kindcode="kindcode" @searhSencond="secondSearch" @showStatus="showStatus"></querkind>
 		<!--筛选排序部分-->
 		<div class="sortDiv" style="margin-top: 15px;" v-sticky="{ zIndex: 8, stickyTop: 0 }">
 			<p>
@@ -79,14 +79,16 @@ export default {
   },
   methods: {
     secondSearch (item) {
+      this.$router.push({name: 'PecooList', params: {ids: this.kindcode}, query: {codeName: item.code}})
       this.showCode = false
       this.searchCode = item.code
-      console.log(this.searchCode)
       this.getOtherList()
     },
     async getOtherList () {
       this.loading = true
-      if (this.showCode) {
+      if (this.queryCode) {
+        this.searchCode = this.queryCode
+      } else if (this.showCode) {
         this.searchCode = this.kindcode
       }
       try {
@@ -116,10 +118,8 @@ export default {
     },
     pageadd () {
       this.currentPage++
-    }
-  },
-  watch: {
-    async kindcode () {
+    },
+    async showStatus () {
       this.currentPage = 1
       this.showCode = true
       this.sort = ''
@@ -131,6 +131,9 @@ export default {
   computed: {
     kindcode () {
       return this.$route.params.ids
+    },
+    queryCode () {
+      return this.$route.query.codeName
     }
   },
   components: {
