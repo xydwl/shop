@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div v-loading="loading">
 		<querkind :kindcode="kindcode" @searhSencond="secondSearch" @showStatus="showStatus"></querkind>
 		<!--筛选排序部分-->
 		<div class="sortDiv" style="margin-top: 15px;" v-sticky="{ zIndex: 8, stickyTop: 0 }">
@@ -17,7 +17,7 @@
 			</div>
 		</div>
 		<!--列表-->
-		<div class="auctionLi clearfix" v-loading="loading" style="min-height:300px;">
+		<div class="auctionLi clearfix" style="min-height:300px;">
 			<div class="auctionList clearfix">
 				<dl v-for="item in otherListData.goods" :key="item.pkId">
 					<router-link :to="{name:'GoodsDetail', query:{goodsId:item.pkId}}" target="_blank">
