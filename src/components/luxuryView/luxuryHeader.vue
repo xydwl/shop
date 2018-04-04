@@ -28,7 +28,7 @@
 								<span class="navItemBg"></span>
 								<ul class="clearfix">
 									<li v-for="(item,index) in navItems" :key="index">
-										<router-link v-if="item.name === '品牌'" :to="{name:'luxuryBrandView'}" :class="{'active':!queryCode&&this.$route.name ==='luxuryListView'}"><span>{{item.name}}</span></router-link>
+										<router-link v-if="item.name === '品牌'" :to="{name:'luxuryBrandView'}" :class="{'active':!queryCode&&$route.name ==='luxuryBrandView'}"><span>{{item.name}}</span></router-link>
                     <router-link v-else :to="{name:'luxuryListView',query:{kindCode:item.code}}" :class="{'active':queryCode===item.code}"><span>{{item.name}}</span></router-link>
 									</li>
 								</ul>
