@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<pecoo-top v-if ="routeName !== '/luxury'"></pecoo-top>
+		<pecoo-top v-if ="routeName.indexOf('luxury')===-1"></pecoo-top>
 		<router-view></router-view>
 		<pecoo-Bottom></pecoo-Bottom>
 	</div>

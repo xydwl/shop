@@ -1,5 +1,5 @@
 <template>
-   <div>
+  <div>
     <luxury-header></luxury-header>
   </div>
 </template>

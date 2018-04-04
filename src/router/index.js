@@ -16,7 +16,9 @@ const goodsDetail = () => import('@/components/detailView/detail')
 const footAll = () => import('@/components/footerView/footAll')
 const linkUs = () => import('@/components/footerView/linkUs')
 const specialWork = () => import('@/components/footerView/specialWork')
-const luxuryView = () => import('@/components/luxuryView/luxuryList')
+const luxuryView = () => import('@/components/luxuryView/luxury')
+const luxuryBrandView = () => import('@/components/luxuryView/luxuryBrand')
+const luxuryListView = () => import('@/components/luxuryView/luxuryList')
 
 // 个人中心
 const mine = () => import('@/components/meCenterView/mine')
@@ -57,6 +59,16 @@ const router = new Router({
           path: 'luxury',
           name: 'luxuryView',
           component: luxuryView
+        },
+        {
+          path: 'luxurybrand',
+          name: 'luxuryBrandView',
+          component: luxuryBrandView
+        },
+        {
+          path: 'luxurylist',
+          name: 'luxuryListView',
+          component: luxuryListView
         },
         {
           path: 'recommend',
