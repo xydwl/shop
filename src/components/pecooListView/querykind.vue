@@ -64,19 +64,20 @@ export default {
         if (item.code === this.kindcode) {
           this.kindData = Array.from(item.secondKinds)
           this.kindData.forEach(ele => {
-            console.log(this.$route.query.codeName)
-            if (this.queryCode.substring(0, 6) === ele.code) {
-              this.showName = ele.name
-              if (ele.thirdKinds.length > 0) {
-                this.showMore = false
-                this.thirdList = ele
-                this.showthird = true
-                if (ele.code === this.queryCode) {
-                  ele.thirdKinds.forEach(thirdItem => {
-                    if (thirdItem.code === this.queryCode) {
-                      this.showthirdClass = item.name
-                    }
-                  })
+            if (this.queryCode) {
+              if (this.queryCode.substring(0, 6) === ele.code) {
+                this.showName = ele.name
+                if (ele.thirdKinds.length > 0) {
+                  this.showMore = false
+                  this.thirdList = ele
+                  this.showthird = true
+                  if (ele.code === this.queryCode) {
+                    ele.thirdKinds.forEach(thirdItem => {
+                      if (thirdItem.code === this.queryCode) {
+                        this.showthirdClass = item.name
+                      }
+                    })
+                  }
                 }
               }
             }
@@ -93,18 +94,20 @@ export default {
       if (item.code === this.kindcode) {
         this.kindData = Array.from(item.secondKinds)
         this.kindData.forEach(ele => {
-          if (this.queryCode.substring(0, 6) === ele.code) {
-            this.showName = ele.name
-            if (ele.thirdKinds.length > 0) {
-              this.showMore = false
-              this.thirdList = ele
-              this.showthird = true
-              if (ele.code === this.queryCode) {
-                ele.thirdKinds.forEach(thirdItem => {
-                  if (thirdItem.code === this.queryCode) {
-                    this.showthirdClass = item.name
-                  }
-                })
+          if (this.queryCode) {
+            if (this.queryCode.substring(0, 6) === ele.code) {
+              this.showName = ele.name
+              if (ele.thirdKinds.length > 0) {
+                this.showMore = false
+                this.thirdList = ele
+                this.showthird = true
+                if (ele.code === this.queryCode) {
+                  ele.thirdKinds.forEach(thirdItem => {
+                    if (thirdItem.code === this.queryCode) {
+                      this.showthirdClass = item.name
+                    }
+                  })
+                }
               }
             }
           }
