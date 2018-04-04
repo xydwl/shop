@@ -448,11 +448,11 @@
 </template>
 
 <script>
-import {loginOutValue,} from '../../api/restApi.js'
+import {loginOutValue} from '../../api/restApi.js'
 export default {
   data () {
     return {
-      
+
     }
   },
   created () {

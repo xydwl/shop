@@ -1,4 +1,4 @@
-import { Auth, PecooIndex, userCenter, flash} from './path'
+import {Auth, PecooIndex, userCenter, flash} from './path'
 import {requestControl} from './requestControl'
 import axios from 'axios'
 import qs from 'qs'

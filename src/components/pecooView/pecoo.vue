@@ -14,12 +14,12 @@
 	    return {
 
 	    }
-		},
-		computed:{
-			routeName(){
-				return this.$route.path
-			}
-  	},
+	  },
+	  computed: {
+	    routeName () {
+	      return this.$route.path
+	    }
+	  },
 	  created () {
 	    this.$store.dispatch('getUserInfo')
 	  },
