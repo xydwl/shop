@@ -85,7 +85,11 @@ export default {
   },
   methods: {
     collectWay: _.debounce(function () {
-      this.$toasted.info('您还没有登录，请先去登陆！')
+      if (localStorage.getItem('tokenId')) {
+        this.$toasted.info('已经登录了，之后处理')
+      } else {
+        this.$toasted.info('您还没有登录，请先去登陆！')
+      }
     }, 300),
     handleCurrentChange (val) {
       this.firstValue = '第 ' + val + ' 页'

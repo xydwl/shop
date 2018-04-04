@@ -26,7 +26,7 @@
 					</li>
 				</ul>
 			<p class="showMore" @click="expand =!expand" v-show="showMore">
-				更多选项 <i :class="{'fa-angle-down':!expand, 'fa-angle-up':expand}"></i>
+				更多选项 <i :class="{'fa fa-angle-down':!expand, 'fa fa-angle-up':expand}"></i>
 			</p>
 
 		</div>
@@ -57,7 +57,7 @@ export default {
     '$route': function () {
       this.$emit('showStatus', true)
       this.showthird = false
-      if (this.kindcode !== '004') {
+      if (this.kindcode !== '003') {
         this.showMore = false
       }
       menuAll.firstKinds.forEach(item => {
@@ -86,7 +86,7 @@ export default {
     }
   },
   async mounted () {
-    if (this.kindcode !== '004') {
+    if (this.kindcode !== '003') {
       this.showMore = false
     }
     menuAll.firstKinds.forEach(item => {
