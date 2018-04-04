@@ -266,7 +266,7 @@
       <p class="indexTodayTitle">
         奢饰品
         <span>Luxury</span>
-        <router-link :to="{name:'luxury'}" target="_blank">
+        <router-link :to="{name:'luxuryView'}" target="_blank">
           更多
           <img src="../../assets/images/index/indexRight.png" />
         </router-link>

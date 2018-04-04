@@ -2,6 +2,7 @@
 const Auth = {}
 const PecooIndex = {}
 const userCenter = {}
+const flash = {}
 
 // 登录
 Auth.LoginIn = {url: '/api/login/loginIn.htm', method: 'post'}
@@ -52,6 +53,9 @@ PecooIndex.queryGoodsMessUrl = {url: '/api/goods/queryGoodsMess.htm', method: 'p
 // 判断是否有保证金出价
 PecooIndex.vcreateOrderUrl = {url: '/api/verify/createOrder.htm', method: 'get'}
 
+// shan gou lie biao
+flash.getLuxuryList = {url: '/api/goods/querySecondGooodsf', method: 'post'}
+
 // 用户收货地址列表
 userCenter.getAddressList = {url: '/api/verify/address/getAddressList.htm', method: 'get'}
 // 添加收货地址
@@ -83,7 +87,7 @@ userCenter.cancelBidOrderUrl = {url: '/api/verify/order/cancelBidOrder.htm', met
 // 确认收货
 userCenter.receiptBidOrderUrl = {url: '/api/verify/order/receiptBidOrder.htm', method: 'get'}
 
-export {Auth, PecooIndex, userCenter}
+export {Auth, PecooIndex, userCenter, flash}
 
 // var baseUrl ="http://wuwu8023.iok.la/api";//五
 // var baseUrl ="http://http://dailuu.vicp.io/api";

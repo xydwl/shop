@@ -6,7 +6,7 @@
 		<!--列表部分-->
 		<div class="auctionAllDiv">
 			<div class="auction-list clear">
-				<dl class="clearfix" v-for="item in auctionsList.auctions" :key="item.name">
+				<dl class="clearfix" v-for="item in auctionsList.auctions" :key="item.pkId">
 					<dt>
 						<router-link :to="{name:'auctionDetail',query:{auctionId:item.pkId}}" target="_blank"><img :src="item.auctionThumPic"></router-link>
 					</dt>

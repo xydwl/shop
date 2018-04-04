@@ -1,450 +1,428 @@
 .hwMain{
-	background:url(../img/light/bodyBg.gif) repeat-y center 130px #ededed;
+	background:#fff;
 	padding: 30px 0;
+	padding-top: 0;
 }
-.hwCont{
+a img{ -webkit-transition: -webkit-transform 0.4s ease; -moz-transition: -moz-transform 0.4s ease; -ms-transition: -ms-transform 0.4s ease;}
+a:hover img{ transform:scale(1.04, 1.04);-ms-transform:scale(1.04, 1.04); -webkit-transform:scale(1.04, 1.04);}
+a:hover img.nohover,
+a.nohover:hover,.ad a:hover img{transform:scale(1, 1);-ms-transform:scale(1, 1); -webkit-transform:scale(1, 1);}
+/*banner=========*/
+#banners {
+	width: 100%;
+	height: 400px;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+}
+#banners div.content {
+	width: 1200px;
+	height: 100%;
+	margin: auto;
+	position: relative;
+	z-index: 2;
+}
+#banners div.content a:hover img,.luxuryLogoUl li a:hover img{ transform:scale(1, 1);-ms-transform:scale(1, 1); -webkit-transform:scale(1, 1);}
+
+#banners div.content a.btn {
+	position: absolute;
+	width: 40px;
+	height: 90px;
+	top: 150px;
+	background: url(../images/light/headFootBg.png);
+	display: none;
+	/* background-size: 30px; */
+}
+#banners div.content a.prev {
+	left: 0px;
+	z-index: 200;
+	background-position: -120px -100px;
+	opacity: 0.7;
+}
+
+#banners div.content a.next {
+	z-index: 200;
+	right: 0px;
+	background-position: -157px -100px;
+	opacity: 0.7;
+}
+
+#banners div.content ul.banners {
+	width: 1200px;
+	height: 100%;
+	position: relative;
+	margin:0 auto;
+	overflow: hidden;
+}
+#banners div.content ul.banners li {
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	position: absolute;
+	display: none;
+	text-align: center;
+}
+
+#banners div.content ul.banners .list1{
+	background:#FDD93B;
+}
+
+#banners div.content ul.banners li img {
+	height:400px;
+	border: none;
 	width:1200px;
-	margin:0 auto
+	margin:0 auto;
+	text-align: center;
 }
-.hwSearch{
-	padding:20px 0 15px;
-	float:right
+.number {
+	padding: 5px;
+	position: absolute;
+	bottom: 10px;
+	left: 47%;
+	background: rgba(0,0,0,.4);
+	border-radius: 20px;
 }
-.hwSearch .hwinput{
-	border:0;
-	height:18px;
-	padding:1px 6px 3px;
-	padding:2px 6px 0\9;
-	height:20px\9;
-	padding:2px 6px 0\0;
-	height:20px\0;
-	width:150px;
-	float:left;
-	border-radius:0;
-	font-size:12px;
-	color:#999
+.number li {
+	float: left;
 }
-.hwSearch .hwbtn{
-	border:0;
-	width:30px;
-	height:22px;
-	background:url(../img/lightSale/hw_tb.png) no-repeat 8px -32px #fff;
-	float:left;
-	cursor:pointer
+.number li a {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	margin: 0px 3px;
+	display: block;
+	background:#463B7F;
+	opacity: 1;
 }
-.play{
-	width:490px;
-	height:590px;
-	float:left;
-	position:relative;
-	overflow:hidden;
-	background:#fff
+.number li:hover a,
+.number li.curr a {
+	background-color: #fff;
 }
-.numbtn{
-	position:absolute;
-	z-index:1;
-	bottom:20px;
-	left:50%;
-	margin-left:-40px;
-	background:rgba(0,0,0,0.2)!important;
-	border-radius:10px;
-	padding:2px 3px 2px 2px;
-	display:none
+.fashion{
+	width: 1160px;
+	margin: 20px auto;
 }
-.numbtn span{
-	background:#fff;
-	width:9px;
-	height:9px;
-	line-height:10px;
-	text-decoration:none;
-	float:inherit;
-	display:inline-block;
-	float:left;
-	margin:2px 2px 2px 3px;
-	cursor:pointer;
-	font-family:Tahoma;
-	border-radius:50%;
-	position:relative;
-	z-index:1
+.fashionTitle>p:first-child{
+	font-size: 24px;
+	text-align: center;
 }
-.numbtn span.hover{
-	background:#463b7f
+.fashionTitle>p:last-child{
+	font-size: 14px;
+	color: #A9A9A9;
+	text-align: center;
+	line-height: 30px;
+	text-align: center;
 }
-.imglist div{
-	display:none;
-	width:490px;
-	height:590px;
-	position:absolute;
-	overflow:hidden
+.fashionDiv{
+	margin-top: 20px;
 }
-.imglist img{
-	width:490px;
-	height:590px
+.fashionLeft{
+	width: 760px;
+	float: left;
 }
-.pre,.next{
-	position:absolute;
-	cursor:pointer;
-	width:26px;
-	height:50px;
-	opacity:.5;
-	filter:alpha(opacity=50);
-	top:50%;
-	margin-top:-25px;
-	background:#000;
-	display:block;
-	color:#fff;
-	text-align:center;
-	font:bold 24px \5b8b\4f53;
-	line-height:50px;
-	display:none
+.fashionLeftDl{
+	width: 328px;
+	height:248px;
+	border: 1px solid #F3F3F3;
+	float: left;
+	margin-right: 20px;
+	padding:11px 15px 11.5px 15px;
+	margin-bottom: 20px;
+	position: relative;
 }
-.pre:hover,.next:hover{
-	opacity:1;
-	filter:alpha(opacity=100);
-	color:#fff
+.fashionLeftDl>span {
+    position: absolute;
+    width: 40px;
+    height: 30px;
+    background: #F24541;
+    color: #FFFFFF;
+    padding: 5px 0;
+    line-height: 15px;
+    font-size: 12px;
+    border-radius: 50%;
+    text-align: center;
+    left: 10px;
+    top: 10px;
 }
-.pre{left:0}.next{right:0}.hwBox1_c{
-	width:200px;
-	height:590px;
-	float:left;
-	margin:0 10px
+.fashionLeftDl dt{
+	width: 150px;
+	float: left;
+	padding: 50px 10px 30px 10px;
 }
-.hwDl dl{
-	position:relative;
-	overflow:hidden
+.fashionLeftDl dd{
+	float: left;
+	width: 138px;
+	height: 238px;
+	padding: 0 10px;
 }
-.hwDl dl dd{
-	position:absolute;
-	left:20px
-}
-.hwDl dl dd .sp_country{
-	height:20px;
-	display:inline-block;
-	line-height:20px;
-	font-weight:bold;
-	color:#000
-}
-.hwDl dl dd .sp_country img{
-	width:30px;
-	height:20px;
-	display:inline-block;
-	margin-right:7px;
-	vertical-align:top
-}
-.hwDl dl dd .sp_name{
-	height:18px;
-	overflow:hidden;
-	margin-top:6px
-}
-.hwDl dl dd .sp_name a{
-	line-height:18px;
-	height:18px;
-	display:inline-block;
-	overflow:hidden;
-	color:#000
-}
-.hwDl dl dd .sp_price{
-	height:18px;
-	line-height:18px;
-	overflow:hidden;
-	font-family:microsoft yahei
-}
-.hwDl dl dd .sp_discount{
-	height:18px;
-	line-height:18px;
-	color:#e93b39;
-	margin-top:12px;
-	display:none;
-}
-.gj_0,.gj_1,.gj_2,.gj_3,.gj_4,.gj_5,.gj_6{
-	height:15px;
-	padding-left:30px;
-	display:inline-block;
-	background-image:url(../img/lightSale/hw_tb.png);
-	background-repeat:no-repeat;
-	vertical-align:middle
-}
-.gj_0{
-	background-position:0 -85px
-}
-.gj_1{
-	background-position:0 -110px
-}
-.gj_2{
-	background-position:0 -135px
-}
-.gj_3{
-	background-position:0 -160px
-}
-.gj_4{
-	background-position:0 -185px
-}
-.gj_5{
-	background-position:0 -210px
-}
-.gj_6{
-	background-position:0 -235px
-}
-.hwDl1,.hwDl3,.hwDl5{
-	margin-bottom:10px
-}
-.hwDl1 dd{
-	bottom:20px
-}
-.hwDl2 dd,.hwDl4 dd,.hwDl5 dd,.hwDl6 dd{
-	bottom:36px
-}
-.hwDl3 dd{
-	top:110px
-}
-.hwDl .hwDl2 dd .sp_discount,.hwDl .hwDl5 dd .sp_discount,.hwDl .hwDl6 dd .sp_discount{
-	margin-top:7px
-}
-.hwDl .hwDl4 dd .sp_discount{
-	margin-top:2px
-}
-.hwBox1_r{
-	width:490px;float:right
-}
-.hwmszy_title{
-	background:url(../img/light/today_title.gif) center 40px no-repeat;
-	height:46px;
-	padding:40px 0 25px
-}
-.she_title{
-	background:url(../img/light/she_title.gif) center 40px no-repeat;
-	height:46px;
-	padding:40px 0 25px
-}
-.hwBrand{
-	height:52px;
-	position:relative
-}
-.hwBrand a.morebrand{
-	position:absolute;
-	right:30px;
-	top:15px;
-	color:#666
-}
-.hwBrand a.morebrand:hover{
-	text-decoration:underline;
-	color:#666
-}
-.hwBrand_zst{
-	background:url(../img/lightSale/hw_line.png) no-repeat;
-	width:148px;
-	height:4px;
-	position:absolute;
-	left:0;
-	top:0
-}
-.hwBrand ul li{
-	width:148px;
-	height:47px;
-	float:left;
-	margin-right:2px;
-	border-bottom:2px solid #ededed;
-	cursor:pointer;
-	background:#fff;
-	text-align:center;
-	padding-top:3px
-}
-.hwBrand ul li.on{
-	border-bottom:2px solid #fff
-}
-.hwBrand_product{
-	background:#fff;
-	padding-bottom:34px;
-	margin-bottom:30px
-}
-.hwBrand_product dl{
-	width:240px;
-	float:left;
-	margin:30px 28px 0 30px
-}
-.hwBrand_product dl dt{
+.fashionLeftDl dd p{
 	display: table-cell;
 	text-align: center;
 	vertical-align: middle;
-	width:240px;
-	height: 240px;
+	width: 138px;
+	height: 248px;
 }
-.hwBrand_product dl dt img{
-	max-width: 240px;
-	max-height: 240px;
+.fashionLeftDl dd p img{
+	max-width: 138px;
+	max-height: 248px;
 }
-.hwBrand_product dl dd p{
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+.fashionLogo{
+	font-size: 16px;
+	line-height: 35px;
+}
+.fashionName{
+	font-size: 14px;
+	color: #A9A9A9;
+}
+.fashionPrice{
+	font-size: 14px;
+	font-weight: bold;
+	padding-top: 15px;
+}
+.fashionPrice del{
+	padding-left: 2px;
 	font-size: 12px;
-	color: #999999;
-	line-height: 30px;
+	font-weight: 100;
+	color: #A9A9A9;
 }
-.hwBrand_product dl dd p.saleCountry{
-	background: url(../img/lightSale/hw_tb.png)no-repeat;
-	background-position: 0 -160px;
-	width:26px;
-	height: 15px;
-}
-.hwBrand_product dl dd p.salePrice{
-	font-size: 20px;
-    color: #e93b39;
-}
-.hwBrand_product li{
-	display: none;
-}
-.hw_recommend{margin-bottom:30px}
-.hw_recommend a{
-	padding:7px 9px;
-	margin-right:14px;
-	display:inline-block;
-}
-.hw_recommend a:hover{
-	color:#463b7f;
-	background:#fff
-}
-.hwDl dl i.hd{
-	position:absolute;
-	left:-100%;
-	top:0;
-	width:100%;
-	height:100%;
-	background-image:-moz-linear-gradient(0deg,rgba(255,255,255,0),rgba(255,255,255,0.5),rgba(255,255,255,0));
-	background-image:-webkit-linear-gradient(0deg,rgba(255,255,255,0),rgba(255,255,255,0.5),rgba(255,255,255,0));
-	transform:skewx(-25deg);
-	-o-transform:skewx(-25deg);
-	-moz-transform:skewx(-25deg);
-	-ms-transform:skewx(-25deg);
-	-webkit-transform:skewx(-25deg);
-}
-.hwDl dl:hover i.hd{
-	left:100%;
-	transition:.5s;
-	-moz-transition:.5s;
-	-o-transition:.5s;
-	-webkit-transition:.5s;
-	-ms-transition:.5s
-}
-/*******奢侈品精选******/
-.sheBiao{
-	width:1200px;
-	margin:0 auto;
-}
-.BiaoTitle{
-	margin:20px auto;
-	margin-top:40px;
-}
-.BiaoTitle h3{
-	display: inline;
-	padding-right: 30px;
-	color: #333333;
-	font-size: 20px;
-	font-family: "微软雅黑";
-}
-.BiaoTitle a{
-	color: #999;
-	padding-right: 20px;
+.fashionMore{
 	font-size: 12px;
+	padding-top: 30px;
 }
-.BiaoTitle a:hover{
+.fashionMore:hover{
 	color: #463B7F;
 }
-.biaoImg{
-	width:1198px;
-	height: 328px;
-	border:1px solid #CDCDCD;
+.fashionLeftDlThree{
+	width: 708px;
+	height:248px;
+	float: left;
+	padding: 60px 15px;
+	border: 1px solid #F3F3F3;
+	position: relative;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	overflow: hidden;
 }
-.biaoImg a{
+.fashionLeftDlThree>span{
+	position: absolute;
+	width: 40px;
+	height: 30px;
+	background:#F24541;
+	color: #FFFFFF;
+	padding: 5px 0;
+	line-height: 15px;
+	font-size: 12px;
+	border-radius: 50%;
+	text-align: center;
+	left: 10px;
+	top:10px;
+}
+.fashionLeftDlThree dt{
+	width: 150px;
+	float: left;
+	padding: 50px 10px 30px 10px;
+}
+.fashionLeftDlThree dd{
+	width: 518px;
+	float: left;
+	height: 248px;
+	padding: 0 10px;
+}
+.fashionLeftDlThree dd p{
+	width: 518px;
+	height: 248px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+.fashionLeftDlThree dd p img{
+	max-width: 518px;
+	max-height: 248px;
+}
+.fashionRight{
+	width: 400px;
 	float: left;
 }
-.biaoImg a img:hover{
-	opacity: 0.9;
-	filter:alpha(opacity=90);
+.fashionRightDl{
+	width:398px;
+	height: 563px;
+	border: 1px solid #F3F3F3;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 20px;
 }
-.skSmallStyle .topNavCon,.skSmallStyle .hwHeaderCon,.skSmallStyle .hwCont{
-	width:990px
+.fashionRightDl dt{
+	width:398px;
+	height: 563px;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
 }
-.skSmallStyle .hwHeaderNav{
-	margin-left:218px
+.fashionRightDl dt img{
+	max-width: 398px;
+	max-height: 563px;
 }
-.skSmallStyle .hwHeaderNav ul li a span{
-	padding:0 15px
+.fashionRightDl dd{
+	height: 80px;
+	text-align: center;
+	background: rgba(250,250,250,.5);
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 10px 0;
 }
-.skSmallStyle .hwTips{
-	width:280px
+.fashionRightDl>span{
+	position: absolute;
+	width: 40px;
+	height: 30px;
+	background:#F24541;
+	color: #FFFFFF;
+	padding: 5px 0;
+	line-height: 15px;
+	font-size: 12px;
+	border-radius: 50%;
+	text-align: center;
+	left: 10px;
+	top:10px;
 }
-.skSmallStyle .hwTips li{
-	margin-left:12px
+.fashionPrice2{
+	padding-top: 0;
 }
-.skSmallStyle .hwBox1_c{
-	display:none
+.fashionMore2{
+	text-decoration:underline;
+	padding-top: 10px;
 }
-.skSmallStyle .hwBrand_zst{
-	width:163px
+.fashionMore2:hover{
+	color: #463B7F;
 }
-.skSmallStyle .hwBrand ul li{
-	width:163px;
-	height:47px;
-	float:left;
-	margin-right:2px;
-	border-bottom:2px solid #ededed;
-	cursor:pointer;
-	background:#fff;
-	text-align:center;
-	padding-top:3px
+.fashionDiv dl p{
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-.skSmallStyle .hwBrand ul li.on{
-	border-bottom:2px solid #fff
+.luxuryLogo{
+	width: 1180px;
+	margin: 40px auto;
 }
-.skSmallStyle .hwBrand_product{
-	padding:0 0 34px 35px
+.luxuryLogoUl li{
+	width: 570px;
+	float: left;
+	margin: 10px;
+	float: left;
+	height: 320px;
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
 }
-.skSmallStyle .hwBrand_product dl{
-	margin:30px 38px 0 30px;
+.luxuryLogoUl li img{
+	width: 570px;
+	height: 320px;
+}
+.luxuryLogoUl li div{
+	position: absolute;
+	width: 140px;
+	height:160px;
+	padding: 80px 10px;
+	background: rgba(250,250,250,.5);
+	top: 0;
+	right: 0;
+	text-align: center;
+}
+.luxuryLogoUl li div>p:first-child{
+	font-size: 16px;
+	padding-top: 20px;
+}
+.luxuryLogoUl li div>p:nth-child(2){
+	font-size: 24px;
+	padding: 20px 0;
+}
+.luxuryLogoUl li div>p:nth-child(2) span{
+	font-size: 14px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**ÃƒÂ§Ã‚Â²Ã‚Â¾ÃƒÂ¥Ã¢â‚¬Å“Ã‚ÂÃƒÂ¤Ã‚Â¸Ã¢â‚¬Å“ÃƒÂ¥Ã…â€™Ã‚Âº**/
+.Boutique{
+	margin: 47px auto;
+	width: 1180px;
+}
+.Boutique dl{
+	width: 214px;
+	height: 305px;
+	border: 1px solid #F3F3F3;
+	float: left;
+	margin: 10px;
+	overflow: hidden;
+}
+.Boutique dl dt{
+	width: 144px;
+	height: 144px;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	padding: 35px;
+}
+.Boutique dl dt img{
+	max-width: 144px;
+	max-height: 144px;
+}
+.Boutique dl dd{
+	padding: 8px 15px;
+	line-height: 25px;
+	font-size: 14px;
+}
+.Boutique dl dd p{
+	height: 25px;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.Boutique dl dd p:nth-child(2){
+	color: #666666;
+}
+.Boutique dl dd p:last-child span{
+	color:#F3312F;
+	padding-right: 5px;
+}
+.Boutique dl dd p:last-child del{
+	color: #A9A9A9;
+}
+.BoutiqueImgLeft{
+	width: 570px;
+	margin: 20px 10px 10px 10px;
+	float: left;
+}
+.BoutiqueImgLeft>a{
+	width: 570px;
+	height: 285px;
+	display: inline-block;
+	float: left;
+	overflow: hidden;
+}
+.BoutiqueImgLeft>a img{
+	width: 570px;
+	height: 285px;
+}
+.BoutiqueThree{
+	border-right: 1px solid #F3F3F3;
+	border-bottom: 1px solid #F3F3F3;
+}
+.BoutiqueThree dl{
+	width: 188px;
+	margin: 0;
+	float: left;
+	border: none;
+	height: 260px;
+	border-left: 1px solid #F3F3F3;
+}
+.BoutiqueThree dl dt{
+	width: 118px;
+	height: 118px;
+}
+.BoutiqueThree dl dt img{
+	max-width: 118px;
+	max-height: 118px;
+}
 
 
 
