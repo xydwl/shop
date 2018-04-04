@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<querkind :kindcode="kindcode" @searhSencond="secondSearch"></querkind>
+	<div v-loading="loading">
+		<querkind :kindcode="kindcode" @searhSencond="secondSearch" @showStatus="showStatus"></querkind>
 		<!--筛选排序部分-->
 		<div class="sortDiv" style="margin-top: 15px;" v-sticky="{ zIndex: 8, stickyTop: 0 }">
 			<p>
@@ -17,7 +17,7 @@
 			</div>
 		</div>
 		<!--列表-->
-		<div class="auctionLi clearfix" v-loading="loading" style="min-height:300px;">
+		<div class="auctionLi clearfix" style="min-height:300px;">
 			<div class="auctionList clearfix">
 				<dl v-for="item in otherListData.goods" :key="item.pkId">
 					<router-link :to="{name:'GoodsDetail', query:{goodsId:item.pkId}}" target="_blank">
@@ -60,88 +60,88 @@ import {querySecondGooodsUrl} from '../../api/restApi'
 import sticky from '../../assets/sticky'
 export default {
   data () {
-		return {
-			currentPage:1,
-			otherListData:[],
-			firstValue: '',
-			totalPage: null,
-			sort: '',
-			sortItem: [
-				{ name: '默认排序', sortName: '' },
-				{ name: '价格排序', sortupName: 'start_price/01', sortdownName:'start_price/02'},
-				{ name: '上架时间排序', sortupName: 'created_time/01' ,sortdownName:'created_time/01'}
-			],
-			loading:true,
-			searchCode: '',
-			showCode: true
-		}
-	},
-	async mounted(){
-		await this.getOtherList()
-		this.firstValue = '第 ' + this.currentPage + ' 页'
-	},
-	methods:{
-		secondSearch(item){
-			this.showCode = false
-			this.searchCode = item.code
-			console.log(this.searchCode)
-			this.getOtherList()
-		},
-		async getOtherList(){
-			this.loading =true
-			if(this.showCode){
-				this.searchCode = this.kindcode				
-			}
-			try {
-				let res = await querySecondGooodsUrl(this.searchCode,this.currentPage,this.sort)
-				this.otherListData = res.data
-				this.totalPage = Math.floor(this.otherListData.totalCount / this.otherListData.pageSize) + 1
-			} catch (error) {
-				console.log(error)
-			}
-			this.loading= false
-		},
-		handlepage(item){
-			this.currentPage = parseInt(item.split(' ')[1])
-		},
-		handleCurrentChange(val){
-			this.firstValue = '第 ' + val + ' 页'
-      		this.currentPage = val
-      		this.getOtherList()
-		},
-		sortValue(item){
-			this.currentPage = 1
-      		this.sort = this.sort ===item.sortupName?item.sortdownName:item.sortupName
-      		this.getOtherList()
-		},
-		pagereduce(){
-			this.currentPage--
-		},
-		pageadd(){
-			this.currentPage++
-		}
-	},
-	watch:{
-		async kindcode(){
-			this.currentPage = 1
-			this.showCode = true
-			this.sort = ''
-			await this.getOtherList()
-			this.firstValue = '第 ' + this.currentPage + ' 页'
-    		this.totalPage = Math.floor(this.otherListData.totalCount / this.otherListData.pageSize) + 1
-		}
-	},
-	computed:{
-		kindcode () {
-			return this.$route.params.ids
-		}
-	},
-	components:{
-		'querkind': querkind
-	},
-	directives: {
-    sticky
+    return {
+      currentPage: 1,
+      otherListData: [],
+      firstValue: '',
+      totalPage: null,
+      sort: '',
+      sortItem: [{name: '默认排序', sortName: ''}, {name: '价格排序', sortupName: 'start_price/01', sortdownName: 'start_price/02'}, {name: '上架时间排序', sortupName: 'created_time/01', sortdownName: 'created_time/01'}
+      ],
+      loading: true,
+      searchCode: '',
+      showCode: true
+    }
   },
+  async mounted () {
+    await this.getOtherList()
+    this.firstValue = '第 ' + this.currentPage + ' 页'
+  },
+  methods: {
+    secondSearch (item) {
+      this.$router.push({name: 'PecooList', params: {ids: this.kindcode}, query: {codeName: item.code}})
+      this.showCode = false
+      this.searchCode = item.code
+      this.getOtherList()
+    },
+    async getOtherList () {
+      this.loading = true
+      if (this.queryCode) {
+        this.searchCode = this.queryCode
+      } else if (this.showCode) {
+        this.searchCode = this.kindcode
+      }
+      try {
+        let res = await querySecondGooodsUrl(this.searchCode, this.currentPage, this.sort)
+        this.otherListData = res.data
+        this.totalPage = Math.floor(this.otherListData.totalCount / this.otherListData.pageSize) + 1
+      } catch (error) {
+        console.log(error)
+      }
+      this.loading = false
+    },
+    handlepage (item) {
+      this.currentPage = parseInt(item.split(' ')[1])
+    },
+    handleCurrentChange (val) {
+      this.firstValue = '第 ' + val + ' 页'
+      this.currentPage = val
+      this.getOtherList()
+    },
+    sortValue (item) {
+      this.currentPage = 1
+      this.sort = this.sort === item.sortupName ? item.sortdownName : item.sortupName
+      this.getOtherList()
+    },
+    pagereduce () {
+      this.currentPage--
+    },
+    pageadd () {
+      this.currentPage++
+    },
+    async showStatus () {
+      this.currentPage = 1
+      this.showCode = true
+      this.sort = ''
+      await this.getOtherList()
+      this.firstValue = '第 ' + this.currentPage + ' 页'
+      this.totalPage = Math.floor(this.otherListData.totalCount / this.otherListData.pageSize) + 1
+    }
+  },
+  computed: {
+    kindcode () {
+      return this.$route.params.ids
+    },
+    queryCode () {
+      return this.$route.query.codeName
+    }
+  },
+  components: {
+    'querkind': querkind
+  },
+  directives: {
+    sticky
+  }
 }
 </script>
 <style>

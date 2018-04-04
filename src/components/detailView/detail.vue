@@ -8,11 +8,6 @@
 			</div>
 			<input name="addressId" id="getaddressId" value="" type="hidden" />
 			<input name="addressesCountId" id="addressesCountId" value="" type="hidden" />
-			<!--描述：1000px放大部分-->
-			<div id="imgFade">
-				<img alt="" src="" />
-				<span>X</span>
-			</div>
 			<div class="detailDiv clearfix">
 				<div class="detailDivL">
 					<!--bigImg end-->
@@ -71,10 +66,10 @@
 					</div>
 					<div class="detailBid rel">
 						<span>我的报价</span>
-						<span class="detailBidUnit unit"></span>
+						<span class="detailBidUnit unit">{{goodsItems.priceUnit}} </span>
 						<p class="rel detailBidP1">
 							<input class="min" name="" type="button" @click="reduceNum" />
-							<input class="textBox" type="text" value="" id="inputPrice" v-model="priceValue" />
+							<input class="textBox" type="text" value="" id="inputPrice" v-model="stPrice" />
 							<input class="add" name="" type="button" @click="addNum" />
 						</p>
 						<p class="detailBidNum">
@@ -98,9 +93,9 @@
 						<p>
 							境外拍卖行佣金（30%）：
 							<span class="unit">{{goodsItems.priceUnit}}</span>
-							<span id="pecoo30">{{priceValue*0.3}}</span><br /> 拍库平台服务费（10%）：
+							<span id="pecoo30">{{stPrice*0.3}}</span><br /> 拍库平台服务费（10%）：
 							<span class="unit">{{goodsItems.priceUnit}}</span>
-							<span id="pecoo10">{{priceValue*0.1}}</span><br /> 保险费：如需上保险请联系客服,运费和代运服务费以实际为准
+							<span id="pecoo10">{{stPrice*0.1}}</span><br /> 保险费：如需上保险请联系客服,运费和代运服务费以实际为准
 							<br /> 注：如有违约行为，将扣除相关保证金，并给予相应的处罚
 							<span class="rel">
 								<span class="bidGui" @click="showMargin = !showMargin">保证金规则</span>
@@ -112,9 +107,9 @@
 					<div class="detailTotal">
 						合计金额：
 						<span class="unit"></span>
-						<span id="total"></span>
+						<span id="total">{{goodsItems.priceUnit}} {{parseInt(stPrice*1.4)}}</span>
 						<span>(约合人民币：￥
-							<span id="priceRate"> </span>元)</span>
+							<span id="priceRate"> {{(stPrice*1.4*goodsItems.priceRate).toFixed(2)}}</span>元)</span>
 					</div>
 					<p class="detailXieyi clearfix">
 						<input type="checkbox" v-model="checked" id="agreementCheck" /> 我已同意阅读这拍卖的
@@ -246,6 +241,7 @@ export default {
       bigPicUrl: '',
       stPrice: null,
       minPrice: null,
+      priceRate: null,
       tabItems: ['宝贝描述', '注意事项', '运输', '付款'],
       tabIndex: 0,
       loveItems: [],
@@ -266,12 +262,12 @@ export default {
       this.picItems = response.data.auctionGoods.auctionGoodsPics
       this.bigPicUrl = this.picItems[0].bigPicUrl
       this.priceValue = this.goodsItems.estimateMin
-      this.stPrice = this.goodsItems.startPrice
-      console.log(this.stPrice)
+      this.priceRate = this.goodsItems.priceRate
+      this.minPrive()
+      this.stPrice = this.priceValue + this.minPrice
     }).catch(err => {
       console.log(err)
     })
-    this.minPrive()
     likes().then(response => {
       this.loveItems = response.data.goods
     }).catch(err => {
@@ -280,37 +276,37 @@ export default {
   },
   methods: {
     minPrive () {
-      if (this.stPrice >= 0 && this.stPrice <= 100) {
-        this.minPrice = this.stPrice + 10
-      } else if (this.stPrice > 100 && this.stPrice <= 500) {
-        this.minPrice = this.stPrice + 50
-      } else if (this.stPrice > 500 && this.stPrice <= 1000) {
-        this.minPrice = this.stPrice + 100
-      } else if (this.stPrice > 1000 && this.stPrice <= 2000) {
-        this.minPrice = this.stPrice + 200
-      } else if (this.stPrice > 2000 && this.stPrice <= 5000) {
-        this.minPrice = this.stPrice + 250
-      } else if (this.stPrice > 5000 && this.stPrice <= 10000) {
-        this.minPrice = this.stPrice + 500
-      } else if (this.stPrice > 10000 && this.stPrice <= 20000) {
-        this.minPrice = this.stPrice + 1000
-      } else if (this.stPrice > 20000 && this.stPrice <= 50000) {
-        this.minPrice = this.stPrice + 2000
-      } else if (this.stPrice > 50000 && this.stPrice <= 20000) {
-        this.minPrice = this.stPrice + 5000
+      if (this.priceValue >= 0 && this.priceValue < 100) {
+        this.minPrice = 10
+      } else if (this.priceValue >= 100 && this.priceValue < 500) {
+        this.minPrice = 50
+      } else if (this.priceValue >= 500 && this.priceValue < 1000) {
+        this.minPrice = 100
+      } else if (this.priceValue >= 1000 && this.priceValue < 2000) {
+        this.minPrice = 200
+      } else if (this.priceValue >= 2000 && this.priceValue < 5000) {
+        this.minPrice = 250
+      } else if (this.priceValue >= 5000 && this.priceValue < 10000) {
+        this.minPrice = 500
+      } else if (this.priceValue >= 10000 && this.priceValue < 20000) {
+        this.minPrice = 1000
+      } else if (this.priceValue >= 20000 && this.priceValue < 50000) {
+        this.minPrice = 2000
+      } else if (this.priceValue >= 50000 && this.priceValue < 20000) {
+        this.minPrice = 5000
       } else {
-        this.minPrice = this.stPrice + 10000
+        this.minPrice = this.priceValue + 10000
       }
     },
     reduceNum () {
-      if (this.priceValue > this.minPrice) {
-        this.priceValue = this.priceValue - 50
-      } else if (this.priceValue <= this.minPrice) {
-        this.priceValue = this.minPrice
-      }
+      this.minPrive()
+      this.stPrice = this.stPrice - this.minPrice
+      this.priceValue = this.stPrice
     },
     addNum () {
-      this.priceValue = this.priceValue + 50
+      this.minPrive()
+      this.stPrice = this.stPrice + this.minPrice
+      this.priceValue = this.stPrice
     },
     showBigPic (index) {
       this.bigPicUrl = this.picItems[index].bigPicUrl

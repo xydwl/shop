@@ -52,11 +52,9 @@
       <router-link to="/home"  class="fl headerLogo"><img src="../../assets/images/common/logo.png"/></router-link>
       <router-link to="/home"  class="fl headerGif"><img src="../../assets/images/common/gif.gif"/></router-link>
       <p class="fl">
-        <input type="button" value="搜索"  class="headerBtn fr" @click="findProduct();"/>
+        <input type="button" value="搜索"  class="headerBtn fr" @click="findProduct"/>
         <input type="text" placeholder="请输入搜索内容" class="headerInt fr" id="keyPro"/>
-        <ul class="headCenUl abs none" id="matchingUl">
-          
-        </ul>
+        <ul class="headCenUl abs none" id="matchingUl"></ul>
         <p class="fl headerCenterP">
           热门搜索：
           <span id="indexSearchKeyList"> 
@@ -79,7 +77,6 @@
         </div>
       </div>
     </div> 
-  
   <!--三级菜单-->
     <div class="headerMenu clearfix">
       <ul class="pecooNav">
@@ -101,13 +98,13 @@
         </li>
       </ul>
       <div class="menuShow" id="menuShow">
-          <dl v-for="itemSub in itemsAll" class="dlBox" :key="itemSub.code">
+          <dl v-for="itemSub in items" class="dlBox" :key="itemSub.code">
             <dt class="seckind"  @mouseenter="enter" @mouseleave="leave">
               <strong>
-                <router-link :to="'/artlist?kindCode='+itemSub.code" :key="itemSub.id">{{itemSub.name}}</router-link>
+                <router-link :to="{name:'PecooList',params:{ids:itemSub.code}}" :key="itemSub.id">{{itemSub.name}}</router-link>
               </strong>
               <p>
-                <router-link v-for="itemNext in itemSub.secondKinds" :key="itemNext.id" :to="'/artlist?kindCode='+itemNext.code">{{itemNext.name}}</router-link>
+                <router-link v-for="itemNext in itemSub.secondKinds" :key="itemNext.id" :to="{name:'PecooList',params:{ids:itemSub.code},query:{codeName:itemNext.code}}">{{itemNext.name}}</router-link>
               </p>
             </dt>
             <dd class="threeki"  @mouseenter="enter" @mouseleave="leave">
@@ -115,10 +112,18 @@
                 <li>
                   <strong>分类</strong>
                   <div class="float-list-cont">
-                     <router-link v-for="itemNext in itemSub.secondKinds" :key="itemNext.id" :to="'/artlist?kindCode='+itemNext.code">{{itemNext.name}}</router-link>
+                     <router-link v-for="itemNext in itemSub.secondKinds" :key="itemNext.id" :to="{name:'PecooList',params:{ids:itemSub.code},query:{codeName:itemNext.code}}">{{itemNext.name}}</router-link>
                   </div>
                 </li>
               </ul>
+              <div class="float-list-cont" v-for="itemNext in itemSub.secondKinds" :key="itemNext.id" v-if="itemNext.thirdKinds.length>0">
+                <router-link  :to="{name:'PecooList',params:{ids:itemSub.code},query:{codeName:itemNext.code}}">{{itemNext.name}}</router-link>
+                <ul>
+                  <li>
+                    <router-link v-for="(itemThird,index) in itemNext.thirdKinds" :key="index" :to="{name:'PecooList',params:{ids:itemSub.code},query:{codeName:itemThird.code}}">{{itemThird.name}}</router-link>
+                  </li>
+                </ul>
+              </div>
             </dd>
           </dl>
       </div>
@@ -138,9 +143,8 @@ export default {
       tel: false,
       mobile: '',
       items: [],
-      itemsAll: [],
       searchItems: [],
-      showHead:false
+      showHead: false
     }
   },
   async created () {
@@ -199,8 +203,8 @@ export default {
     tree: function () {
 
     },
-    showDropdown(){
-      this.showHead =!this.showHead
+    showDropdown () {
+      this.showHead = !this.showHead
     },
     async loginout () {
       await loginOutValue()
@@ -209,9 +213,9 @@ export default {
     async getMenu () {
       var self = this
       self.items = await Subwords()
-      self.items.forEach(function (res) {
-        self.itemsAll.push(res)
-      })
+    },
+    findProduct () {
+
     }
   }
 }

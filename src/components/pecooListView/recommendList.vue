@@ -58,8 +58,8 @@ import { queryQualityGoodsUrl } from '../../api/restApi.js'
 export default {
   data () {
     return {
-			todaygoods: [],
-			loading:true,
+      todaygoods: [],
+      loading: true,
       currentPage: 1,
       firstValue: '',
       totalPage: null,
@@ -91,7 +91,7 @@ export default {
       this.getTodayList()
     },
     async getTodayList () {
-			this.loading = true
+      this.loading = true
       let data = {
         sourceMode: 'PC',
         tokenId: '',
@@ -104,8 +104,8 @@ export default {
         this.todaygoods = response.data
       } catch (error) {
         console.log(error)
-			}
-			this.loading = false
+      }
+      this.loading = false
     }
   }
 }
