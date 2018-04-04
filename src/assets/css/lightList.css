@@ -438,7 +438,7 @@
 .hwHeaderNav{ width:600px; margin:0px 0px 0px 244px; padding-top:44px; position:relative;}
 .hwHeaderNav ul{ position:relative;}
 .hwHeaderNav ul li{ float:left; height:60px;}
-.hwHeaderNav ul li a span{ height:30px; line-height:30px; display:inline-block; color:#333; font-size:16px;font-family:microsoft yahei; padding:0px 20px;}
+.hwHeaderNav ul li a span{ height:30px; line-height:30px; display:inline-block; font-size:16px;font-family:microsoft yahei; padding:0px 20px;}
 .hwHeaderNav ul li a:hover span{ color:#463b7f;}
 .navItemBg{ border-left:10px solid transparent; border-right:10px solid transparent; border-bottom:10px solid #463b7f; position:absolute; top:86px; left:242px; display:none; z-index:9; *top:72px;}
 .navItem{ width:500px; height:296px; border:1px solid #ededed; border-top:4px solid #463b7f; background:#fff; position:absolute; top:52px; left:-80px; z-index:3; display:none;}

@@ -27,29 +27,11 @@
 							<div class="hwHeaderNav">
 								<span class="navItemBg"></span>
 								<ul class="clearfix">
-									<li>
-										<a href="luxurySearch.html"><span>品牌</span></a>
-											</li>
-									<li>
-										<a href="lightList.html?kindCode=001002"><span>箱包</span></a>
-											</li>
-										<li><a href="lightList.html?kindCode=001003"><span>服装</span></a>
-													
-											</li>
-										<li>
-											<a href="lightList.html?kindCode=001004"><span>鞋履</span></a>
-											</li>
-											<li>
-											<a href="lightList.html?kindCode=001006"><span>高级珠宝</span></a>
-											</li>
-										<li>
-											<a href="lightList.html?kindCode=001007"><span>腕表</span></a>
-										</li>
-											<li>
-													<a href="lightList.html?kindCode=001008"><span>配饰</span></a>
-											</li>
-
-									</ul>
+									<li v-for="(item,index) in navItems" :key="index">
+										<router-link v-if="item.name === '品牌'" :to="{name:'luxuryBrandView'}" :class="{'active':!queryCode}"><span>{{item.name}}</span></router-link>
+                    <router-link v-else :to="{name:'luxuryListView',query:{kindCode:item.code}}" :class="{'active':queryCode===item.code}"><span>{{item.name}}</span></router-link>
+									</li>
+								</ul>
 							</div>
 							<ul class="hwTips">
 									<li><span class="tips_qqms">全球选货</span></li>
@@ -68,12 +50,37 @@ import {loginOutValue} from '../../api/restApi.js'
 export default {
   data () {
     return {
-
+      navItems: [
+        {
+          name: '品牌', code: ''
+        },
+        {
+          name: '箱包', code: '001002'
+        },
+        {
+          name: '服装', code: '001003'
+        },
+        {
+          name: '鞋履', code: '001004'
+        },
+        {
+          name: '高级珠宝', code: '001006'
+        },
+        {
+          name: '腕表', code: '001007'
+        },
+        {
+          name: '配饰', code: '001008'
+        }
+      ]
     }
   },
   computed: {
     uName () {
       return this.$store.state.userInfo.userName
+    },
+    queryCode () {
+      return this.$route.query.kindCode
     }
   },
   methods: {
@@ -89,6 +96,8 @@ export default {
 </script>
 
 <style>
-
-	@import '../../assets/css/lightList.css';
+  @import '../../assets/css/lightList.css';
+  .active{
+    color:rgb(233, 59, 57);
+  }
 </style>
