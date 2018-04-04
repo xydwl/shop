@@ -134,11 +134,11 @@ export default {
           let les = await phoneNum(data)
           try {
             var validCode = true
-            if (les.code === 100601) {
+            if (les.code === '100601') {
               this.tipShow = true
               this.alertTips = '图片验证码错误'
               this.getCaptchaCode()
-            } else if (les.code === 100601) {
+            } else if (les.code === '100601') {
               this.tipShow = true
               this.alertTips = '改手机号已被注册'
               this.getCaptchaCode()
@@ -181,7 +181,7 @@ export default {
       try {
         if (resCode.code === '0000') {
           this.$router.push('/login')
-        } else if (resCode.code === 100501) {
+        } else if (resCode.code === '100501') {
           this.tipShow = true
           this.alertTips = resCode.message
         }

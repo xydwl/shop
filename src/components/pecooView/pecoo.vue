@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<pecoo-top></pecoo-top>
+		<pecoo-top v-if ="routeName !== '/luxury'"></pecoo-top>
 		<router-view></router-view>
 		<pecoo-Bottom></pecoo-Bottom>
 	</div>
@@ -14,7 +14,12 @@
 	    return {
 
 	    }
-	  },
+		},
+		computed:{
+			routeName(){
+				return this.$route.path
+			}
+  	},
 	  created () {
 	    this.$store.dispatch('getUserInfo')
 	  },

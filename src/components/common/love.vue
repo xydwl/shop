@@ -59,7 +59,7 @@ export default {
       let response = await likes()
       try {
         this.loveItems = response.data.goods
-        console.log(this.loveItems)
+        // console.log(this.loveItems)
       } catch (error) {
         console.log(error)
       }

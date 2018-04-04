@@ -1,4 +1,4 @@
-import { Auth, PecooIndex, userCenter } from './path'
+import { Auth, PecooIndex, userCenter, flash} from './path'
 import {requestControl} from './requestControl'
 import axios from 'axios'
 import qs from 'qs'
@@ -103,7 +103,10 @@ export function queryKindsUrl (kindCode) {
 export function querySecondGooodsUrl (kindType, pageNo, sort) {
   return requestControl(PecooIndex.querySecondGooodsUrl, {sourceMode: 'PC', tokenId: '', kindType: kindType, pageNo: pageNo, sort: sort})
 }
-
+// 闪购系列的接口
+export function getLuxuryList (kindType, pageNo, sort) {
+  return requestControl(flash.getLuxuryList, {sourceMode: 'PC', tokenId: '', kindType: kindType, pageNo: pageNo, sort: sort})
+}
 // 物品detail详情
 export function GoodsDetail (goodId) {
   return poster({

@@ -287,15 +287,15 @@ export default {
               'name': 'home'
             })
             break
-          case 400010:
+          case '400010':
             this.tipShow = true
             this.alertTips = '登陆密码错误'
             break
-          case 400012:
+          case '400012':
             this.tipShow = true
             this.alertTips = '用户不存在'
             break
-          case 400016:
+          case '400016':
             this.tipShow = true
             this.alertTips = '图片验证码错误'
             break
@@ -327,11 +327,11 @@ export default {
           let les = await phoneNum(data)
           var validCode = true
           try {
-            if (les.code === 100601) {
+            if (les.code === '100601') {
               this.tipShow = true
               this.alertTips = '图片验证码错误'
               this.getCaptchaCode()
-            } else if (les.code === 100601) {
+            } else if (les.code === '100601') {
               this.tipShow = true
               this.alertTips = '改手机号已被注册'
               this.getCaptchaCode()
