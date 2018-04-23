@@ -2,9 +2,9 @@
   <div>
     <div class="block" style="padding-top:0;">
       <el-carousel height="400px">
-        <el-carousel-item v-for="item in banItems" :key="item.picUrl">
+        <el-carousel-item v-for="item in banItems" :key="item.picUrl" :style="{'background-color':item.bgColor}">
           <router-link to="">
-            <img :src="item.picUrl" />
+            <img :src="item.picUrl"/>
           </router-link>
         </el-carousel-item>
       </el-carousel>
@@ -553,12 +553,14 @@ export default {
 }
 
 .block {
-  width: 1200px;
+  width: 100%;
   margin: 0 auto;
 }
 
 .block img {
-  width: 100%;
+  display:block;
+  width: 1200px;
+  margin:0 auto;
   height: 100%;
 }
 
@@ -567,7 +569,12 @@ export default {
   height: 60px;
   background-color: rgba(7, 8, 7, .21);
 }
-
+.el-carousel__arrow--left{
+  left:calc((100% - 1200px)/2);
+}
+.el-carousel__arrow--right{
+  right:calc((100% - 1200px)/2);
+}
 .el-carousel__arrow:hover {
   background-color: rgba(7, 8, 7, .41);
 }

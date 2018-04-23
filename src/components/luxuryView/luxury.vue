@@ -211,7 +211,7 @@
 						</a>
 					</dl>
 				
-					</div>
+				</div>
 			
 			<!--中间图部分-->
 			<div class="BoutiqueImg">

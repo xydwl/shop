@@ -11,7 +11,7 @@
 				<li class="sort--li" v-for="item in sortItem" :key="item.name"  @click="sortValue(item)">{{item.name}}</li>
 			</ul>
 			<div class="page-samll">
-				<a class="letf-icon" @click="pagereduce"><</a>
+				<a class="letf-icon" @click="pagereduce">&lt;</a>
 				<span class="current-page">{{currentPage}} </span> / <span class="total-page"> {{totalPage}}</span>
 				<a class="right-icon" @click="pageadd">></a>
 			</div>
@@ -109,6 +109,11 @@ export default {
       this.getOtherList()
     },
     sortValue (item) {
+      const sTop = document.documentElement.scrollTop || document.body.scrollTop
+      if (sTop > 382) {
+        document.body.scrollTop = 382
+        document.documentElement.scrollTop = 382
+      }
       this.currentPage = 1
       this.sort = this.sort === item.sortupName ? item.sortdownName : item.sortupName
       this.getOtherList()

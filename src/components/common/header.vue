@@ -55,12 +55,12 @@
         <input type="button" value="搜索"  class="headerBtn fr" @click="findProduct"/>
         <input type="text" placeholder="请输入搜索内容" class="headerInt fr" id="keyPro"/>
         <ul class="headCenUl abs none" id="matchingUl"></ul>
-        <p class="fl headerCenterP">
-          热门搜索：
-          <span id="indexSearchKeyList"> 
-            <a target="_blank" v-for="item in searchItems" :key="item.linkurl" :href="item.linkurl">{{item.keywordname}}&nbsp;&nbsp;</a>
-          </span> 
-        </p>
+      </p>
+      <p class="fl headerCenterP">
+        热门搜索：
+        <span id="indexSearchKeyList"> 
+          <a target="_blank" v-for="item in searchItems" :key="item.linkurl" :href="item.linkurl">{{item.keywordname}}&nbsp;&nbsp;</a>
+        </span> 
       </p>
       <div class="paipinDiv rel">
         <a  style="display: ;" href="javascript:;" @click="showDropdown">
