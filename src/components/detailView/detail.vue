@@ -10,6 +10,7 @@
 			<input name="addressesCountId" id="addressesCountId" value="" type="hidden" />
 			<div class="detailDiv clearfix">
 				<div class="detailDivL">
+					<img-zoom :src="bigPicUrl"  width="450" height="250" bigsrc="img-big.jpg" :configs="configs"></img-zoom>
 					<!--bigImg end-->
 					<div id="vertical" class="bigImg"  @mouseenter="getShowLpic">
 						<img :src="bigPicUrl" alt="" id="midimg" />
@@ -228,6 +229,7 @@
 </template>
 
 <script>
+import imgZoom from 'vue2.0-zoom'
 import { GoodsDetail, likes } from '../../api/restApi'
 export default {
   data () {
@@ -249,7 +251,15 @@ export default {
       checked: true,
       SuggestPrice: [323, 2323, 3232], // 建议报价
       priceIndex: null,
-      showSelector: false
+      showSelector: false,
+      configs: {
+        width: 650,
+        height: 350,
+        maskWidth: 150,
+        maskHeight: 150,
+        maskColor: 'red',
+        maskOpacity: 0.2
+      }
     }
   },
   computed: {
@@ -338,6 +348,9 @@ export default {
     isHaveMoney () {
 
     }
+  },
+  components: {
+    imgZoom
   }
 }
 </script>
