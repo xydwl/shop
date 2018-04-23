@@ -11,9 +11,9 @@
 			<div class="detailDiv clearfix">
 				<div class="detailDivL">
 					<!--bigImg end-->
-					<div id="vertical" class="bigImg">
+					<div id="vertical" class="bigImg"  @mouseenter="getShowLpic">
 						<img :src="bigPicUrl" alt="" id="midimg" />
-						<div style="display:none;" id="winSelector"></div>
+						<div v-show="showSelector" id="winSelector"></div>
 					</div>
 					<!--smallImg end-->
 					<div id="bigView" style="display:none;"><img alt="" src="" /></div>
@@ -248,7 +248,8 @@ export default {
       showProtocol: false,
       checked: true,
       SuggestPrice: [323, 2323, 3232], // 建议报价
-      priceIndex: null
+      priceIndex: null,
+      showSelector: false
     }
   },
   computed: {
@@ -310,6 +311,9 @@ export default {
     },
     showBigPic (index) {
       this.bigPicUrl = this.picItems[index].bigPicUrl
+    },
+    getShowLpic () {
+      this.showSelector = true
     },
     showTabs (index) {
       this.tabIndex = index

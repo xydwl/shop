@@ -27,6 +27,7 @@
     "vue-area-linkage": "^1.1.1",
     "vue-router": "^2.6.0",
     "vue-toasted": "^1.1.18",
+    "vue2.0-zoom": "^2.1.1",
     "vuex": "^2.3.1"
   },
   "devDependencies": {
