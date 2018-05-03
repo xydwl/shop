@@ -71,23 +71,17 @@ const state = {
       indexs: 0,
       center: [
         {
-          cName: '已出价',
-          eName: 'myBid'
+          cName: '已出价'
         }, {
-          cName: '竞拍成功',
-          eName: 'myBuction'
+          cName: '竞拍成功'
         }, {
-          cName: '已付款',
-          eName: 'myPay'
+          cName: '已付款'
         }, {
-          cName: '已发货',
-          eName: 'myShipper'
+          cName: '已发货'
         }, {
-          cName: '已完成',
-          eName: 'myBuy'
+          cName: '已完成'
         }, {
-          cName: '竞拍失败',
-          eName: 'myBuyFail'
+          cName: '竞拍失败'
         }
       ]
     }, {
@@ -95,20 +89,15 @@ const state = {
       indexs: 1,
       center: [
         {
-          cName: '已下单',
-          eName: 'myPlaced'
+          cName: '已下单'
         }, {
-          cName: '待付运费',
-          eName: 'myWait'
+          cName: '待付运费'
         }, {
-          cName: '已发货',
-          eName: 'myShip'
+          cName: '已发货'
         }, {
-          cName: '已完成',
-          eName: 'myComplete'
+          cName: '已完成'
         }, {
-          cName: '失败订单',
-          eName: 'myFailCard'
+          cName: '失败订单'
         }
       ]
     }, {
@@ -116,26 +105,19 @@ const state = {
       indexs: 2,
       center: [
         {
-          cName: '我的账户',
-          eName: 'myAccount'
+          cName: '我的账户'
         }, {
-          cName: '代金券',
-          eName: 'myCode'
+          cName: '代金券'
         }, {
-          cName: '我的收藏',
-          eName: 'myCollect'
+          cName: '我的收藏'
         }, {
-          cName: '账户安全',
-          eName: 'mySecuty'
+          cName: '账户安全'
         }, {
-          cName: '收货地址',
-          eName: 'myAdress'
+          cName: '收货地址'
         }, {
-          cName: '站内信',
-          eName: 'myLetter'
+          cName: '站内信'
         }, {
-          cName: '添加银行卡',
-          eName: 'myBank'
+          cName: '添加银行卡'
         }
       ]
     }, {
@@ -143,11 +125,9 @@ const state = {
       indexs: 3,
       center: [
         {
-          cName: '我的推荐',
-          eName: 'myReccond'
+          cName: '我的推荐'
         }, {
-          cName: '推荐订单',
-          eName: 'myCard'
+          cName: '推荐订单'
         }
       ]
     }

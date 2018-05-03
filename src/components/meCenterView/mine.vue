@@ -9,8 +9,8 @@
             <li v-for="(item,indexs) in listItems" @click="talIndex(indexs)" :key="item.name">
               <p>{{item.name}}</p>
               <ul>
-                <li v-for="(itemm,index) in item.center" :class="{active:index===tabIndex && totalIndex === indexs||itemm.eName===mineType }" @click="addIndex(index)"  :key="itemm.cName">
-                  <router-link  :to="{name:'Mine',query:{type:itemm.eName}}">
+                <li v-for="(itemm,index) in item.center" :class="{active:index===tabIndex && totalIndex === indexs}" @click="addIndex(index)"  :key="itemm.cName">
+                  <router-link  :to="{name:'Mine'}">
                     {{itemm.cName}}
                   </router-link>
                 </li>
@@ -20,7 +20,7 @@
         </div>
         <!--右侧部分-->
         <div class="mineRight fr">
-          <div class="rMyPecoo" v-if="!mineType">
+          <div class="rMyPecoo">
             <!--详细介绍部分-->
             <div class="MyPecooDiv1">
               <dl class="myPecooDl1">
@@ -145,7 +145,7 @@
               </tbody>
             </table>
             <!--分页-->
-            <div class="block">
+            <div class="block" style="width:auto;">
               <span class="demonstration">总共 {{allItems.totalCount}} 件拍品</span>
               <el-select v-model="firstValue" @change="handlepage" filterable placeholder="请选择" class="seclectStyle">
                 <el-option v-for="item in totalPage" :key="item[0]" :label="'第 ' + item + ' 页'" :value="'第 ' + item + ' 页'">
@@ -155,7 +155,9 @@
               </el-pagination>
             </div>
           </div>
-          <router-view :mineType="mineType"></router-view>
+          <div>
+
+          </div>
         </div>
       </div>
     </div>
@@ -163,7 +165,7 @@
 </template>
 
 <script>
-import { AllGoods } from '../../api/restApi'
+import { AllGoods, myBidgoods, myBuctions, myPays, myShippers, myBuys, myBuyFails } from '../../api/restApi'
 // import moment from 'moment'
 export default {
   data () {
@@ -218,9 +220,6 @@ export default {
     },
     tokenId () {
       return this.$store.state.tokenId
-    },
-    mineType () {
-      return this.$route.query.type
     }
   },
   methods: {
@@ -260,8 +259,67 @@ export default {
     handlepage (item) {
       this.currentPage = parseInt(item.split(' ')[1])
     },
-    addIndex (index) {
+    async addIndex (index) {
       this.tabIndex = index
+      if (this.totalIndex === 0) {
+        switch (this.tabIndex) {
+          case 0:
+            try {
+              let response = await myBidgoods()
+              console.log(response)
+            } catch (error) {
+              console.log(error)
+            }
+            break
+          case 1:
+            try {
+              let response = await myBuctions()
+              console.log(response)
+            } catch (error) {
+              console.log(error)
+            }
+            break
+          case 2:
+            try {
+              let response = await myPays()
+              console.log(response)
+            } catch (error) {
+              console.log(error)
+            }
+            break
+          case 3:
+            try {
+              let response = await myShippers()
+              console.log(response)
+            } catch (error) {
+              console.log(error)
+            }
+            break
+          case 4:
+            try {
+              let response = await myBuys()
+              console.log(response)
+            } catch (error) {
+              console.log(error)
+            }
+            break
+          case 5:
+            try {
+              let response = await myBuyFails()
+              console.log(response)
+            } catch (error) {
+              console.log(error)
+            }
+            break
+          default:
+        }
+      } else if (this.totalIndex === 1) {
+
+      } else if (this.totalIndex === 2) {
+
+      } else if (this.totalIndex === 3) {
+
+      }
     }
   },
   watch: {
@@ -272,7 +330,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scopted>
 @import '../../assets/css/mine.css';
 @import '../../assets/css/myPecoo.css';
 </style>

@@ -1,15 +1,5 @@
 import {Auth, PecooIndex, userCenter, flash} from './path'
 import {requestControl} from './requestControl'
-import axios from 'axios'
-import qs from 'qs'
-
-var poster = axios.create({
-  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-  transformRequest: [function (data) {
-    // Do whatever you want to transform the data
-    return qs.stringify(data)
-  }]
-})
 
 // 图片验证码
 export function getcaptchas () {
@@ -109,72 +99,38 @@ export function getLuxuryList (kindType, pageNo, sort) {
 }
 // 物品detail详情
 export function GoodsDetail (goodId) {
-  return poster({
-    url: PecooIndex.queryGoodsMessUrl.url,
-    method: PecooIndex.queryGoodsMessUrl.method,
-    data: {
-      goodId: goodId
-    }
-  })
+  return requestControl(PecooIndex.queryGoodsMessUrl, {goodId: goodId})
 }
 
 // 用户中心详情
 export function queryInfo (tokenId) {
-  return poster({
-    url: userCenter.queryMyPecoo.url,
-    method: userCenter.queryMyPecoo.method,
-    data: {
-      sourceMode: 'PC',
-      tokenId: tokenId
-    }
-  })
+  return requestControl(userCenter.queryMyPecoo, {sourceMode: 'PC', tokenId: tokenId})
 }
 // 我的拍品
 export function AllGoods (tokenId, page, perPage, startDate, endDate) {
-  return poster({
-    url: userCenter.queryAllBidGoodsUrl.url + '?sourceMode=PC&tokenId=' + tokenId + '&pageNo=' + page + '&pageSize=' + perPage + '&startDate=' + startDate + '&endDate=' + endDate,
-    method: userCenter.queryAllBidGoodsUrl.method
-  })
+  return requestControl(userCenter.queryAllBidGoodsUrl, {sourceMode: 'PC', tokenId: tokenId, pageNo: page, pageSize: perPage, startDate: startDate, endDate: endDate})
 }
 // 已出价
-export function myBidgoods (tokenId, page, perPage, sortCol) {
-  return poster({
-    url: userCenter.queryHaveBidGoodsUrl.url + '?sourceMode=PC&tokenId=' + tokenId + '&pageNo=' + page + '&pageSize=' + perPage + '&sortCol' + sortCol,
-    method: userCenter.queryHaveBidGoodsUrl.method
-  })
+export function myBidgoods (tokenId, sortCol) {
+  return requestControl(userCenter.queryHaveBidGoodsUrl, {sourceMode: 'PC', tokenId: tokenId, pageNo: 1, pageSize: 10, sortCol: sortCol})
 }
 // 竞拍成功
-export function myBuctions (tokenId, page, perPage, sortCol) {
-  return poster({
-    url: userCenter.querySuccBidGoodsUrl.url + '?sourceMode=PC&tokenId=' + tokenId + '&pageNo=' + page + '&pageSize=' + perPage + '&sortCol' + sortCol,
-    method: userCenter.querySuccBidGoodsUrl.method
-  })
+export function myBuctions (tokenId) {
+  return requestControl(userCenter.querySuccBidGoodsUrl, {sourceMode: 'PC', tokenId: tokenId, pageNo: 1, pageSize: 10})
 }
 // 已付款
-export function myPays (tokenId, page, perPage, sortCol) {
-  return poster({
-    url: userCenter.queryPaidBidGoodsUrl.url + '?sourceMode=PC&tokenId=' + tokenId + '&pageNo=' + page + '&pageSize=' + perPage + '&sortCol' + sortCol,
-    method: userCenter.queryPaidBidGoodsUrl.method
-  })
+export function myPays (tokenId) {
+  return requestControl(userCenter.queryPaidBidGoodsUrl, {sourceMode: 'PC', tokenId: tokenId, pageNo: 1, pageSize: 10})
 }
 // 已发货
-export function myShippers (tokenId, page, perPage, sortCol) {
-  return poster({
-    url: userCenter.queryDeliverBidGoodsUrl.url + '?sourceMode=PC&tokenId=' + tokenId + '&pageNo=' + page + '&pageSize=' + perPage + '&sortCol' + sortCol,
-    method: userCenter.queryDeliverBidGoodsUrl.method
-  })
+export function myShippers (tokenId) {
+  return requestControl(userCenter.queryDeliverBidGoodsUrl, {sourceMode: 'PC', tokenId: tokenId, pageNo: 1, pageSize: 10})
 }
 // 已完成
-export function myBuys (tokenId, page, perPage, sortCol) {
-  return poster({
-    url: userCenter.queryCompleteBidGoodsUrl.url + '?sourceMode=PC&tokenId=' + tokenId + '&pageNo=' + page + '&pageSize=' + perPage + '&sortCol' + sortCol,
-    method: userCenter.queryCompleteBidGoodsUrl.method
-  })
+export function myBuys (tokenId) {
+  return requestControl(userCenter.queryCompleteBidGoodsUrl, {sourceMode: 'PC', tokenId: tokenId, pageNo: 1, pageSize: 10})
 }
 // 竞拍失败
-export function myBuyFails (tokenId, page, perPage, sortCol) {
-  return poster({
-    url: userCenter.queryFailedBidGoodsUrl.url + '?sourceMode=PC&tokenId=' + tokenId + '&pageNo=' + page + '&pageSize=' + perPage + '&sortCol' + sortCol,
-    method: userCenter.queryFailedBidGoodsUrl.method
-  })
+export function myBuyFails (tokenId) {
+  return requestControl(userCenter.queryFailedBidGoodsUrl, {sourceMode: 'PC', tokenId: tokenId, pageNo: 1, pageSize: 10})
 }
