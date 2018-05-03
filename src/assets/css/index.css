@@ -545,15 +545,9 @@
 	text-align:center; 
 	position:absolute; 
 	left:0px; 
-	top:0px; 
+	top:1px; 
 	background:#fff; 
-	display:none;
-}
-.watchLogo dl dd.hover{ 
-	display:table; 
-	*display:block; 
-	*padding-top:50px; 
-	*height:88px;
+	opacity: 0;
 }
 .watchLogo dl dd div{ 
 	display:table-cell; 
@@ -567,22 +561,43 @@
 	display:inline-block;
 }
 .watchLogo dl dd div span.span_l{ 
-	background:url(../images/index/imgBgLeft.png) no-repeat left top; 
-	width:0px; 
 	height:0px; 
+	width:0px;
 	position:absolute;
 	left:-1px; 
 	top:-1px; 
 	overflow:hidden;
+	transition: all .3s linear;	
 }
-.watchLogo dl dd div span.span_r{ 
-	background:url(../images/index/imgBgRight.png) right bottom; 
+.watchLogo dl:hover dd,
+.watchLogo dl:hover dd{
+	width:100%;
+	height:100%;
+	display:table; 
+	opacity: 1; 
+	*padding-top:50px; 
+	*height:88px;
+}
+.watchLogo dl:hover dd div span.span_l{
+	width:180px;
+	height:92px;
+	border-left:1px solid #000;
+	border-top:1px solid #000;
+}
+.watchLogo dl:hover dd div span.span_r{
+	width:180px;
+	height:92px;
+	border-right:1px solid #000;
+	border-bottom:1px solid #000;
+}
+.watchLogo dl dd div span.span_r{
 	width:0px; 
 	height:0px; 
 	position:absolute; 
 	right:-1px; 
-	bottom:-1px; 
+	bottom:-2px; 
 	overflow:hidden;
+	transition: all .3s linear;	
 }
 
 /*楼梯*/

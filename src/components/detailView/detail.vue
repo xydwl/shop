@@ -10,14 +10,14 @@
 			<input name="addressesCountId" id="addressesCountId" value="" type="hidden" />
 			<div class="detailDiv clearfix">
 				<div class="detailDivL">
-					<img-zoom :src="bigPicUrl"  width="450" height="250" bigsrc="img-big.jpg" :configs="configs"></img-zoom>
+					<img-zoom :src="bigPicUrl"  width="450" height="250" :bigsrc="bigPicUrl" :configs="configs" class="bigImg"></img-zoom>
 					<!--bigImg end-->
-					<div id="vertical" class="bigImg"  @mouseenter="getShowLpic">
+					<!-- <div id="vertical" class="bigImg"  @mouseenter="getShowLpic">
 						<img :src="bigPicUrl" alt="" id="midimg" />
 						<div v-show="showSelector" id="winSelector"></div>
-					</div>
+					</div> -->
 					<!--smallImg end-->
-					<div id="bigView" style="display:none;"><img alt="" src="" /></div>
+					<!-- <div id="bigView" style="display:none;"><img alt="" src="" /></div> -->
 
 					<div class="smallImg">
 						<div class="scrollbutton smallImgUp disabled"></div>
@@ -253,12 +253,12 @@ export default {
       priceIndex: null,
       showSelector: false,
       configs: {
-        width: 650,
-        height: 350,
+        width: 400,
+        height: 400,
         maskWidth: 150,
         maskHeight: 150,
-        maskColor: 'red',
-        maskOpacity: 0.2
+        maskColor: '#000',
+        maskOpacity: 0.1
       }
     }
   },

@@ -29,7 +29,7 @@
 	max-height:100px;
 	overflow: hidden;
 	background: #fff;
-	transition:max-height .8s linear;
+	transition: max-height .3s;
 }
 .listDivUl1>li{
 	float: left;

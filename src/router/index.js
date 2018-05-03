@@ -18,7 +18,7 @@ const linkUs = () => import('@/components/footerView/linkUs')
 const specialWork = () => import('@/components/footerView/specialWork')
 const luxuryView = () => import('@/components/luxuryView/luxury')
 const luxuryBrandView = () => import('@/components/luxuryView/luxuryBrand')
-const luxuryListView = () => import('@/components/luxuryView/luxuryList')
+const luxuryDetailView = () => import('@/components/luxuryView/luxuryList')
 
 // 个人中心
 const mine = () => import('@/components/meCenterView/mine')
@@ -66,9 +66,9 @@ const router = new Router({
           component: luxuryBrandView
         },
         {
-          path: 'luxurylist',
-          name: 'luxuryListView',
-          component: luxuryListView
+          path: 'luxuryDeatil',
+          name: 'luxuryDetailView',
+          component: luxuryDetailView
         },
         {
           path: 'recommend',

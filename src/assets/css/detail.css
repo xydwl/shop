@@ -94,19 +94,21 @@
 	width: 400px;
 	height: 400px;
 	overflow: hidden;
-	display: table-cell;
+	display: table-cell!important;
 	vertical-align: middle;
 	text-align: center;
 	border: 1px solid #f3f3f3;
 	z-index: 1000;
 }
 
-.bigImg #midimg {
+.bigImg img {
 	display: inline-block;
 	vertical-align: middle;
 	margin: 0px auto;
 	max-width: 400px;
 	max-height: 400px;
+	width:auto!important;
+	height:auto!important;
 }
 .bigImg #winSelector {
 	width: 150px;

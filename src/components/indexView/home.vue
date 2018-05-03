@@ -21,7 +21,7 @@
       </p>
       <div class="toadyDiv clear">
         <dl v-for="item in todayItems" :key="item.thumbnailUrl">
-          <router-link to="" target="_blank">
+          <router-link :to="{name:'GoodsDetail', query:{goodsId:item.pkId}}" target="_blank">
             <dt>
               <img :src="item.thumbnailUrl" :title="item.goodsName" />
             </dt>
@@ -51,13 +51,13 @@
       <div class="auctionAllDiv">
         <div class="auctionDiv clearfix">
           <dl v-for="item in auctionItems" :key="item.auctionPic">
-            <router-link to="" target="_blank">
+            <router-link :to="{name:'auctionDetail',query:{auctionId:item.pkId}}" target="_blank">
               <dt>
                 <img :src="item.auctionPic" />
               </dt>
             </router-link>
             <dd class="auctionDivDd2">
-              <router-link to="" target="_blank">
+              <router-link :to="{name:'auctionDetail',query:{auctionId:item.pkId}}" target="_blank">
                 <p class="auctionName">名&nbsp;&nbsp;&nbsp; 称&nbsp;&nbsp; ：
                   <span>{{item.name}}</span>
                 </p>
@@ -87,12 +87,12 @@
       </div>
       <div class="artDiv clearfix">
         <div class="artLeft" id="artLeft">
-          <a href="artList.html?kindCode=003" target="_blank">
+          <router-link :to="{name:'PecooList', params:{ids:'003'}}" target="_blank">
             <img :src="artItems.picWeb" />
-          </a>
+          </router-link>
         </div>
         <div class="artRight" id="artRight">
-          <router-link to="" target="_blank" v-for="items in artItems.goods" :key="items.thumbnailUrl">
+          <router-link :to="{name:'GoodsDetail', query:{goodsId:items.pkId}}" target="_blank" v-for="items in artItems.goods" :key="items.thumbnailUrl">
             <img :src="items.thumbnailUrl" />
             <p>{{items.goodsName}}</p>
           </router-link>
@@ -113,20 +113,20 @@
       </div>
       <div class="artDiv clearfix">
         <div class="artLeft" id="artLeft">
-          <a href="artList.html?kindCode=004" target="_blank">
+          <router-link :to="{name:'PecooList', params:{ids:'004'}}" target="_blank">
             <img :src="watchItems.picWeb" />
-          </a>
+          </router-link>
         </div>
         <div class="artRight" id="artRight">
-          <router-link to="" target="_blank" v-for="items in watchItems.goods" :key="items.thumbnailUrl">
+          <router-link :to="{name:'GoodsDetail', query:{goodsId:items.pkId}}" target="_blank" v-for="items in watchItems.goods" :key="items.thumbnailUrl">
             <img :src="items.thumbnailUrl" />
             <p>{{items.goodsName}}</p>
           </router-link>
         </div>
       </div>
       <div class="watchLogo clearfix" id="jewelLogo">
-        <a href="artList.html?kindCode=005003002" target="_blank" v-for="item in watchItems.childTypes" :key="item.name">
-          <dl @mouseenter="enter" @mouseleave="leave" class="jewDl">
+        <router-link :to="{name:'PecooList',params:{ids:'004'},query:{codeName:item.code}}" target="_blank" v-for="item in watchItems.childTypes" :key="item.name">
+          <dl class="jewDl">
             <dt>
               <img :src="item.picWeb" width="180" height="90" :alt="item.name" />
             </dt>
@@ -138,7 +138,7 @@
               </div>
             </dd>
           </dl>
-        </a>
+        </router-link>
       </div>
     </div>
     <!-- 珠宝 -->
@@ -155,20 +155,20 @@
       </div>
       <div class="artDiv clearfix">
         <div class="artLeft" id="artLeft">
-          <a href="artList.html?kindCode=005" target="_blank">
+          <router-link :to="{name:'PecooList', params:{ids:'005'}}" target="_blank">
             <img :src="jewelItems.picWeb" />
-          </a>
+          </router-link>
         </div>
         <div class="artRight" id="artRight">
-          <router-link to="" target="_blank" v-for="items in jewelItems.goods" :key="items.thumbnailUrl">
+          <router-link  :to="{name:'GoodsDetail', query:{goodsId:items.pkId}}" target="_blank" v-for="items in jewelItems.goods" :key="items.thumbnailUrl">
             <img :src="items.thumbnailUrl" />
             <p>{{items.goodsName}}</p>
           </router-link>
         </div>
       </div>
       <div class="watchLogo clearfix" id="jewelLogo">
-        <a href="artList.html?kindCode=005003002" target="_blank" v-for="item in jewelItems.childTypes" :key="item.name">
-          <dl @mouseenter="enter" @mouseleave="leave" class="jewDl">
+        <router-link  :to="{name:'PecooList',params:{ids:'005'},query:{codeName:item.code}}" target="_blank" v-for="item in jewelItems.childTypes" :key="item.name">
+          <dl class="jewDl">
             <dt>
               <img :src="item.picWeb" width="180" height="90" :alt="item.name" />
             </dt>
@@ -180,7 +180,7 @@
               </div>
             </dd>
           </dl>
-        </a>
+        </router-link>
       </div>
     </div>
     <!-- 收藏 -->
@@ -197,12 +197,12 @@
       </div>
       <div class="artDiv clearfix">
         <div class="artLeft" id="artLeft">
-          <a href="artList.html?kindCode=003" target="_blank">
+          <router-link :to="{name:'PecooList', params:{ids:'006'}}" target="_blank">
             <img :src="collectItems.picWeb" />
-          </a>
+          </router-link>
         </div>
         <div class="artRight" id="artRight">
-          <router-link to="" target="_blank" v-for="items in collectItems.goods" :key="items.thumbnailUrl">
+          <router-link  :to="{name:'GoodsDetail', query:{goodsId:items.pkId}}" target="_blank" v-for="items in collectItems.goods" :key="items.thumbnailUrl">
             <img :src="items.thumbnailUrl" />
             <p>{{items.goodsName}}</p>
           </router-link>
@@ -224,12 +224,12 @@
       </div>
       <div class="artDiv clearfix">
         <div class="artLeft" id="artLeft">
-          <a href="artList.html?kindCode=003" target="_blank">
+          <router-link :to="{name:'PecooList', params:{ids:'007'}}" target="_blank">
             <img :src="carItems.picWeb" />
-          </a>
+          </router-link>
         </div>
         <div class="artRight" id="artRight">
-          <router-link to="" target="_blank" v-for="items in carItems.goods" :key="items.thumbnailUrl">
+          <router-link  :to="{name:'GoodsDetail', query:{goodsId:items.pkId}}" target="_blank" v-for="items in carItems.goods" :key="items.thumbnailUrl">
             <img :src="items.thumbnailUrl" />
             <p>{{items.goodsName}}</p>
           </router-link>
@@ -240,7 +240,7 @@
     <div class="indexToday div">
       <div>
         <p class="indexTodayTitle" style="padding-top: 40px;">
-          相机&乐器
+          相机&amp;乐器
           <span>carema</span>
           <router-link :to="{name:'PecooList', params:{ids:'008'}}" target="_blank">
             更多
@@ -250,12 +250,12 @@
       </div>
       <div class="artDiv clearfix">
         <div class="artLeft" id="artLeft">
-          <a href="artList.html?kindCode=003" target="_blank">
+          <router-link :to="{name:'PecooList', params:{ids:'008'}}" target="_blank">
             <img :src="caremaItems.picWeb" />
-          </a>
+          </router-link>
         </div>
         <div class="artRight" id="artRight">
-          <router-link to="" target="_blank" v-for="items in caremaItems.goods" :key="items.thumbnailUrl">
+          <router-link  :to="{name:'GoodsDetail', query:{goodsId:items.pkId}}" target="_blank" v-for="items in caremaItems.goods" :key="items.thumbnailUrl">
             <img :src="items.thumbnailUrl" />
             <p>{{items.goodsName}}</p>
           </router-link>
@@ -273,7 +273,7 @@
       </p>
       <div class="toadyDiv clear" id="lightDiv">
         <dl v-for="item in luxuryItems" :key="item.thumbnailUrl">
-          <router-link to="">
+          <router-link :to="{name:'luxuryDetailView', query:{goodsId:item.pkId}}" target="_blank">
             <dt>
               <img :src="item.thumbnailUrl" :title="item.goodsName" />
             </dt>
@@ -421,32 +421,6 @@ export default {
             return false
           }
         })
-      }
-    },
-    enter: function (e) {
-      if (e.target.className === 'jewDl') {
-        $(e.target).children('dd').addClass('hover')
-        $(e.target).children('dd').find('.span_l').animate({
-          'height': '92px',
-          'width': '182px'
-        }, 300)
-        $(e.target).children('dd').find('.span_r').animate({
-          'height': '92px',
-          'width': '182px'
-        }, 300)
-      }
-    },
-    leave: function (e) {
-      if (e.target.className === 'jewDl') {
-        $(e.target).children('dd').removeClass('hover')
-        $(e.target).children('dd').find('.span_l').animate({
-          'height': '0',
-          'width': '0px'
-        }, 0)
-        $(e.target).children('dd').find('.span_r').animate({
-          'height': '0',
-          'width': '0px'
-        }, 0)
       }
     },
     toTop: function () {

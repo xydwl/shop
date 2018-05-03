@@ -57,6 +57,7 @@ export default {
     '$route': function () {
       this.$emit('showStatus', true)
       this.showthird = false
+      this.showMore = true
       if (this.kindcode !== '003') {
         this.showMore = false
       }
@@ -87,6 +88,7 @@ export default {
     }
   },
   async mounted () {
+    this.showMore = true
     if (this.kindcode !== '003') {
       this.showMore = false
     }

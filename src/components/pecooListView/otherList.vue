@@ -119,10 +119,24 @@ export default {
       this.getOtherList()
     },
     pagereduce () {
-      this.currentPage--
+      if (this.totalPage > 1) { this.currentPage-- }
+      this.getOtherList()
+      const sTop = document.documentElement.scrollTop || document.body.scrollTop
+      if (sTop > 382) {
+        document.body.scrollTop = 382
+        document.documentElement.scrollTop = 382
+      }
     },
     pageadd () {
-      this.currentPage++
+      if (this.currentPage < this.totalPage) {
+        this.currentPage++
+      }
+      this.getOtherList()
+      const sTop = document.documentElement.scrollTop || document.body.scrollTop
+      if (sTop > 382) {
+        document.body.scrollTop = 382
+        document.documentElement.scrollTop = 382
+      }
     },
     async showStatus () {
       this.currentPage = 1

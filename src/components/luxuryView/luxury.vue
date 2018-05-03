@@ -10,7 +10,7 @@
 					<div class="block" style="padding-top:0;">
 						<el-carousel height="400px">
 							<el-carousel-item v-for="(item,index) in banItems" :key="index">
-								<router-link :to="{name:'luxuryListView',query:{kindCode:item.code}}">
+								<router-link :to="{name:'luxuryDetailView',query:{kindCode:item.code}}">
 									<img :src="item.picUrl" />
 								</router-link>
 							</el-carousel-item>
