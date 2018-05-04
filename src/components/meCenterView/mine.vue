@@ -158,6 +158,9 @@
           <div v-show="totalIndex === 0">
             <auction-Order :tabIndex="tabIndex" :totalIndex="totalIndex"></auction-Order>
           </div>
+          <div v-show="totalIndex === 1">
+            <luxury-Order :tabIndex="tabIndex" :totalIndex="totalIndex"></luxury-Order>
+          </div>
         </div>
       </div>
     </div>
@@ -167,6 +170,7 @@
 <script>
 import { AllGoods } from '../../api/restApi'
 import auctionOrder from './auctionOrderView/AuctionOrder'
+import luxuryOrder from './luxuryOrderView/luxuryOrder'
 // import moment from 'moment'
 export default {
   data () {
@@ -277,7 +281,8 @@ export default {
 
   },
   components: {
-    'auction-Order': auctionOrder
+    'auction-Order': auctionOrder,
+    'luxury-Order': luxuryOrder
   }
 }
 </script>
