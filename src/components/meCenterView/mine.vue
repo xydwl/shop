@@ -20,7 +20,7 @@
         </div>
         <!--右侧部分-->
         <div class="mineRight fr">
-          <div class="rMyPecoo">
+          <div class="rMyPecoo" v-if="totalIndex<0">
             <!--详细介绍部分-->
             <div class="MyPecooDiv1">
               <dl class="myPecooDl1">
@@ -140,7 +140,7 @@
                     <td>￥{{item.totalFreightRmb}}</td>
                     <td>{{item.orderStateMc}}</td>
                   </tr>
-                  <p v-if="allLength===0" style="font-size:14px; color:#666; text-align:center; line-height:60px;">暂无数据！</p>
+                  <p v-if="allLength===0" style="font-size:14px; color:#666; text-align:center; line-height:60px;">暂无相关订单！</p>
                 </tfoot>
               </tbody>
             </table>
@@ -155,8 +155,8 @@
               </el-pagination>
             </div>
           </div>
-          <div>
-
+          <div v-show="totalIndex === 0">
+            <auction-Order :tabIndex="tabIndex" :totalIndex="totalIndex"></auction-Order>
           </div>
         </div>
       </div>
@@ -165,13 +165,14 @@
 </template>
 
 <script>
-import { AllGoods, myBidgoods, myBuctions, myPays, myShippers, myBuys, myBuyFails } from '../../api/restApi'
+import { AllGoods } from '../../api/restApi'
+import auctionOrder from './auctionOrderView/AuctionOrder'
 // import moment from 'moment'
 export default {
   data () {
     return {
-      tabIndex: null,
-      totalIndex: null,
+      tabIndex: -1,
+      totalIndex: -1,
       firstValue: '',
       currentPage: 1,
       totalPage: null,
@@ -234,7 +235,6 @@ export default {
       }
       console.log(this.dateArr)
       let response = await AllGoods(this.tokenId, 1, 10, this.dateArr[0] || '', this.dateArr[1] || '')
-      console.log(response)
       if (response.data.code === '0000') {
         this.allItems = response.data
         this.allLength = this.allItems.orders.length
@@ -243,7 +243,8 @@ export default {
       this.totalPage = Math.floor(this.allItems.totalCount / this.allItems.pageSize) + 1
     },
     goSelf () {
-      this.totalIndex = null
+      this.totalIndex = -1
+      this.tabIndex = -1
       this.$router.push({
         name: 'Mine'
       })
@@ -262,57 +263,7 @@ export default {
     async addIndex (index) {
       this.tabIndex = index
       if (this.totalIndex === 0) {
-        switch (this.tabIndex) {
-          case 0:
-            try {
-              let response = await myBidgoods()
-              console.log(response)
-            } catch (error) {
-              console.log(error)
-            }
-            break
-          case 1:
-            try {
-              let response = await myBuctions()
-              console.log(response)
-            } catch (error) {
-              console.log(error)
-            }
-            break
-          case 2:
-            try {
-              let response = await myPays()
-              console.log(response)
-            } catch (error) {
-              console.log(error)
-            }
-            break
-          case 3:
-            try {
-              let response = await myShippers()
-              console.log(response)
-            } catch (error) {
-              console.log(error)
-            }
-            break
-          case 4:
-            try {
-              let response = await myBuys()
-              console.log(response)
-            } catch (error) {
-              console.log(error)
-            }
-            break
-          case 5:
-            try {
-              let response = await myBuyFails()
-              console.log(response)
-            } catch (error) {
-              console.log(error)
-            }
-            break
-          default:
-        }
+
       } else if (this.totalIndex === 1) {
 
       } else if (this.totalIndex === 2) {
@@ -326,7 +277,7 @@ export default {
 
   },
   components: {
-    // 'auction-Order': auctionOrder
+    'auction-Order': auctionOrder
   }
 }
 </script>
