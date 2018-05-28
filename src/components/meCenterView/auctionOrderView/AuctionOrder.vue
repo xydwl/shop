@@ -49,7 +49,7 @@
             <span class="spanWuliu" onclick="expressShow('E-2017092200037')" style="width:11%">物流信息</span>
           </div>
         </li>
-        <p v-if="orderArr.orders.length===0" style="font-size:14px; color:#666; text-align:center; line-height:60px;">暂无相关订单!</p>
+        <p v-if="totalIndex>=0&&orderArr.orders" style="font-size:14px; color:#666; text-align:center; line-height:60px;">暂无相关订单!</p>
       </ul>
     </div>
     <!--描述：分页-->
